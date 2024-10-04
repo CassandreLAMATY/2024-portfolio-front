@@ -2,7 +2,10 @@
 
 .bg {
     position: relative;
+
     background: linear-gradient(90deg, $jordyBlue, $mauve);
+
+    overflow-x: hidden;
 }
 
 .sun-container {
@@ -97,6 +100,57 @@
         }
         &#mountain04 {
             left: 0;
+        }
+    }
+}
+
+.me-container {
+    display: flex;
+    justify-content: flex-end;
+
+    width: 100%;
+    padding: 0 24px $grup-02 24px;
+
+    background-color: $vanDyke;
+
+    .me {
+        display: flex;
+        flex-direction: column;
+        gap: $grup-02;
+
+        width: fit-content;
+
+        transform: translateY(-24px);
+        
+        &-overline {
+            font-size: $grup-01;
+            font-weight: 300;
+            color: $seasalt;
+            text-transform: uppercase;
+        }
+    
+        &-name {
+            display: block;
+
+            width: fit-content;
+            margin-left: 0;
+
+            font-family: Raleway;
+            font-weight: 900;
+            font-size: $grup03;
+            color: $mistyRose;
+            text-align: right;
+            text-transform: uppercase;
+    
+            &#firstname {
+                margin: 0 $grup02 0 auto;
+            }
+    
+            &#name {
+                margin-left: auto;
+                color: $seasalt;
+                font-style: italic;
+            }
         }
     }
 }

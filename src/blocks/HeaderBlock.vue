@@ -32,9 +32,11 @@
                 </svg>
             </div>
         </div>
-        <div>
-            <h3>Hello, world ! I'm</h3>
-            <h1>Cassandre LAMATY</h1>
+        <div class="me-container">
+            <div class="me">
+                <h3 class="me-overline">Hello, world ! I'm</h3>
+                <h1 class="me-name"><span class="me-name" id="firstname">Cassandre</span> <span class="me-name" id="name">LAMATY</span></h1>
+            </div>
         </div>
     </header>
 </template>

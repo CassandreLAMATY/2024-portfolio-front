@@ -1,10 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   box-sizing: border-box;
   min-width: 0;
+  font-family: Quicksand, Raleway, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  font-size: 16px;
 }
 
 body {
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
 }
 
 /*# sourceMappingURL=global.css.map */
