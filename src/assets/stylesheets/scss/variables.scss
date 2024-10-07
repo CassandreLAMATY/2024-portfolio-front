@@ -18,3 +18,15 @@ $grup02: 1.5rem;
 $grup03: 2rem;
 $grup04: 3rem;
 $grup05: 4rem;
+
+@mixin media-min($size) {
+    @media (min-width: $size) {
+      @content;
+    }
+  }
+  
+  @mixin media-max($size) {
+    @media (max-width: $size) {
+      @content;
+    }
+  }
