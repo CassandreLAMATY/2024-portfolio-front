@@ -3,13 +3,15 @@
 .bg {
     position: relative;
 
+    height: max(round(25dvh), 196px);
+
     background: linear-gradient(90deg, $jordyBlue, $mauve);
 
     overflow: hidden;
 
     &::after {
         position: absolute;
-        bottom: 0;
+        bottom: -1px;
         left: 0;
         right: 0;
 
@@ -17,7 +19,7 @@
         display: block;
 
         width: 100%;
-        height: 1px;
+        height: 3px;
 
         background-color: $vanDyke;
     }
@@ -25,10 +27,11 @@
 
 .sun-container {
     position: absolute;
-    top: -40%;
-    left: -15%;
+    transform: translate(
+        calc(-50% + 35% / 2 + $grup03), 
+        calc(-50% + 35% / 2 + $grup)
+    );
 
-    /* height: max(50%, 96px); */
     width: min(384px, 80%);
     aspect-ratio: 1;
 
@@ -89,29 +92,35 @@
     }
 
     @include media-min(450px) {
-        top: -45%;
-        left: -12%;
+        transform: translate(
+            calc(-50% + 35% / 2 + $grup04), 
+            calc(-50% + 35% / 2 + $grup02)
+        );
     }
 
-    @include media-min(576px) {
-        left: -5%;
+    @include media-min(512px) {
+        transform: translate(
+            calc(-50% + 35% / 2 + $grup04 + $grup02), 
+            calc(-50% + 35% / 2 + $grup03)
+        );
     }
 
     @include media-min(768px) {
-        top: -35%;
-        left: calc(0.02 * 768);
-    }
-
-    @include media-min(960px) {
-        top: -30%;
-        left: 2%;
-    }
-
-    @include media-min(1024px) {
-        top: -30%;
-        left: calc(0.05 * 1024);
-
         width: min(512px, 80%);
+
+        transform: translateX(
+            calc(-50% + 35% / 2 + $grup04 + $grup04), 
+            calc(-50% + 35% / 2 + $grup03)
+        );
+    }
+
+    @include media-min(768px) {
+        width: min(512px, 80%);
+
+        transform: translate(
+            calc(-50% + 35% / 2 + $grup04 + $grup07), 
+            calc(-50% + 35% / 2 + $grup03)
+        );
     }
 }
 
@@ -161,10 +170,9 @@
         &#mountain03 {
             right: 30%;
 
-            @include media-min(576px) {
-                right: 28%;
+            @include media-min(1024px) {
+                right: 25%;
             }
-        
         }
 
         &#mountain04 {
@@ -188,81 +196,111 @@
     @include media-min(768px) {
         height: max(round(30dvh), 196px);
     }
-
-    @include media-min(1024px) {
-        height: max(round(40dvh), 196px);
-    }
 }
 
-.me-container {
+.me {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    gap: $grup-02;
 
-    width: 100%;
-    padding: 0 24px $grup-02 24px;
+    width: fit-content;
+    height: fit-content;
+    padding: 0 $grup02 0 $grup02;
 
-    background-color: $vanDyke;
+    transform: translateY(-$grup06);
+    
+    &-overline {
+        font-size: $grup-01;
+        font-weight: 300;
+        color: $seasalt;
+        text-transform: uppercase;
 
-    .me {
-        display: flex;
-        flex-direction: column;
-        gap: $grup-02;
+        @include media-min(768px) {
+            font-size: $grup;
+        }
+    }
+
+    &-name {
+        display: block;
 
         width: fit-content;
+        margin-left: 0;
 
-        transform: translateY(-24px);
-        
-        &-overline {
-            font-size: $grup-01;
-            font-weight: 300;
-            color: $seasalt;
-            text-transform: uppercase;
+        font-family: Raleway;
+        font-weight: 900;
+        font-size: $grup03;
+        color: $mistyRose;
+        text-align: right;
+        text-transform: uppercase;
 
-            @include media-min(768px) {
-                font-size: $grup;
-            }
+        &#firstname {
+            margin: 0 $grup02 0 auto;
         }
-    
-        &-name {
-            display: block;
 
-            width: fit-content;
-            margin-left: 0;
-
-            font-family: Raleway;
-            font-weight: 900;
-            font-size: $grup03;
-            color: $mistyRose;
-            text-align: right;
-            text-transform: uppercase;
-    
-            &#firstname {
-                margin: 0 $grup02 0 auto;
-            }
-    
-            &#name {
-                margin-left: auto;
-                color: $seasalt;
-                font-style: italic;
-            }
-
-            @include media-min(576px) {
-                font-size: $grup04;
-            }
-
-            @include media-min(768px) {
-                font-size: $grup05;
-            }
+        &#name {
+            margin-left: auto;
+            color: $seasalt;
+            font-style: italic;
         }
 
         @include media-min(512px) {
-            transform: unset;
-
-            padding: 24px 32px $grup-02 32px;
+            font-size: $grup04;
         }
 
-        @include media-min(1152px) {
-            padding: 24px 128px $grup-02 128px;
+        @include media-min(768px) {
+            font-size: $grup05;
+        }
+    }
+
+    @include media-min(512px) {
+        padding: 0 $grup03 0 $grup03;
+
+        transform: translateY(-$grup04);
+    }
+
+    @include media-min(768px) {
+        padding: $grup05 $grup04 $grup05 $grup04;
+
+        transform: translateY(0);
+    }
+
+    @include media-min(1024px) {
+        padding: $grup05 $grup07 $grup05 $grup07;
+    }
+
+    @include media-min(1280px) {
+        grid-column: -1;
+
+        padding: $grup05 0 $grup05 0;
+    }
+
+    &-container {
+        display: flex;
+        justify-content: flex-end;
+
+        width: 100%;
+        background: linear-gradient($vanDyke, $chamoisee);
+    }
+
+    &-grid {
+        @include media-min(1280px) {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            column-gap: $grup02;
+    
+            height: fit-content;
+            padding: 0 $grup07;
+        }
+    
+        @include media-min(1536px) {
+            padding: 0 $grup08;
+        }
+    
+        @include media-min(2048px) {
+            width: 100%;
+            max-width: 1536px;
+            margin: 0 auto;
+            padding: 0;
         }
     }
 }

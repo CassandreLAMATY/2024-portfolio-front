@@ -1,26 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 .bg {
   position: relative;
+  height: max(25dvh, 196px);
   background: linear-gradient(90deg, #93BEFF, #B3A7FF);
   overflow: hidden;
 }
 .bg::after {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   right: 0;
   content: " ";
   display: block;
   width: 100%;
-  height: 1px;
+  height: 3px;
   background-color: #443433;
 }
 
 .sun-container {
   position: absolute;
-  top: -40%;
-  left: -15%;
-  /* height: max(50%, 96px); */
+  transform: translate(calc(-32.5% + 2rem), calc(-32.5% + 16px));
   width: min(384px, 80%);
   aspect-ratio: 1;
 }
@@ -70,32 +69,24 @@
 }
 @media (min-width: 450px) {
   .sun-container {
-    top: -45%;
-    left: -12%;
+    transform: translate(calc(-32.5% + 3rem), calc(-32.5% + 1.5rem));
   }
 }
-@media (min-width: 576px) {
+@media (min-width: 512px) {
   .sun-container {
-    left: -5%;
+    transform: translate(calc(-32.5% + 3rem + 1.5rem), calc(-32.5% + 2rem));
   }
 }
 @media (min-width: 768px) {
   .sun-container {
-    top: -35%;
-    left: 15.36;
-  }
-}
-@media (min-width: 960px) {
-  .sun-container {
-    top: -30%;
-    left: 2%;
-  }
-}
-@media (min-width: 1024px) {
-  .sun-container {
-    top: -30%;
-    left: 51.2;
     width: min(512px, 80%);
+    transform: translateX(calc(-32.5% + 3rem + 3rem), calc(-32.5% + 2rem));
+  }
+}
+@media (min-width: 768px) {
+  .sun-container {
+    width: min(512px, 80%);
+    transform: translate(calc(-32.5% + 3rem + 8rem), calc(-32.5% + 2rem));
   }
 }
 
@@ -138,9 +129,9 @@
 .mountains .mountain#mountain03 {
   right: 30%;
 }
-@media (min-width: 576px) {
+@media (min-width: 1024px) {
   .mountains .mountain#mountain03 {
-    right: 28%;
+    right: 25%;
   }
 }
 .mountains .mountain#mountain04 {
@@ -162,38 +153,28 @@
     height: max(30dvh, 196px);
   }
 }
-@media (min-width: 1024px) {
-  .mountains {
-    height: max(40dvh, 196px);
-  }
-}
 
-.me-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  padding: 0 24px 0.5rem 24px;
-  background-color: #443433;
-}
-.me-container .me {
+.me {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: fit-content;
-  transform: translateY(-24px);
+  height: fit-content;
+  padding: 0 1.5rem 0 1.5rem;
+  transform: translateY(-6rem);
 }
-.me-container .me-overline {
+.me-overline {
   font-size: 0.75rem;
   font-weight: 300;
   color: #F9F9F9;
   text-transform: uppercase;
 }
 @media (min-width: 768px) {
-  .me-container .me-overline {
+  .me-overline {
     font-size: 16px;
   }
 }
-.me-container .me-name {
+.me-name {
   display: block;
   width: fit-content;
   margin-left: 0;
@@ -204,33 +185,73 @@
   text-align: right;
   text-transform: uppercase;
 }
-.me-container .me-name#firstname {
+.me-name#firstname {
   margin: 0 1.5rem 0 auto;
 }
-.me-container .me-name#name {
+.me-name#name {
   margin-left: auto;
   color: #F9F9F9;
   font-style: italic;
 }
-@media (min-width: 576px) {
-  .me-container .me-name {
+@media (min-width: 512px) {
+  .me-name {
     font-size: 3rem;
   }
 }
 @media (min-width: 768px) {
-  .me-container .me-name {
+  .me-name {
     font-size: 4rem;
   }
 }
 @media (min-width: 512px) {
-  .me-container .me {
-    transform: unset;
-    padding: 24px 32px 0.5rem 32px;
+  .me {
+    padding: 0 2rem 0 2rem;
+    transform: translateY(-3rem);
   }
 }
-@media (min-width: 1152px) {
-  .me-container .me {
-    padding: 24px 128px 0.5rem 128px;
+@media (min-width: 768px) {
+  .me {
+    padding: 4rem 3rem 4rem 3rem;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 1024px) {
+  .me {
+    padding: 4rem 8rem 4rem 8rem;
+  }
+}
+@media (min-width: 1280px) {
+  .me {
+    grid-column: -1;
+    padding: 4rem 0 4rem 0;
+  }
+}
+.me-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  background: linear-gradient(#443433, #99715B);
+}
+@media (min-width: 1280px) {
+  .me-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 1.5rem;
+    height: fit-content;
+    padding: 0 8rem;
+  }
+}
+@media (min-width: 1536px) {
+  .me-grid {
+    padding: 0 16rem;
+  }
+}
+@media (min-width: 2048px) {
+  .me-grid {
+    width: 100%;
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 0;
   }
 }
 

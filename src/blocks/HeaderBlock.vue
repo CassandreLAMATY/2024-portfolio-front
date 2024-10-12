@@ -1,5 +1,17 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
+    import { meHeightCalc } from '@/assets/javascripts/header';
+
     import LogoSVG from '@/components/icons/LogoSVG.vue';
+
+    onMounted(() => {
+        meHeightCalc();
+
+        window.addEventListener("resize", () => {
+            meHeightCalc();
+        });
+    })
 </script>
 
 <template>
@@ -36,9 +48,11 @@
             </div>
         </div>
         <div class="me-container">
-            <div class="me">
-                <h3 class="me-overline">Hello, world ! I'm</h3>
-                <h1 class="me-name"><span class="me-name" id="firstname">Cassandre</span> <span class="me-name" id="name">LAMATY</span></h1>
+            <div class="me-grid">
+                <div class="me">
+                    <h3 class="me-overline">Hello, world ! I'm</h3>
+                    <h1 class="me-name"><span class="me-name" id="firstname">Cassandre</span> <span class="me-name" id="name">LAMATY</span></h1>
+                </div>
             </div>
         </div>
     </header>

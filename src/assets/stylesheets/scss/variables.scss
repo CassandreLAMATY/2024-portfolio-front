@@ -10,6 +10,8 @@ $mauve: #B3A7FF;
 $jordyBlue: #93BEFF;
 $celadon: #BBDB9B;
 
+$grup-04: 0.125rem;
+$grup-03: 0.25rem;
 $grup-02: 0.5rem;
 $grup-01: 0.75rem;
 $grup: 16px;
@@ -18,6 +20,11 @@ $grup02: 1.5rem;
 $grup03: 2rem;
 $grup04: 3rem;
 $grup05: 4rem;
+$grup06: 6rem;
+$grup07: 8rem;
+$grup08: 16rem;
+$grup09: 32rem;
+$grup10: 64rem;
 
 @mixin media-min($size) {
     @media (min-width: $size) {
