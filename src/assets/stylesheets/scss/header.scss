@@ -117,12 +117,12 @@
         );
     }
 
-    @include media-min(768px) {
-        width: min(512px, 80%);
+    @include media-min(1024px) {
+        width: min(768px, 80%);
 
         transform: translate(
             calc(-50% + 35% / 2 + $grup04 + $grup07),
-            calc(-50% + 35% / 2 + $grup03)
+            calc(-50% + 35% / 2 + $grup04)
         );
     }
 }
