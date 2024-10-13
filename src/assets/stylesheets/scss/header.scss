@@ -14,23 +14,29 @@
         bottom: -1px;
         left: 0;
         right: 0;
+        z-index: -1;
 
-        content: " ";
+        content: ' ';
         display: block;
 
         width: 100%;
         height: 3px;
 
-        background-color: $vanDyke;
+        background-color: #5e4741;
+    }
+
+    @include media-min(768px) {
+        height: max(round(30dvh), 196px);
+    }
+
+    @include media-min(1024px) {
+        height: max(round(40dvh), 196px);
     }
 }
 
 .sun-container {
     position: absolute;
-    transform: translate(
-        calc(-50% + 35% / 2 + $grup03), 
-        calc(-50% + 35% / 2 + $grup)
-    );
+    transform: translate(calc(-50% + 35% / 2 + $grup03), calc(-50% + 35% / 2 + $grup));
 
     width: min(384px, 80%);
     aspect-ratio: 1;
@@ -48,24 +54,24 @@
 
             border-radius: 50%;
             outline: 1px $dutchWhite solid;
-    
+
             &#aura01 {
                 width: 100%;
                 height: 100%;
             }
-    
+
             &#aura02 {
                 width: 65%;
                 height: 65%;
             }
         }
-    
+
         &-sphere {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-    
+
             background-color: $dutchWhite;
             border-radius: 50%;
             height: 35%;
@@ -92,15 +98,12 @@
     }
 
     @include media-min(450px) {
-        transform: translate(
-            calc(-50% + 35% / 2 + $grup04), 
-            calc(-50% + 35% / 2 + $grup02)
-        );
+        transform: translate(calc(-50% + 35% / 2 + $grup04), calc(-50% + 35% / 2 + $grup02));
     }
 
     @include media-min(512px) {
         transform: translate(
-            calc(-50% + 35% / 2 + $grup04 + $grup02), 
+            calc(-50% + 35% / 2 + $grup04 + $grup02),
             calc(-50% + 35% / 2 + $grup03)
         );
     }
@@ -109,7 +112,7 @@
         width: min(512px, 80%);
 
         transform: translateX(
-            calc(-50% + 35% / 2 + $grup04 + $grup04), 
+            calc(-50% + 35% / 2 + $grup04 + $grup04),
             calc(-50% + 35% / 2 + $grup03)
         );
     }
@@ -118,7 +121,7 @@
         width: min(512px, 80%);
 
         transform: translate(
-            calc(-50% + 35% / 2 + $grup04 + $grup07), 
+            calc(-50% + 35% / 2 + $grup04 + $grup07),
             calc(-50% + 35% / 2 + $grup03)
         );
     }
@@ -147,7 +150,7 @@
             min-width: 1024px;
         }
     }
-    
+
     .mountain {
         position: absolute;
         bottom: 0;
@@ -155,7 +158,7 @@
         display: flex;
 
         height: 100%;
-        
+
         fill: $vanDyke;
 
         &#mountain01 {
@@ -171,7 +174,7 @@
             right: 30%;
 
             @include media-min(1024px) {
-                right: 25%;
+                right: 29%;
             }
         }
 
@@ -186,7 +189,7 @@
         width: 100%;
         height: 100%;
 
-        background-color: $vanDyke;
+        background: linear-gradient(to bottom, $vanDyke 0%, #57423e 100%);
 
         @include media-min(768px) {
             display: block;
@@ -195,6 +198,10 @@
 
     @include media-min(768px) {
         height: max(round(30dvh), 196px);
+    }
+
+    @include media-min(1024px) {
+        height: max(round(40dvh), 196px);
     }
 }
 
@@ -208,7 +215,7 @@
     padding: 0 $grup02 0 $grup02;
 
     transform: translateY(-$grup06);
-    
+
     &-overline {
         font-size: $grup-01;
         font-weight: 300;
@@ -279,27 +286,29 @@
         justify-content: flex-end;
 
         width: 100%;
-        background: linear-gradient($vanDyke, $chamoisee);
+        background: linear-gradient(#57423e, #6c5149);
     }
 
     &-grid {
         @include media-min(1280px) {
+            box-sizing: content-box;
+
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             column-gap: $grup02;
-    
+
+            width: 100%;
+            max-width: 1024px;
             height: fit-content;
+            margin: 0 auto;
             padding: 0 $grup07;
         }
-    
+
         @include media-min(1536px) {
             padding: 0 $grup08;
         }
-    
+
         @include media-min(2048px) {
-            width: 100%;
-            max-width: 1536px;
-            margin: 0 auto;
             padding: 0;
         }
     }

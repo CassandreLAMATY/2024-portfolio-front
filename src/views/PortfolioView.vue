@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import HeaderBlock from '@/blocks/headerBlock.vue';
+import HeaderBlock from '@/blocks/headerBlock.vue';
 </script>
 
 <template>

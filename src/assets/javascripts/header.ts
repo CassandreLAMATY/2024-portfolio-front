@@ -1,5 +1,5 @@
 function calculateMePadding(): number {
-    if(window.innerWidth >= 768) {
+    if (window.innerWidth >= 768) {
         return 0;
     }
 
@@ -13,13 +13,14 @@ export function meHeightCalc(padding: number = calculateMePadding()): void {
     if (!meContainer || !me) {
         return;
     }
-    
+
     const contentHeight: number = me.clientHeight;
     const offset: number = parseFloat(
-        window.getComputedStyle(me).transform
-            .match(/matrix\(([^)]+)\)/)?.[1]
-            .split(", ")[5] || "0"
-    ); 
+        window
+            .getComputedStyle(me)
+            .transform.match(/matrix\(([^)]+)\)/)?.[1]
+            .split(', ')[5] || '0'
+    );
 
     meContainer.style.height = `${contentHeight + offset + padding}px`;
 }

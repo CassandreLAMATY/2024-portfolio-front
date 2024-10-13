@@ -2,13 +2,13 @@
 
 $raisinBlack: #272425;
 $vanDyke: #443433;
-$chamoisee: #99715B;
-$dutchWhite: #F4E4BA;
-$seasalt: #F9F9F9;
-$mistyRose: #FFE3E0;
-$mauve: #B3A7FF;
-$jordyBlue: #93BEFF;
-$celadon: #BBDB9B;
+$chamoisee: #99715b;
+$dutchWhite: #f4e4ba;
+$seasalt: #f9f9f9;
+$mistyRose: #ffe3e0;
+$mauve: #b3a7ff;
+$jordyBlue: #93beff;
+$celadon: #bbdb9b;
 
 $grup-04: 0.125rem;
 $grup-03: 0.25rem;
@@ -28,12 +28,12 @@ $grup10: 64rem;
 
 @mixin media-min($size) {
     @media (min-width: $size) {
-      @content;
+        @content;
     }
-  }
-  
-  @mixin media-max($size) {
+}
+
+@mixin media-max($size) {
     @media (max-width: $size) {
-      @content;
+        @content;
     }
-  }
+}
