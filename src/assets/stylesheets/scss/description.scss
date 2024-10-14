@@ -1,0 +1,67 @@
+@import 'variables';
+
+.desc {
+    background-color: $vanDyke;
+
+    &-grid {
+        @include media-min(1280px) {
+            box-sizing: content-box;
+
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            column-gap: $grup02;
+
+            width: 100%;
+            max-width: 1024px;
+            height: fit-content;
+            margin: 0 auto;
+            padding: 0 $grup07;
+        }
+
+        @include media-min(1536px) {
+            padding: 0 $grup08;
+        }
+
+        @include media-min(2048px) {
+            padding: 0;
+        }
+    }
+
+    &-content {
+        grid-column: 1 / 8;
+    }
+
+    &-text {
+        font-family: Quicksand;
+        font-size: $grup01;
+        font-weight: 300;
+        color: $seasalt;
+    }
+
+    &-btn {
+        &--container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            column-gap: $grup02;
+        }
+
+        &_left {
+            grid-column: 1 / 5;
+
+            display: flex;
+            gap: $grup02;
+
+            width: 100%;
+
+            & .btn_left {
+                width: 100%;
+            }
+        }
+    }
+
+    .btn_right {
+        grid-column: 5 / 7;
+
+        width: 100%;
+    }
+}

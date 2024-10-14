@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+.desc {
+  background-color: #443433;
+}
+@media (min-width: 1280px) {
+  .desc-grid {
+    box-sizing: content-box;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 1.5rem;
+    width: 100%;
+    max-width: 1024px;
+    height: fit-content;
+    margin: 0 auto;
+    padding: 0 8rem;
+  }
+}
+@media (min-width: 1536px) {
+  .desc-grid {
+    padding: 0 16rem;
+  }
+}
+@media (min-width: 2048px) {
+  .desc-grid {
+    padding: 0;
+  }
+}
+.desc-content {
+  grid-column: 1/8;
+}
+.desc-text {
+  font-family: Quicksand;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #f9f9f9;
+}
+.desc-btn--container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 1.5rem;
+}
+.desc-btn_left {
+  grid-column: 1/5;
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+}
+.desc-btn_left .btn_left {
+  width: 100%;
+}
+.desc .btn_right {
+  grid-column: 5/7;
+  width: 100%;
+}
+
+/*# sourceMappingURL=description.css.map */

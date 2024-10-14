@@ -24,3 +24,86 @@ p {
     margin: 0;
     padding: 0;
 }
+
+button {
+    border: none;
+    background: none;
+
+    padding: 0;
+}
+
+.btn {
+    position: relative;
+
+    &-shadow {
+        position: absolute;
+        z-index: 1;
+
+        width: 100%;
+        height: 100%;
+        top: $grup-02;
+        right: $grup-02;
+
+        border: 1px solid $dutchWhite;
+    }
+    
+    &-content {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        align-items: center;
+        gap: $grup-01;
+
+        width: 100%;
+        height: 100%;
+        padding: $grup-01 $grup;
+    }
+
+    &-icon {
+        font-size: $grup02;
+        color: $seasalt;
+    }
+
+    &-title {
+        font-family: Raleway;
+        font-size: $grup01;
+        font-weight: 600;
+        color: $seasalt;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+
+    &_dutchWhite {
+        & .btn-icon {
+            color: $dutchWhite;
+        }
+    }
+
+    &_mistyRose {
+        & .btn-icon {
+            color: $mistyRose;
+        }
+    }
+
+    &_left .btn-content {
+        background-color: $chamoisee;
+    }
+
+    &_right {
+        & .btn-content {
+            background-color: $dutchWhite;
+    
+            & .btn-icon, & .btn-title {
+                color: $vanDyke;
+            }
+        }
+    
+        & .btn-shadow {
+            right: -$grup-02;
+
+            border-color: $celadon;
+        }
+    }
+}
