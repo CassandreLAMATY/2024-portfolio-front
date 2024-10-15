@@ -25,6 +25,22 @@ p {
     padding: 0;
 }
 
+p {
+    font-size: $grup;
+    line-height:$grup02;
+
+    @include media-min(768px) {
+        font-size: $grup01;
+        line-height: 1.75rem;
+    }
+}
+
+br {
+    content: " ";
+    display: block;
+    margin-bottom: $grup;
+}
+
 button {
     border: none;
     background: none;
@@ -61,17 +77,25 @@ button {
     }
 
     &-icon {
-        font-size: $grup02;
+        font-size: $grup01;
         color: $seasalt;
+
+        @include media-min(768px) {
+            font-size: $grup02;
+        }
     }
 
     &-title {
         font-family: Raleway;
-        font-size: $grup01;
+        font-size: $grup;
         font-weight: 600;
         color: $seasalt;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+
+        @include media-min(768px) {
+            font-size: $grup01;
+        }
     }
 
 

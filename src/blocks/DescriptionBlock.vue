@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import ButtonPrimary from '@/components/ButtonPrimary.vue';
+import LogoSVG from '@/components/icons/LogoSVG.vue';
 </script>
 
 <template>
     <div class="desc">
+        <LogoSVG class="desc-logo" />
         <div class="desc-grid">
             <div class="desc-content">
                 <p class="desc-text">
@@ -17,7 +19,7 @@ import ButtonPrimary from '@/components/ButtonPrimary.vue';
                         <ButtonPrimary title="LinkedIn" :icon="['fab', 'fa-linkedin']" classes="btn_left btn_dutchWhite" />
                         <ButtonPrimary title="Behance" :icon="['fab', 'fa-square-behance']" classes="btn_left btn_mistyRose" />
                     </div>
-                    <ButtonPrimary title="C.V" :icon="['far', 'folder-user']" classes="btn_right" />
+                    <ButtonPrimary title="C.V" :icon="['far', 'folder-user']" classes="btn_right desc-cv" />
                 </div>
             </div>
         </div>

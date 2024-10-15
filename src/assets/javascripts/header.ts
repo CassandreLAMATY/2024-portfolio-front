@@ -3,7 +3,7 @@ function calculateMePadding(): number {
         return 0;
     }
 
-    return 24;
+    return 32;
 }
 
 export function meHeightCalc(padding: number = calculateMePadding()): void {

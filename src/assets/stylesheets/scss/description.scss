@@ -1,10 +1,19 @@
 @import 'variables';
 
 .desc {
+    overflow: hidden;
+    position: relative;
+
     background-color: $vanDyke;
 
     &-grid {
-        @include media-min(1280px) {
+        padding: $grup03 $grup02;
+        
+        @include media-min(768px) {
+            padding: 0 $grup05;
+        }
+
+        @include media-min(1024px) {
             box-sizing: content-box;
 
             display: grid;
@@ -28,25 +37,65 @@
     }
 
     &-content {
-        grid-column: 1 / 8;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: $grup03;
+
+        @include media-min(768px) {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: $grup02;
+        }
+
+        @include media-min(1024px) {
+            display: flex;
+            grid-column: 1 / 9;
+        }
+        
+        @include media-min(1280px) {
+            grid-column: 1 / 8;
+        }
     }
 
     &-text {
         font-family: Quicksand;
-        font-size: $grup01;
         font-weight: 300;
         color: $seasalt;
     }
 
     &-btn {
         &--container {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            column-gap: $grup02;
+            display: flex;
+            flex-direction: column;
+            gap: $grup02;
+
+            @include media-min(768px) {
+                grid-column: 10 / 13;
+            }
+
+            @include media-min(1024px) {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                column-gap: $grup02;
+            }
         }
 
         &_left {
-            grid-column: 1 / 5;
+            display: flex;
+            flex-direction: row;
+            gap: $grup02;
+
+            @include media-min(768px) {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            @include media-min(1024px) {
+                flex-direction: row;
+                grid-column: 1 / 5;
+            }
 
             display: flex;
             gap: $grup02;
@@ -59,9 +108,29 @@
         }
     }
 
-    .btn_right {
-        grid-column: 5 / 7;
+    &-cv {
+        .btn-shadow {
+            right: $grup-02;
+        }
+        &.btn_right {
+            @include media-min(1024px) {
+                grid-column: 5 / 7;
+            }
+    
+            width: 100%;
+        }
+    }
 
-        width: 100%;
+    &-logo {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+
+        width: fit-content;
+        height: 100%;
+        transform: scale(100%);
+
+        fill: #57423e;
     }
 }
