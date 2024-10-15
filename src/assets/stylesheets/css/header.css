@@ -75,7 +75,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 55%;
+  height: 55%;
   fill: #99715b;
 }
 @media (min-width: 450px) {
