@@ -262,13 +262,13 @@
     }
 
     @include media-min(512px) {
-        padding: 0 $grup03 0 $grup03;
+        padding: $grup02 $grup03 0 $grup03;
 
         transform: translateY(0);
     }
 
     @include media-min(768px) {
-        padding: $grup02 $grup04 $grup05 $grup04;
+        padding: $grup03 $grup04 $grup05 $grup04;
     }
 
     @include media-min(1024px) {

@@ -223,13 +223,13 @@
 }
 @media (min-width: 512px) {
   .me {
-    padding: 0 2rem 0 2rem;
+    padding: 1.5rem 2rem 0 2rem;
     transform: translateY(0);
   }
 }
 @media (min-width: 768px) {
   .me {
-    padding: 1.5rem 3rem 4rem 3rem;
+    padding: 2rem 3rem 4rem 3rem;
   }
 }
 @media (min-width: 1024px) {

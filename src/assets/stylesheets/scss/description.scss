@@ -7,10 +7,11 @@
     background-color: $vanDyke;
 
     &-grid {
-        padding: $grup03 $grup02;
+        // button have shadow 8px at the bottom so padding +8px
+        padding: $grup03 $grup02 calc($grup03 + $grup-02) $grup02;
         
         @include media-min(768px) {
-            padding: 0 $grup05;
+            padding: $grup05;
         }
 
         @include media-min(1024px) {
@@ -47,6 +48,8 @@
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             gap: $grup02;
+
+            align-items: center;
         }
 
         @include media-min(1024px) {
@@ -63,6 +66,10 @@
         font-family: Quicksand;
         font-weight: 300;
         color: $seasalt;
+
+        @include media-min(768px) {
+            grid-column: 1 / 8;
+        }
     }
 
     &-btn {
@@ -71,8 +78,17 @@
             flex-direction: column;
             gap: $grup02;
 
+            @include media-min(584px) {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                gap: $grup02;
+            }
+
             @include media-min(768px) {
-                grid-column: 10 / 13;
+                justify-content: space-between;
+                grid-column: 9 / 13;
+
+                height: 100%;
             }
 
             @include media-min(1024px) {
@@ -87,6 +103,21 @@
             flex-direction: row;
             gap: $grup02;
 
+            display: flex;
+            gap: $grup02;
+
+            min-width: fit-content;
+            width: 100%;
+
+            & .btn_left {
+                min-width: fit-content;
+                width: 100%;
+            }
+
+            @include media-min(584px) {
+                grid-column: 1 / 10;
+            }
+
             @include media-min(768px) {
                 display: flex;
                 flex-direction: column;
@@ -96,15 +127,6 @@
                 flex-direction: row;
                 grid-column: 1 / 5;
             }
-
-            display: flex;
-            gap: $grup02;
-
-            width: 100%;
-
-            & .btn_left {
-                width: 100%;
-            }
         }
     }
 
@@ -113,11 +135,24 @@
             right: $grup-02;
         }
         &.btn_right {
+            width: calc(100% / 2 - $grup-01);
+            margin-left: auto;
+
+            @include media-min(584px) {
+                grid-column: 10 / 13;
+                min-width: fit-content;
+                width: 100%;
+            }
+
+            @include media-min(768px) {
+                transform: translateY(-$grup-02);
+            }
+
             @include media-min(1024px) {
                 grid-column: 5 / 7;
+
+                transform: translateY(0);
             }
-    
-            width: 100%;
         }
     }
 

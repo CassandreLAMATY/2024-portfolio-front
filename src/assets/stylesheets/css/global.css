@@ -48,6 +48,7 @@ button {
 
 .btn {
   position: relative;
+  max-width: 16rem;
 }
 .btn-shadow {
   position: absolute;
