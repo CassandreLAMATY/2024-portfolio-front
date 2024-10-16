@@ -1,0 +1,341 @@
+@import 'variables';
+
+.bg {
+    position: relative;
+
+    height: max(round(25dvh), 196px);
+
+    background: linear-gradient(90deg, $jordyBlue, $mauve);
+
+    overflow: hidden;
+
+    &::after {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        z-index: 1;
+
+        content: ' ';
+        display: block;
+
+        width: 100%;
+        height: 3px;
+
+        background-color: #57423e;
+    }
+
+    @include media-min(768px) {
+        height: max(round(30dvh), 196px);
+    }
+
+    @include media-min(1024px) {
+        height: max(round(40dvh), 196px);
+    }
+}
+
+.sun-container {
+    position: absolute;
+    transform: translate(calc(-50% + 35% / 2 + $grup03), calc(-50% + 35% / 2 + $grup));
+
+    width: min(384px, 80%);
+    aspect-ratio: 1;
+
+    .sun {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &-aura {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+            outline: 1px $dutchWhite solid;
+
+            &#aura01 {
+                width: 100%;
+                height: 100%;
+            }
+
+            &#aura02 {
+                width: 65%;
+                height: 65%;
+            }
+        }
+
+        &-sphere {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            background-color: $dutchWhite;
+            border-radius: 50%;
+            height: 35%;
+            width: 35%;
+
+            @include media-min(1536px) {
+                height: 30%;
+                width: 30%;
+            }
+        }
+
+        &-logo--container {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+        }
+
+        &-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 55%;
+            height: 55%;
+
+            fill: $chamoisee;
+        }
+    }
+
+    @include media-min(450px) {
+        transform: translate(calc(-50% + 35% / 2 + $grup04), calc(-50% + 35% / 2 + $grup02));
+    }
+
+    @include media-min(512px) {
+        transform: translate(
+            calc(-50% + 35% / 2 + $grup04 + $grup02),
+            calc(-50% + 35% / 2 + $grup03)
+        );
+    }
+
+    @include media-min(768px) {
+        width: min(512px, 80%);
+
+        transform: translateX(
+            calc(-50% + 35% / 2 + $grup04 + $grup04),
+            calc(-50% + 35% / 2 + $grup03)
+        );
+    }
+
+    @include media-min(1024px) {
+        transform: translate(
+            calc(-50% + 35% / 2 + $grup04 + $grup07),
+            calc(-50% + 35% / 2 + $grup05)
+        );
+    }
+
+    @include media-min(1536px) {
+        width: min(768px, 80%);
+
+        transform: translate(
+            calc(-50% + 35% / 2 + $grup04 + $grup07),
+            calc(-50% + 35% / 2 + $grup03)
+        );
+    }
+}
+
+.bg-mountains {
+    position: absolute;
+
+    & #bgmountain01 {
+        left: 64px;
+    }
+
+    & #bgmountain02 {
+        left: 200px;
+    }
+}
+
+.mountains {
+    display: flex;
+
+    min-width: fit-content;
+    width: 100%;
+    height: max(round(25dvh), 196px);
+
+    &-container {
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+        max-width: 768px;
+
+        @include media-min(768px) {
+            min-width: 768px;
+        }
+
+        @include media-min(1024px) {
+            min-width: 1024px;
+        }
+    }
+
+    .mountain {
+        position: absolute;
+        bottom: 0;
+
+        display: flex;
+
+        height: 100%;
+
+        fill: $vanDyke;
+
+        &#mountain01 {
+            display: inline-block;
+            right: -24px;
+        }
+
+        &#mountain02 {
+            right: 15%;
+        }
+
+        &#mountain03 {
+            right: 30%;
+
+            @include media-min(1024px) {
+                right: 29%;
+            }
+        }
+
+        &#mountain04 {
+            left: 0;
+        }
+    }
+
+    #mountain01-body {
+        display: none;
+
+        width: 100%;
+        height: 100%;
+
+        background: linear-gradient(to bottom, $vanDyke 0%, #57423e 100%);
+
+        @include media-min(768px) {
+            display: block;
+        }
+    }
+
+    @include media-min(768px) {
+        height: max(round(30dvh), 196px);
+    }
+
+    @include media-min(1024px) {
+        height: max(round(40dvh), 196px);
+    }
+}
+
+.me {
+    position: relative;
+    z-index: 10;
+    
+    display: flex;
+    flex-direction: column;
+    gap: $grup-02;
+
+    width: fit-content;
+    height: fit-content;
+    padding: 0 $grup02;
+
+    transform: translateY(-$grup02);
+
+    &-overline {
+        font-size: $grup-01;
+        font-weight: 300;
+        color: $seasalt;
+        text-transform: uppercase;
+
+        @include media-min(768px) {
+            font-size: $grup;
+        }
+    }
+
+    &-name {
+        display: block;
+
+        width: fit-content;
+        margin-left: 0;
+
+        font-family: Raleway;
+        font-weight: 900;
+        font-size: $grup03;
+        color: $mistyRose;
+        text-align: right;
+        text-transform: uppercase;
+
+        &#firstname {
+            margin: 0 $grup02 0 auto;
+        }
+
+        &#name {
+            margin-left: auto;
+            color: $seasalt;
+            font-style: italic;
+        }
+
+        @include media-min(512px) {
+            font-size: $grup04;
+        }
+
+        @include media-min(768px) {
+            font-size: $grup05;
+        }
+    }
+
+    @include media-min(512px) {
+        padding: $grup02 $grup03 0 $grup03;
+
+        transform: translateY(0);
+    }
+
+    @include media-min(768px) {
+        padding: $grup03 $grup04 $grup05 $grup04;
+    }
+
+    @include media-min(1024px) {
+        padding: 0 $grup07 $grup05 $grup07;
+    }
+
+    @include media-min(1280px) {
+        grid-column: -1;
+
+        padding: 0 0 $grup06 0;
+    }
+
+    &-container {
+        display: flex;
+        justify-content: flex-end;
+
+        width: 100%;
+        background: linear-gradient(#57423e, #6c5149);
+    }
+
+    &-grid {
+        @include media-min(1280px) {
+            box-sizing: content-box;
+
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            column-gap: $grup02;
+
+            width: 100%;
+            max-width: 1024px;
+            height: fit-content;
+            margin: 0 auto;
+            padding: 0 $grup07;
+        }
+
+        @include media-min(1536px) {
+            padding: 0 $grup08;
+        }
+
+        @include media-min(2048px) {
+            padding: 0;
+        }
+    }
+}
