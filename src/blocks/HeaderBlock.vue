@@ -29,6 +29,35 @@ onMounted(() => {
                 </div>
             </div>
 
+            <div class="mountains bg-mountains">
+                <svg>
+                    <defs>
+                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="30%"  gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" style="stop-color: #896b8d; stop-opacity: 1" />
+                            <stop offset="100%" style="stop-color: #9991c9; stop-opacity: 1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+                <svg
+                    viewBox="0 0 100 100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mountain"
+                    id="bgmountain01"
+                >
+                    <polygon points="70 80, 100 100, 50 100" fill="url(#gradient2)" />
+                </svg>
+
+                <svg
+                    viewBox="0 0 100 100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mountain"
+                    id="bgmountain02"
+                >
+                    <polygon points="60 70, 90 100, 40 100" fill="url(#gradient2)" />
+                </svg>
+            </div>
+
             <div class="mountains">
                 <div class="mountains-container">
                     <svg>

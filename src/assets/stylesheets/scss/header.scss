@@ -140,6 +140,18 @@
     }
 }
 
+.bg-mountains {
+    position: absolute;
+
+    & #bgmountain01 {
+        left: 64px;
+    }
+
+    & #bgmountain02 {
+        left: 200px;
+    }
+}
+
 .mountains {
     display: flex;
 
