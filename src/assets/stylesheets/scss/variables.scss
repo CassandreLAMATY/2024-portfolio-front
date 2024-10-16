@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+$raisinBlack: #272425;
+$vanDyke: #443433;
+$chamoisee: #99715b;
+$dutchWhite: #f4e4ba;
+$seasalt: #f9f9f9;
+$mistyRose: #ffe3e0;
+$mauve: #b3a7ff;
+$jordyBlue: #93beff;
+$celadon: #bbdb9b;
+
+$grup-04: 0.125rem;
+$grup-03: 0.25rem;
+$grup-02: 0.5rem;
+$grup-01: 0.75rem;
+$grup: 16px;
+$grup01: 1.25rem;
+$grup02: 1.5rem;
+$grup03: 2rem;
+$grup04: 3rem;
+$grup05: 4rem;
+$grup06: 6rem;
+$grup07: 8rem;
+$grup08: 16rem;
+$grup09: 32rem;
+$grup10: 64rem;
+
+@mixin media-min($size) {
+    @media (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin media-max($size) {
+    @media (max-width: $size) {
+        @content;
+    }
+}
