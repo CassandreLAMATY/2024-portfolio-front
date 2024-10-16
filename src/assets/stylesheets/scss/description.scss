@@ -25,11 +25,11 @@
             max-width: 1024px;
             height: fit-content;
             margin: 0 auto;
-            padding: 0 $grup07;
+            padding: $grup05 $grup07;
         }
 
         @include media-min(1536px) {
-            padding: 0 $grup08;
+            padding: $grup06 $grup08;
         }
 
         @include media-min(2048px) {
@@ -54,11 +54,17 @@
 
         @include media-min(1024px) {
             display: flex;
+            gap: $grup04;
+
             grid-column: 1 / 9;
         }
         
         @include media-min(1280px) {
             grid-column: 1 / 8;
+        }
+
+        @include media-min(1536px) {
+            gap: $grup05;
         }
     }
 
@@ -85,9 +91,13 @@
             }
 
             @include media-min(768px) {
+                display: flex;
                 justify-content: space-between;
+                gap: calc($grup02 + $grup-02);
+
                 grid-column: 9 / 13;
 
+                min-height: fit-content;
                 height: 100%;
             }
 
@@ -95,15 +105,14 @@
                 display: grid;
                 grid-template-columns: repeat(6, 1fr);
                 column-gap: $grup02;
+
+                width: 100%;
             }
         }
 
         &_left {
             display: flex;
             flex-direction: row;
-            gap: $grup02;
-
-            display: flex;
             gap: $grup02;
 
             min-width: fit-content;
@@ -145,6 +154,8 @@
             }
 
             @include media-min(768px) {
+                margin-left: unset;
+
                 transform: translateY(-$grup-02);
             }
 
@@ -167,5 +178,10 @@
         transform: scale(100%);
 
         fill: #57423e;
+
+        @include media-min(512px) {
+            left: unset;
+            right: 0;
+        }
     }
 }

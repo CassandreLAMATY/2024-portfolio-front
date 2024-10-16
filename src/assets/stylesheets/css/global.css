@@ -58,6 +58,7 @@ button {
   top: 0.5rem;
   right: 0.5rem;
   border: 1px solid #f4e4ba;
+  pointer-events: none;
 }
 .btn-content {
   position: relative;
@@ -109,6 +110,9 @@ button {
 .btn_right .btn-shadow {
   right: -0.5rem;
   border-color: #bbdb9b;
+}
+.btn-link > button {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=global.css.map */

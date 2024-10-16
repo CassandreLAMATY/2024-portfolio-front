@@ -63,6 +63,8 @@ button {
         right: $grup-02;
 
         border: 1px solid $dutchWhite;
+
+        pointer-events: none;
     }
     
     &-content {
@@ -130,6 +132,12 @@ button {
             right: -$grup-02;
 
             border-color: $celadon;
+        }
+    }
+
+    &-link {
+        & > button {
+            cursor: pointer;
         }
     }
 }
