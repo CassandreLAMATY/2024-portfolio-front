@@ -33,6 +33,12 @@ p {
     line-height: 1.75rem;
   }
 }
+@media (min-width: 1024px) {
+  p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
 
 br {
   content: " ";
@@ -79,6 +85,11 @@ button {
     font-size: 1.5rem;
   }
 }
+@media (min-width: 1024px) {
+  .btn-icon {
+    font-size: 2rem;
+  }
+}
 .btn-title {
   font-family: Raleway;
   font-size: 16px;
@@ -90,6 +101,11 @@ button {
 @media (min-width: 768px) {
   .btn-title {
     font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .btn-title {
+    font-size: 1.5rem;
   }
 }
 .btn_dutchWhite .btn-icon {

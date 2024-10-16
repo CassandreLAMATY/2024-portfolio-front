@@ -253,6 +253,10 @@
         @include media-min(768px) {
             font-size: $grup;
         }
+
+        @include media-min(1024px) {
+            font-size: $grup01;
+        }
     }
 
     &-name {
@@ -284,6 +288,10 @@
 
         @include media-min(768px) {
             font-size: $grup05;
+        }
+
+        @include media-min(1280px) {
+            font-size: $grup06;
         }
     }
 
@@ -324,7 +332,7 @@
             column-gap: $grup02;
 
             width: 100%;
-            max-width: 1024px;
+            max-width: 1280px;
             height: fit-content;
             margin: 0 auto;
             padding: 0 $grup07;

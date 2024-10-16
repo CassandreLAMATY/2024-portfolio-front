@@ -33,6 +33,11 @@ p {
         font-size: $grup01;
         line-height: 1.75rem;
     }
+
+    @include media-min(1024px) {
+        font-size: $grup02;
+        line-height: $grup03;
+    }
 }
 
 br {
@@ -87,6 +92,10 @@ button {
         @include media-min(768px) {
             font-size: $grup02;
         }
+
+        @include media-min(1024px) {
+            font-size: $grup03;
+        }
     }
 
     &-title {
@@ -99,6 +108,10 @@ button {
 
         @include media-min(768px) {
             font-size: $grup01;
+        }
+
+        @include media-min(1024px) {
+            font-size: $grup02;
         }
     }
 

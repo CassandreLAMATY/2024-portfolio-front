@@ -214,6 +214,11 @@
     font-size: 16px;
   }
 }
+@media (min-width: 1024px) {
+  .me-overline {
+    font-size: 1.25rem;
+  }
+}
 .me-name {
   display: block;
   width: fit-content;
@@ -241,6 +246,11 @@
 @media (min-width: 768px) {
   .me-name {
     font-size: 4rem;
+  }
+}
+@media (min-width: 1280px) {
+  .me-name {
+    font-size: 6rem;
   }
 }
 @media (min-width: 512px) {
@@ -278,7 +288,7 @@
     grid-template-columns: repeat(12, 1fr);
     column-gap: 1.5rem;
     width: 100%;
-    max-width: 1024px;
+    max-width: 1280px;
     height: fit-content;
     margin: 0 auto;
     padding: 0 8rem;
