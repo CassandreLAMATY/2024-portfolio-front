@@ -65,6 +65,12 @@
   height: 35%;
   width: 35%;
 }
+@media (min-width: 1536px) {
+  .sun-container .sun-sphere {
+    height: 30%;
+    width: 30%;
+  }
+}
 .sun-container .sun-logo--container {
   position: relative;
   width: 100%;
@@ -98,6 +104,12 @@
 @media (min-width: 1024px) {
   .sun-container {
     transform: translate(calc(-32.5% + 3rem + 8rem), calc(-32.5% + 4rem));
+  }
+}
+@media (min-width: 1536px) {
+  .sun-container {
+    width: min(768px, 80%);
+    transform: translate(calc(-32.5% + 3rem + 8rem), calc(-32.5% + 2rem));
   }
 }
 

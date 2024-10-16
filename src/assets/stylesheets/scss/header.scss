@@ -76,6 +76,11 @@
             border-radius: 50%;
             height: 35%;
             width: 35%;
+
+            @include media-min(1536px) {
+                height: 30%;
+                width: 30%;
+            }
         }
 
         &-logo--container {
@@ -122,6 +127,15 @@
         transform: translate(
             calc(-50% + 35% / 2 + $grup04 + $grup07),
             calc(-50% + 35% / 2 + $grup05)
+        );
+    }
+
+    @include media-min(1536px) {
+        width: min(768px, 80%);
+
+        transform: translate(
+            calc(-50% + 35% / 2 + $grup04 + $grup07),
+            calc(-50% + 35% / 2 + $grup03)
         );
     }
 }
