@@ -136,7 +136,10 @@ button {
     }
 
     &-link {
-        & > button {
+        display: block;
+        flex : 1;
+
+        & > .btn {
             cursor: pointer;
         }
     }

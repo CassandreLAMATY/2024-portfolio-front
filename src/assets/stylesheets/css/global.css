@@ -111,7 +111,11 @@ button {
   right: -0.5rem;
   border-color: #bbdb9b;
 }
-.btn-link > button {
+.btn-link {
+  display: block;
+  flex: 1;
+}
+.btn-link > .btn {
   cursor: pointer;
 }
 
