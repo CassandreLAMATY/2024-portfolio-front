@@ -80,10 +80,7 @@
             fill-opacity: 0.12;
 
             animation: 
-                sun-glow 2s infinite ease-out,
-                sun-spin 32s infinite linear;
-
-            transition: transform 0.2s ease-in-out;
+                sun-glow 2s infinite ease-out;
 
             @include media-min(1536px) {
                 height: 35%;

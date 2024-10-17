@@ -2,15 +2,20 @@
 import { onMounted } from 'vue';
 
 import { meHeightCalc } from '@/assets/javascripts/header';
+import { sunGlowAnimation } from '@/assets/javascripts/animations';
 
 import ToAnimateLogoSVG from '@/components/icons/ToAnimateLogoSVG.vue';
-import LogoSVG from '@/components/icons/LogoSVG.vue';
 import WavyCircleSVG from '@/components/icons/WavyCircleSVG.vue';
 
 onMounted(() => {
     meHeightCalc();
+    sunGlowAnimation();
 
     window.addEventListener('resize', () => {
+        meHeightCalc();
+    });
+
+    window.removeEventListener('resize', () => {
         meHeightCalc();
     });
 });

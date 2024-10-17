@@ -148,8 +148,7 @@
   height: 40%;
   fill: #f4e4ba;
   fill-opacity: 0.12;
-  animation: sun-glow 2s infinite ease-out, sun-spin 32s infinite linear;
-  transition: transform 0.2s ease-in-out;
+  animation: sun-glow 2s infinite ease-out;
 }
 @media (min-width: 1536px) {
   .sun-container .sun-glow {
