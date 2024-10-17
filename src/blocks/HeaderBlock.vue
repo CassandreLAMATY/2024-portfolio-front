@@ -4,6 +4,7 @@ import { onMounted } from 'vue';
 import { meHeightCalc } from '@/assets/javascripts/header';
 
 import LogoSVG from '@/components/icons/LogoSVG.vue';
+import WavyCircleSVG from '@/components/icons/WavyCircleSVG.vue';
 
 onMounted(() => {
     meHeightCalc();
@@ -21,6 +22,7 @@ onMounted(() => {
                 <div class="sun">
                     <div class="sun-aura" id="aura01"></div>
                     <div class="sun-aura" id="aura02"></div>
+                    <WavyCircleSVG class="sun-glow" />
                     <div class="sun-sphere">
                         <div class="sun-logo--container">
                             <LogoSVG class="sun-logo" />

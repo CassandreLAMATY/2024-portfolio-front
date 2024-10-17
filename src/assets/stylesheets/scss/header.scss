@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'animations';
 
 .bg {
     position: relative;
@@ -63,6 +64,28 @@
             &#aura02 {
                 width: 65%;
                 height: 65%;
+            }
+        }
+
+        &-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 40%;
+            height: 40%;
+
+            fill: $dutchWhite;
+            fill-opacity: 0.12;
+
+            animation: 
+                sun-glow 2s infinite ease-out,
+                sun-spin 32s infinite linear;
+
+            @include media-min(1536px) {
+                height: 35%;
+                width: 35%;
             }
         }
 
