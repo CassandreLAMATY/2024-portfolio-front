@@ -18,5 +18,68 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+/* LOGO */
+@keyframes logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(100deg);
+  }
+  80% {
+    transform: rotate(100deg);
+  }
+  98% {
+    transform: rotate(88deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes logo-spin_sun {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(100deg);
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(100deg);
+  }
+  98% {
+    transform: translate(-50%, -50%) rotate(88deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+.logo-animation {
+  transition: transform 0.2s ease-in;
+}
+.logo-animation:hover {
+  cursor: pointer;
+  transform: rotate(90deg);
+  transition: transform 0.5s ease-out;
+  animation: logo-spin 0.5s;
+}
+.logo-animation:hover.sun-logo {
+  transform: translate(-50%, -50%) rotate(90deg);
+  animation: logo-spin_sun 0.5s;
+}
+.logo-animation:hover #hyphen {
+  transform: translateX(8px);
+}
+.logo-animation:hover #bracket {
+  transform: translateX(14px);
+}
+.logo-animation:hover #Bbumps {
+  transform: translateX(-9px);
+}
+.logo-animation:hover #Bbar {
+  transform: translateX(-5.5px);
+}
+.logo-animation #hyphen, .logo-animation #bracket, .logo-animation #Bbumps, .logo-animation #Bbar {
+  transition: transform 0.4s;
+}
 
 /*# sourceMappingURL=animations.css.map */

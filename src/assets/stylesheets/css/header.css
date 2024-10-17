@@ -19,6 +19,70 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+/* LOGO */
+@keyframes logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(100deg);
+  }
+  80% {
+    transform: rotate(100deg);
+  }
+  98% {
+    transform: rotate(88deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes logo-spin_sun {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(100deg);
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(100deg);
+  }
+  98% {
+    transform: translate(-50%, -50%) rotate(88deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+.logo-animation {
+  transition: transform 0.2s ease-in;
+}
+.logo-animation:hover {
+  cursor: pointer;
+  transform: rotate(90deg);
+  transition: transform 0.5s ease-out;
+  animation: logo-spin 0.5s;
+}
+.logo-animation:hover.sun-logo {
+  transform: translate(-50%, -50%) rotate(90deg);
+  animation: logo-spin_sun 0.5s;
+}
+.logo-animation:hover #hyphen {
+  transform: translateX(8px);
+}
+.logo-animation:hover #bracket {
+  transform: translateX(14px);
+}
+.logo-animation:hover #Bbumps {
+  transform: translateX(-9px);
+}
+.logo-animation:hover #Bbar {
+  transform: translateX(-5.5px);
+}
+.logo-animation #hyphen, .logo-animation #bracket, .logo-animation #Bbumps, .logo-animation #Bbar {
+  transition: transform 0.4s;
+}
+
 .bg {
   position: relative;
   height: max(25dvh, 196px);
@@ -85,6 +149,7 @@
   fill: #f4e4ba;
   fill-opacity: 0.12;
   animation: sun-glow 2s infinite ease-out, sun-spin 32s infinite linear;
+  transition: transform 0.2s ease-in-out;
 }
 @media (min-width: 1536px) {
   .sun-container .sun-glow {
@@ -101,6 +166,26 @@
   border-radius: 50%;
   height: 35%;
   width: 35%;
+  transition: transform 0.2s ease-in-out;
+}
+.sun-container .sun-sphere:hover {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+.sun-container .sun-sphere:hover .sun-logo {
+  transform: translate(-50%, -50%) rotate(90deg);
+  animation: logo-spin_sun 0.5s;
+}
+.sun-container .sun-sphere:hover .sun-logo #hyphen {
+  transform: translateX(8px);
+}
+.sun-container .sun-sphere:hover .sun-logo #bracket {
+  transform: translateX(14px);
+}
+.sun-container .sun-sphere:hover .sun-logo #Bbumps {
+  transform: translateX(-9px);
+}
+.sun-container .sun-sphere:hover .sun-logo #Bbar {
+  transform: translateX(-5.5px);
 }
 @media (min-width: 1536px) {
   .sun-container .sun-sphere {
@@ -118,9 +203,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 55%;
-  height: 55%;
+  width: 65%;
+  height: 65%;
   fill: #99715b;
+  transition: transform 0.2s ease-in;
+}
+.sun-container .sun-logo #hyphen, .sun-container .sun-logo #bracket, .sun-container .sun-logo #Bbumps, .sun-container .sun-logo #Bbar {
+  transition: transform 0.4s;
 }
 @media (min-width: 450px) {
   .sun-container {
@@ -165,6 +254,7 @@
   min-width: fit-content;
   width: 100%;
   height: max(25dvh, 196px);
+  pointer-events: none;
 }
 .mountains-container {
   position: relative;

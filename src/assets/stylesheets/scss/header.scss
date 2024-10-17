@@ -83,6 +83,8 @@
                 sun-glow 2s infinite ease-out,
                 sun-spin 32s infinite linear;
 
+            transition: transform 0.2s ease-in-out;
+
             @include media-min(1536px) {
                 height: 35%;
                 width: 35%;
@@ -99,6 +101,37 @@
             border-radius: 50%;
             height: 35%;
             width: 35%;
+
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                transform: 
+                    translate(-50%, -50%)
+                    scale(1.04);
+
+                & .sun-logo {
+                    transform:
+                        translate(-50%, -50%) 
+                        rotate(90deg);
+                    animation: logo-spin_sun 0.5s;
+
+                    & #hyphen{
+                        transform: translateX(8px);
+                    }
+            
+                    & #bracket{
+                        transform: translateX(14px);
+                    }
+            
+                    & #Bbumps{
+                        transform: translateX(-9px);
+                    }
+            
+                    & #Bbar{
+                        transform: translateX(-5.5px);
+                    }
+                }
+            }
 
             @include media-min(1536px) {
                 height: 30%;
@@ -119,10 +152,16 @@
             left: 50%;
             transform: translate(-50%, -50%);
 
-            width: 55%;
-            height: 55%;
+            width: 65%;
+            height: 65%;
 
             fill: $chamoisee;
+
+            transition: transform 0.2s ease-in;
+
+            #hyphen, #bracket, #Bbumps, #Bbar{
+                transition: transform 0.4s;
+            }
         }
     }
 
@@ -181,6 +220,8 @@
     min-width: fit-content;
     width: 100%;
     height: max(round(25dvh), 196px);
+
+    pointer-events: none;
 
     &-container {
         position: relative;
