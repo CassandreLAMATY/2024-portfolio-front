@@ -277,6 +277,30 @@
 
         background: linear-gradient(to bottom, $vanDyke 0%, #57423e 100%);
 
+        &::after {
+            @include media-min(1280px) {
+                box-sizing: border-box;
+                content: " ";
+                display: block;
+
+                width: calc(100% - $grup02);
+                height: calc(100% - $grup02);
+                margin: $grup02 $grup02 0 0;
+
+                background-image: 
+                    url('@/assets/images/svg/HeaderStars.svg');
+                background-repeat: no-repeat;
+                mask-image: linear-gradient(to right, #0000 9%, #000F 98%, #0000 100%);
+                background-size: initial;
+                background-position: 0 -50%;
+            }
+
+            @include media-min(1536px) {
+                mask-image: linear-gradient(to right, #0000 2%, #000F 99%, #0000 100%);
+                background-position: unset;
+            }
+        }
+
         @include media-min(768px) {
             display: block;
         }
@@ -289,6 +313,13 @@
     @include media-min(1024px) {
         height: max(round(40dvh), 196px);
     }
+}
+
+.stars {
+    position: absolute;
+    top: $grup02;
+    right: $grup02;
+    z-index: 10;
 }
 
 .me {

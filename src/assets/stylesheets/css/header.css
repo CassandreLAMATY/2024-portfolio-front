@@ -302,6 +302,27 @@
   height: 100%;
   background: linear-gradient(to bottom, #443433 0%, #57423e 100%);
 }
+@media (min-width: 1280px) {
+  .mountains #mountain01-body::after {
+    box-sizing: border-box;
+    content: " ";
+    display: block;
+    width: calc(100% - 1.5rem);
+    height: calc(100% - 1.5rem);
+    margin: 1.5rem 1.5rem 0 0;
+    background-image: url("@/assets/images/svg/HeaderStars.svg");
+    background-repeat: no-repeat;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 9%, black 98%, rgba(0, 0, 0, 0) 100%);
+    background-size: initial;
+    background-position: 0 -50%;
+  }
+}
+@media (min-width: 1536px) {
+  .mountains #mountain01-body::after {
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 2%, black 99%, rgba(0, 0, 0, 0) 100%);
+    background-position: unset;
+  }
+}
 @media (min-width: 768px) {
   .mountains #mountain01-body {
     display: block;
@@ -316,6 +337,13 @@
   .mountains {
     height: max(40dvh, 196px);
   }
+}
+
+.stars {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
 }
 
 .me {
