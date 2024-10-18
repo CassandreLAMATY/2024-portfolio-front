@@ -126,6 +126,7 @@ onMounted(() => {
                 </div>
             </div>
         </div>
+        <div class="curves"></div>
     </header>
 </template>
 
