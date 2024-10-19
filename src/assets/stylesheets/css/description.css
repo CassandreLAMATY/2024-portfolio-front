@@ -154,7 +154,7 @@
   }
 }
 .desc-cv .btn_secondary {
-  width: calc(50% - 0.75rem);
+  width: calc(50% - 16px);
   margin-left: auto;
 }
 @media (min-width: 584px) {

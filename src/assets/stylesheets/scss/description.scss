@@ -157,7 +157,7 @@
         }
         
         & .btn_secondary {
-            width: calc(100% / 2 - $grup-01);
+            width: calc(100% / 2 - $grup);
             margin-left: auto;
 
             @include media-min(584px) {
