@@ -13,10 +13,14 @@ header {
         z-index: 1;
 
         background-image: url('@/assets/images/svg/Curves01.svg');
-        background-position-x: 60%;
-        background-position-y: 30%;
+        background-position-x: 59%;
+        background-position-y: 29%;
 
         pointer-events: none;
+
+        @include media-min(512px) {
+            background-position-y: 27%;
+        }
     }
 }
 
@@ -50,7 +54,7 @@ header {
     }
 
     @include media-min(1024px) {
-        height: max(round(40dvh), 196px);
+        height: max(round(40dvh), 256px);
     }
 }
 
@@ -331,7 +335,7 @@ header {
     }
 
     @include media-min(1024px) {
-        height: max(round(40dvh), 196px);
+        height: max(round(40dvh), 256px);
     }
 }
 
