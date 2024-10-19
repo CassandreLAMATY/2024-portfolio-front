@@ -14,6 +14,14 @@
         "scss": "sass --watch src/assets/stylesheets/scss:src/assets/stylesheets/css"
     },
     "dependencies": {
+        "@awesome.me/kit-2bbb52b632": "^1.0.7",
+        "@fortawesome/fontawesome-svg-core": "^6.6.0",
+        "@fortawesome/free-brands-svg-icons": "^6.6.0",
+        "@fortawesome/free-regular-svg-icons": "^6.6.0",
+        "@fortawesome/free-solid-svg-icons": "^6.6.0",
+        "@fortawesome/pro-regular-svg-icons": "^6.6.0",
+        "@fortawesome/vue-fontawesome": "^3.0.8",
+        "gsap": "^3.12.5",
         "pinia": "^2.1.7",
         "scss": "^0.2.4",
         "vue": "^3.4.29",

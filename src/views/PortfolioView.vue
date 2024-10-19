@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeaderBlock from '@/blocks/HeaderBlock.vue';
+import DescriptionBlock from '@/blocks/DescriptionBlock.vue';
+</script>
 
 <template>
-    <main></main>
+    <HeaderBlock />
+    <DescriptionBlock />
 </template>
