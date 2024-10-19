@@ -112,6 +112,7 @@ onMounted(() => {
                 </div>
                 <div id="mountain01-body"></div>
             </div>
+            <!-- <HeaderStarsSVG class="stars" /> -->
         </div>
         <div class="me-container">
             <div class="me-grid">
@@ -124,6 +125,7 @@ onMounted(() => {
                 </div>
             </div>
         </div>
+        <div class="curves"></div>
     </header>
 </template>
 
