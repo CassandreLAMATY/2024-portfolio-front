@@ -308,15 +308,16 @@ header {
 
                 background-image: 
                     url('@/assets/images/svg/HeaderStars.svg');
-                background-repeat: no-repeat;
+                background-repeat: repeat-x;
                 mask-image: linear-gradient(to right, #0000 9%, #000F 98%, #0000 100%);
                 background-size: initial;
-                background-position: 0 -50%;
+                background-position: right -50%;
             }
 
             @include media-min(1536px) {
                 mask-image: linear-gradient(to right, #0000 2%, #000F 99%, #0000 100%);
                 background-position: unset;
+                background-position-x: right;
             }
         }
 

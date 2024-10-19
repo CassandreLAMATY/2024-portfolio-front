@@ -6,7 +6,6 @@ import { sunGlowAnimation } from '@/assets/javascripts/animations';
 
 import ToAnimateLogoSVG from '@/components/icons/ToAnimateLogoSVG.vue';
 import WavyCircleSVG from '@/components/icons/WavyCircleSVG.vue';
-import HeaderStarsSVG from '@/components/icons/HeaderStarsSVG.vue';
 
 onMounted(() => {
     meHeightCalc();

@@ -327,16 +327,17 @@ header .curves {
     height: calc(100% - 1.5rem);
     margin: 1.5rem 1.5rem 0 0;
     background-image: url("@/assets/images/svg/HeaderStars.svg");
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 9%, black 98%, rgba(0, 0, 0, 0) 100%);
     background-size: initial;
-    background-position: 0 -50%;
+    background-position: right -50%;
   }
 }
 @media (min-width: 1536px) {
   .mountains #mountain01-body::after {
     mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 2%, black 99%, rgba(0, 0, 0, 0) 100%);
     background-position: unset;
+    background-position-x: right;
   }
 }
 @media (min-width: 768px) {
