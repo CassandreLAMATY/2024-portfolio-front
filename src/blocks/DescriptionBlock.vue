@@ -17,13 +17,15 @@ import LogoSVG from '@/components/icons/LogoSVG.vue';
                 <div class="desc-btn--container">
                     <div class="desc-btn_left">
                         <a class="btn-link" href="https://www.linkedin.com/in/cassandre-lamaty/" target="_blank">
-                            <ButtonPrimary title="LinkedIn" :icon="['fab', 'fa-linkedin']" classes="btn_left btn_dutchWhite" />
+                            <ButtonPrimary title="LinkedIn" :icon="['fab', 'fa-linkedin']" classes="btn_primary btn_dutchWhite" />
                         </a>
                         <a class="btn-link" href="https://www.behance.net/lamatycassandre" target="_blank">
-                            <ButtonPrimary title="Behance" :icon="['fab', 'fa-square-behance']" classes="btn_left btn_mistyRose" />
+                            <ButtonPrimary title="Behance" :icon="['fab', 'fa-square-behance']" classes="btn_primary btn_mistyRose" />
                         </a>
                     </div>
-                    <ButtonPrimary title="C.V" :icon="['far', 'folder-user']" classes="btn_right desc-cv" />
+                    <a class="btn-link desc-cv" href="" target="_blank">
+                        <ButtonPrimary title="C.V" :icon="['far', 'folder-user']" classes="btn_secondary" />
+                    </a>
                 </div>
             </div>
         </div>

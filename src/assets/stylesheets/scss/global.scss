@@ -57,6 +57,23 @@ button {
     position: relative;
 
     max-width: $grup08;
+    max-height: 100%;
+
+    &:hover {
+        &.btn_primary {
+            & > .btn-content {
+                background-color: #ba8c69;
+                border: 1px solid $dutchWhite;
+            }
+        }
+
+        &.btn_secondary {
+            & > .btn-content {
+                background-color: #f8eed9;
+                border: 1px solid $celadon;
+            }
+        }
+    }
 
     &-shadow {
         position: absolute;
@@ -82,7 +99,9 @@ button {
 
         width: 100%;
         height: 100%;
-        padding: $grup-01 $grup;
+        padding: calc($grup-01 - 2px) calc($grup - 2px);
+
+        transition: 0.2s ease-out;
     }
 
     &-icon {
@@ -128,12 +147,14 @@ button {
         }
     }
 
-    &_left .btn-content {
+    &_primary .btn-content {
+        border: 1px solid $chamoisee;
         background-color: $chamoisee;
     }
 
-    &_right {
+    &_secondary {
         & .btn-content {
+            border: 1px solid $dutchWhite;
             background-color: $dutchWhite;
     
             & .btn-icon, & .btn-title {

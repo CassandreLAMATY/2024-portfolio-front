@@ -31,10 +31,6 @@
         @include media-min(1536px) {
             padding: $grup06 $grup08;
         }
-
-        @include media-min(2048px) {
-            padding: 0;
-        }
     }
 
     &-content {
@@ -114,7 +110,7 @@
             min-width: fit-content;
             width: 100%;
 
-            & .btn_left {
+            & .btn {
                 min-width: fit-content;
                 width: 100%;
             }
@@ -136,6 +132,14 @@
     }
 
     &-cv {
+        @include media-min(584px) {
+            grid-column: 10 / 13;
+        }
+
+        @include media-min(1024px) {
+            grid-column: 5 / 7;
+        }
+
         .btn-shadow {
             right: $grup-02;
 
@@ -152,12 +156,11 @@
             }
         }
         
-        &.btn_right {
+        & .btn_secondary {
             width: calc(100% / 2 - $grup-01);
             margin-left: auto;
 
             @include media-min(584px) {
-                grid-column: 10 / 13;
                 min-width: fit-content;
                 width: 100%;
             }
@@ -169,8 +172,6 @@
             }
 
             @include media-min(1024px) {
-                grid-column: 5 / 7;
-
                 transform: translateY(0);
             }
         }
