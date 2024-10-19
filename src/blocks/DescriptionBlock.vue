@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import ButtonPrimary from '@/components/ButtonPrimary.vue';
 import LogoSVG from '@/components/icons/LogoSVG.vue';
+
+import CV from '@/assets/documents/CV_LAMATY-Cassandre_FULLSTACKDEV.pdf';
 </script>
 
 <template>
@@ -23,7 +25,7 @@ import LogoSVG from '@/components/icons/LogoSVG.vue';
                             <ButtonPrimary title="Behance" :icon="['fab', 'fa-square-behance']" classes="btn_primary btn_mistyRose" />
                         </a>
                     </div>
-                    <a class="btn-link desc-cv" href="" target="_blank">
+                    <a class="btn-link desc-cv" :href="CV" target="_blank">
                         <ButtonPrimary title="C.V" :icon="['far', 'folder-user']" classes="btn_secondary" />
                     </a>
                 </div>
