@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+.bento-container {
+  padding: 2rem 1.5rem;
+  background: linear-gradient(to bottom, #75574d, #99715b);
+}
+.bento-container .welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.bento-container .welcome-overline, .bento-container .welcome-title {
+  width: fit-content;
+  font-family: Raleway;
+  text-transform: uppercase;
+}
+.bento-container .welcome-overline {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #f9f9f9;
+  font-feature-settings: "ss09" on;
+}
+.bento-container .welcome-title--container {
+  position: relative;
+}
+.bento-container .welcome-title--container #spark01, .bento-container .welcome-title--container #spark02, .bento-container .welcome-title--container #spark03 {
+  position: absolute;
+  color: #f9f9f9;
+}
+.bento-container .welcome-title--container #spark01 {
+  top: 0.75rem;
+  right: -2rem;
+  font-size: 1.25rem;
+  color: #f4e4ba;
+}
+.bento-container .welcome-title--container #spark02 {
+  bottom: -0.75rem;
+  right: 0.5rem;
+  font-size: 16px;
+  color: #bbdb9b;
+}
+.bento-container .welcome-title--container #spark03 {
+  top: -0.5rem;
+  right: -0.25rem;
+  font-size: 0.75rem;
+  color: #ffe3e0;
+}
+.bento-container .welcome-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 0.5px #f9f9f9;
+}
+.bento-container .welcome-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.bento-container .welcome-dots .dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #f9f9f9;
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=bento.css.map */

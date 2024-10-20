@@ -1,0 +1,86 @@
+@import 'variables';
+
+.bento-container {
+    padding: $grup03 $grup02;
+    background: linear-gradient(to bottom, #75574d, $chamoisee);
+
+    .welcome {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $grup;
+
+        &-overline,
+        &-title {
+            width: fit-content;
+
+            font-family: Raleway;
+            text-transform: uppercase;
+        }
+
+        &-overline {
+            font-size: $grup-01;
+            font-weight: 400;
+            color: $seasalt;
+            font-feature-settings: 'ss09' on;
+        }
+
+        &-title--container {
+            position: relative;
+
+            & #spark01,
+            & #spark02,
+            & #spark03 {
+                position: absolute;
+                color: $seasalt;
+            }
+
+            & #spark01 {
+                top: $grup-01;
+                right: -$grup03;
+
+                font-size: $grup01;
+                color: $dutchWhite;
+            }
+
+            & #spark02 {
+                bottom: -$grup-01;
+                right: $grup-02;
+
+                font-size: $grup;
+                color: $celadon;
+            }
+
+            & #spark03 {
+                top: -$grup-02;
+                right: -$grup-03;
+
+                font-size: $grup-01;
+                color: $mistyRose;
+            }
+        }
+
+        &-title {
+            font-size: $grup04;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 0.5px $seasalt;
+
+            
+        }
+
+        &-dots {
+            display: flex;
+            flex-direction: column;
+            gap: $grup;
+
+            & .dot {
+                width: $grup-03;
+                height: $grup-03;
+
+                background-color: $seasalt;
+                border-radius: 50%;
+            }
+        }
+    }
+}

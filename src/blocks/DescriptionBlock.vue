@@ -6,7 +6,7 @@ import CV from '@/assets/documents/CV_LAMATY-Cassandre_FULLSTACKDEV.pdf';
 </script>
 
 <template>
-    <div class="desc">
+    <section class="desc">
         <LogoSVG class="desc-logo" />
         <div class="desc-grid">
             <div class="desc-content">
@@ -31,7 +31,7 @@ import CV from '@/assets/documents/CV_LAMATY-Cassandre_FULLSTACKDEV.pdf';
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <style>

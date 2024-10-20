@@ -72,7 +72,7 @@ onMounted(() => {
                         <defs>
                             <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="67%"  gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" style="stop-color: #433432; stop-opacity: 1" />
-                                <stop offset="100%" style="stop-color: #57423e; stop-opacity: 1" />
+                                <stop offset="100%" style="stop-color: #533f3b; stop-opacity: 1" />
                             </linearGradient>
                         </defs>
                     </svg>
