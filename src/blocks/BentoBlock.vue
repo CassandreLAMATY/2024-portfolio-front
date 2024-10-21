@@ -15,9 +15,11 @@
             </div>
         </div>
         <div class="bento">
-            <h2>What would you like to see first ?</h2>
+            <h2 class="bento-heading">What would you like to see first ?</h2>
             <div class="bento-grid">
                 <div class="bento-card" id="artworks">
+                    <div class="bento-card--bg"></div>
+
                     <div class="bento-title--container">
                         <h2>Artworks</h2>
                         <div class="bento-subtitles--container">
@@ -33,17 +35,18 @@
                             <h3>Video</h3>
                             <h3>Photography</h3>
                         </div>
-                        <h2>Artworks</h2>
+                        <h2>Audiovisual</h2>
                     </div>
                 </div>
                 <div class="bento-card" id="uiux">
                     <div class="bento-title--container">
-                        <h2>UI / UX</h2>
+                        <h2>UI<span>/</span>UX</h2>
                     </div>
                 </div>
                 <div class="bento-card" id="design">
+                    <div class="bento-card--bg"></div>
                     <div class="bento-title--container">
-                        <h2>Graphic design</h2>
+                        <h2>Graphic<br>Design</h2>
                     </div>
                 </div>
                 <div class="bento-card" id="dev">
