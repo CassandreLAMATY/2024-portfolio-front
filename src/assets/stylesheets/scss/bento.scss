@@ -8,6 +8,10 @@
     padding: $grup03 $grup02;
     background: linear-gradient(to bottom, #75574d, $chamoisee);
 
+    @include media-min(768px) {
+        padding: $grup05 $grup03;
+    }
+
     .welcome {
         display: flex;
         flex-direction: column;
@@ -124,6 +128,16 @@
                 height: 0.5px;
 
                 background-color: $seasalt;
+
+                @include media-min(512px) {
+                    top: 27px;
+                }
+
+                @include media-min(768px) {
+                    left: -$grup03;
+
+                    width: $grup03;
+                }
             }
         }
 
@@ -136,7 +150,21 @@
             "audiovisual"
             "uiux"
             "dev";
-            gap: $grup;
+            gap: $grup02;
+
+            @include media-min(584px) {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                grid-template-areas: 
+                    "artworks design"
+                    "audiovisual dev"
+                    "uiux        dev";
+                gap: $grup;
+            }
+
+            @include media-min(768px) {
+                gap: $grup02;
+            }
 
             & .bento-card {
                 position: relative;
@@ -251,13 +279,20 @@
                     transform: translateY(-50%);
     
                     & > h2 {
+                        color: $chamoisee;
+                        line-height: $grup;
+                        letter-spacing: -$grup-03;
                         text-orientation: upright;
                         writing-mode: vertical-lr;
-                        color: $chamoisee;
 
                         & > span {
                             padding: $grup-02 0;
                         }
+                    }
+
+                    @include media-min(584px) {
+                        left: $grup;
+                        right: unset;
                     }
                 }
             }
@@ -334,7 +369,20 @@
     
                     & > h2 {
                         color: $chamoisee;
+
+                        @include media-min(584px) {
+                            text-align: right; 
+                        }
                     }
+
+                    @include media-min(584px) {
+                           left: $grup; 
+                    }
+                }
+
+                @include media-min(584px) {
+                    height: 100%;
+                    aspect-ratio: unset;
                 }
             }
 

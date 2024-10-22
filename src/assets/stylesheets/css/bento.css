@@ -6,6 +6,11 @@
   padding: 2rem 1.5rem;
   background: linear-gradient(to bottom, #75574d, #99715b);
 }
+@media (min-width: 768px) {
+  .bento-container {
+    padding: 4rem 2rem;
+  }
+}
 .bento-container .welcome {
   display: flex;
   flex-direction: column;
@@ -95,11 +100,35 @@
   height: 0.5px;
   background-color: #f9f9f9;
 }
+@media (min-width: 512px) {
+  .bento-container .bento-heading::before {
+    top: 27px;
+  }
+}
+@media (min-width: 768px) {
+  .bento-container .bento-heading::before {
+    left: -2rem;
+    width: 2rem;
+  }
+}
 .bento-container .bento-grid {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   grid-template-areas: "artworks" "design" "audiovisual" "uiux" "dev";
-  gap: 16px;
+  gap: 1.5rem;
+}
+@media (min-width: 584px) {
+  .bento-container .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "artworks design" "audiovisual dev" "uiux        dev";
+    gap: 16px;
+  }
+}
+@media (min-width: 768px) {
+  .bento-container .bento-grid {
+    gap: 1.5rem;
+  }
 }
 .bento-container .bento-grid .bento-card {
   position: relative;
@@ -191,12 +220,20 @@
   transform: translateY(-50%);
 }
 .bento-container .bento-grid #uiux .bento-title--container > h2 {
+  color: #99715b;
+  line-height: 16px;
+  letter-spacing: -0.25rem;
   text-orientation: upright;
   writing-mode: vertical-lr;
-  color: #99715b;
 }
 .bento-container .bento-grid #uiux .bento-title--container > h2 > span {
   padding: 0.5rem 0;
+}
+@media (min-width: 584px) {
+  .bento-container .bento-grid #uiux .bento-title--container {
+    left: 16px;
+    right: unset;
+  }
 }
 .bento-container .bento-grid #design {
   grid-area: design;
@@ -254,6 +291,22 @@
 }
 .bento-container .bento-grid #dev .bento-title--container > h2 {
   color: #99715b;
+}
+@media (min-width: 584px) {
+  .bento-container .bento-grid #dev .bento-title--container > h2 {
+    text-align: right;
+  }
+}
+@media (min-width: 584px) {
+  .bento-container .bento-grid #dev .bento-title--container {
+    left: 16px;
+  }
+}
+@media (min-width: 584px) {
+  .bento-container .bento-grid #dev {
+    height: 100%;
+    aspect-ratio: unset;
+  }
 }
 .bento-container .bento-grid .bento-title--container {
   position: absolute;
