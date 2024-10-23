@@ -1,15 +1,32 @@
 @import 'variables';
 
 .bento-container {
-    display: flex;
-    flex-direction: column;
-    gap: $grup03;
-
-    padding: $grup03 $grup02;
     background: linear-gradient(to bottom, #75574d, $chamoisee);
 
-    @include media-min(768px) {
-        padding: $grup05 $grup03;
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: $grup03;
+    
+        padding: $grup03 $grup02;
+
+        @include media-min(768px) {
+            gap: $grup05;
+    
+            padding: $grup05;
+        }
+    
+        @include media-min(1024px) {
+            padding: $grup05 $grup07;
+        }
+    
+        @include media-min(1536px) {
+            box-sizing: content-box;
+    
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: $grup06 $grup08;
+        }
     }
 
     .welcome {
@@ -30,6 +47,14 @@
             font-size: $grup-01;
             font-weight: 400;
             color: $seasalt;
+
+            @include media-min(768px) {
+                font-size: $grup;
+            }
+
+            @include media-min(1024px) {
+                font-size: $grup01;
+            }
         }
 
         &-title--container {
@@ -73,7 +98,17 @@
             color: transparent;
             -webkit-text-stroke: 0.5px $seasalt;
 
-            
+            @include media-min(512px) {
+                font-size: $grup05;
+            }
+
+            @include media-min(1024px) {
+                font-size: $grup06;
+            }
+
+            @include media-min(1536px) {
+                font-size: $grup07;
+            }
         }
 
         &-dots {
@@ -97,6 +132,10 @@
         flex-direction: column;
         gap: $grup02;
 
+        @include media-min(768px) {
+            gap: $grup03;
+        }
+
         &-heading {
             position: relative;
 
@@ -114,6 +153,10 @@
             text-underline-offset: $grup-03;
             text-wrap: pretty;
             color: transparent;
+
+            @include media-min(768px) {
+                text-underline-offset: $grup-02;
+            }
 
             &::before {
                 position: absolute;
@@ -134,9 +177,23 @@
                 }
 
                 @include media-min(768px) {
-                    left: -$grup03;
+                    top: 31px;
+                    left: -$grup05;
 
-                    width: $grup03;
+                    width: $grup05;
+                }
+
+                @include media-min(1024px) {
+                    top: 31px;
+                    left: -$grup07;
+
+                    width: $grup07;
+                }
+
+                @include media-min(1536px) {
+                    left: -3360px;
+
+                    width: 3360px;
                 }
             }
         }
@@ -166,6 +223,14 @@
                 gap: $grup02;
             }
 
+            @include media-min(1280px) {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-areas: 
+                "artworks audiovisual uiux"
+                "design   dev         dev";
+            }
+
             & .bento-card {
                 position: relative;
 
@@ -174,6 +239,10 @@
 
                 border-radius: $grup;
                 box-shadow: -2px 4px 8px #4434333D;
+
+                @include media-min(896px) {
+                    padding: $grup $grup02;
+                }
             }
 
             & #artworks {
@@ -202,6 +271,11 @@
                     display: flex;
                     flex-direction: column;
                     gap: $grup-04;
+
+                    @include media-min(896px) {
+                        top: $grup;
+                        left: $grup02;
+                    }
     
                     & > h2 {
                         color: $seasalt;
@@ -222,7 +296,7 @@
                             font-weight: 800;
                             font-style: italic;
                             text-transform: uppercase;
-                            color: $mistyRose;
+                            color: $vanDyke;
                         }
                     }
                 }
@@ -241,6 +315,11 @@
                     display: flex;
                     flex-direction: column;
                     gap: $grup-04;
+
+                    @include media-min(896px) {
+                        left: $grup02;
+                        bottom: $grup;
+                    }
     
                     & > h2 {
                         color: $seasalt;
@@ -256,12 +335,14 @@
                         gap: $grup-04;
 
                         & > h3 {
+                            width: fit-content;
+
                             font-family: Raleway;
                             font-size: $grup;
                             font-weight: 800;
                             font-style: italic;
+                            color: $vanDyke;
                             text-transform: uppercase;
-                            color: $mistyRose;
                         }
                     }
                 }
@@ -277,6 +358,20 @@
                     top: 50%;
 
                     transform: translateY(-50%);
+
+                    @include media-min(584px) {
+                        left: $grup;
+                        right: unset;
+                    }
+
+                    @include media-min(896px) {
+                        left: $grup02;
+                    }
+
+                    @include media-min(1280px) {
+                        left: unset;
+                        right: $grup02;
+                    }
     
                     & > h2 {
                         color: $chamoisee;
@@ -288,11 +383,6 @@
                         & > span {
                             padding: $grup-02 0;
                         }
-                    }
-
-                    @include media-min(584px) {
-                        left: $grup;
-                        right: unset;
                     }
                 }
             }
@@ -317,8 +407,13 @@
                 }
 
                 & .bento-title--container {
-                    right: $grup;
                     top: $grup-01;
+                    right: $grup;
+
+                    @include media-min(896px) {
+                        top: $grup;
+                        right: $grup02;
+                    }
     
                     & > h2 {
                         text-align: right;
@@ -336,6 +431,11 @@
                 grid-area: dev;
 
                 background-color: $dutchWhite;
+
+                @include media-min(584px) {
+                    height: 100%;
+                    aspect-ratio: unset;
+                }
 
                 & .bento-card--bg {
                     position: absolute;
@@ -358,14 +458,37 @@
                         color: $seasalt;
 
                         transform: 
+                            translateY(-35%)
+                            rotate(-24deg);
+
+                        @include media-min(584px) {
+                            width: 300%;
+                            
+                            transform: 
                             translate(-20%, -35%)
                             rotate(-24deg);
+                        }
+
+                        @include media-min(1024px) {
+                            font-size: $grup03;
+                            line-height: $grup05;
+                            letter-spacing: 1px;
+                        }
                     }
                 }
 
                 & .bento-title--container {
                     right: $grup;
                     bottom: $grup-01;
+
+                    @include media-min(584px) {
+                        left: $grup; 
+                    }
+
+                    @include media-min(896px) {
+                        right: $grup02;
+                        bottom: $grup;
+                    }
     
                     & > h2 {
                         color: $chamoisee;
@@ -374,15 +497,6 @@
                             text-align: right; 
                         }
                     }
-
-                    @include media-min(584px) {
-                           left: $grup; 
-                    }
-                }
-
-                @include media-min(584px) {
-                    height: 100%;
-                    aspect-ratio: unset;
                 }
             }
 
