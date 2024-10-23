@@ -73,6 +73,21 @@
 
                 font-size: $grup01;
                 color: $dutchWhite;
+
+                @include media-min(512px) {
+                    font-size: $grup02;
+                }
+
+                @include media-min(1024px) {
+                    top: $grup;
+                    right: -$grup05;
+
+                    font-size: $grup04;
+                }
+
+                @include media-min(1536px) {
+                    top: $grup02;
+                }
             }
 
             & #spark02 {
@@ -81,6 +96,23 @@
 
                 font-size: $grup;
                 color: $celadon;
+
+                @include media-min(512px) {
+                    right: $grup-03;
+
+                    font-size: $grup01;
+                }
+
+                @include media-min(1024px) {
+                    right: -$grup;
+
+                    font-size: $grup03;
+                }
+
+                @include media-min(1536px) {
+                    right: -$grup;
+                    bottom: 0;
+                }
             }
 
             & #spark03 {
@@ -89,6 +121,20 @@
 
                 font-size: $grup-01;
                 color: $mistyRose;
+
+                @include media-min(512px) {
+                    font-size: $grup;
+                }
+
+                @include media-min(1024px) {
+                    right: -$grup;
+
+                    font-size: $grup02;
+                }
+
+                @include media-min(1536px) {
+                    right: 0;
+                }
             }
         }
 
@@ -97,6 +143,8 @@
             font-weight: 900;
             color: transparent;
             -webkit-text-stroke: 0.5px $seasalt;
+
+            transition: color 0.024s ease-in-out;
 
             @include media-min(512px) {
                 font-size: $grup05;
@@ -108,6 +156,14 @@
 
             @include media-min(1536px) {
                 font-size: $grup07;
+            }
+
+            &:hover {
+                cursor: default;
+            }
+
+            &--letter {
+                display: inline-block;
             }
         }
 
@@ -239,6 +295,14 @@
 
                 border-radius: $grup;
                 box-shadow: -2px 4px 8px #4434333D;
+
+                transition: transform 0.2s ease-out;
+
+                &:hover {
+                    transform: scale(1.02);
+
+                    cursor: pointer;
+                }
 
                 @include media-min(896px) {
                     padding: $grup $grup02;

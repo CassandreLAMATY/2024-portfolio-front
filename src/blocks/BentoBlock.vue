@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+import { portfolioLetters } from '@/assets/javascripts/bento';
+import { portfolioAnimation } from '@/assets/javascripts/animations';
+
+onMounted(() => {
+    portfolioLetters();
+
+    portfolioAnimation();
+});
+</script>
+
 <template>
     <section class="bento-container">
         <div>
