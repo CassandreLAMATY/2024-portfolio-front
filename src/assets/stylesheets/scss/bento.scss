@@ -7,22 +7,22 @@
         display: flex;
         flex-direction: column;
         gap: $grup03;
-    
+
         padding: $grup03 $grup02;
 
         @include media-min(768px) {
             gap: $grup05;
-    
+
             padding: $grup05;
         }
-    
+
         @include media-min(1024px) {
             padding: $grup05 $grup07;
         }
-    
+
         @include media-min(1536px) {
             box-sizing: content-box;
-    
+
             max-width: 1280px;
             margin: 0 auto;
             padding: $grup06 $grup08;
@@ -142,7 +142,6 @@
             font-size: $grup04;
             font-weight: 900;
             color: transparent;
-            -webkit-text-stroke: 0.5px $seasalt;
 
             transition: color 0.024s ease-in-out;
 
@@ -164,6 +163,8 @@
 
             &--letter {
                 display: inline-block;
+
+                -webkit-text-stroke: 0.5px $seasalt;
             }
         }
 
@@ -181,7 +182,6 @@
             }
         }
     }
-
 
     .bento {
         display: flex;
@@ -221,7 +221,7 @@
 
                 display: block;
 
-                content: " ";
+                content: ' ';
 
                 width: $grup02;
                 height: 0.5px;
@@ -257,21 +257,21 @@
         &-grid {
             display: grid;
             grid-template-rows: repeat(5, 1fr);
-            grid-template-areas: 
-            "artworks"
-            "design"
-            "audiovisual"
-            "uiux"
-            "dev";
+            grid-template-areas:
+                'artworks'
+                'design'
+                'audiovisual'
+                'uiux'
+                'dev';
             gap: $grup02;
 
             @include media-min(584px) {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(3, 1fr);
-                grid-template-areas: 
-                    "artworks design"
-                    "audiovisual dev"
-                    "uiux        dev";
+                grid-template-areas:
+                    'artworks design'
+                    'audiovisual dev'
+                    'uiux        dev';
                 gap: $grup;
             }
 
@@ -282,9 +282,9 @@
             @include media-min(1280px) {
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, 1fr);
-                grid-template-areas: 
-                "artworks audiovisual uiux"
-                "design   dev         dev";
+                grid-template-areas:
+                    'artworks audiovisual uiux'
+                    'design   dev         dev';
             }
 
             & .bento-card {
@@ -294,7 +294,7 @@
                 aspect-ratio: 3 / 2;
 
                 border-radius: $grup;
-                box-shadow: -2px 4px 8px #4434333D;
+                box-shadow: -2px 4px 8px #4434333d;
 
                 transition: transform 0.2s ease-out;
 
@@ -340,7 +340,7 @@
                         top: $grup;
                         left: $grup02;
                     }
-    
+
                     & > h2 {
                         color: $seasalt;
 
@@ -384,7 +384,7 @@
                         left: $grup02;
                         bottom: $grup;
                     }
-    
+
                     & > h2 {
                         color: $seasalt;
 
@@ -436,7 +436,7 @@
                         left: unset;
                         right: $grup02;
                     }
-    
+
                     & > h2 {
                         color: $chamoisee;
                         line-height: $grup;
@@ -478,7 +478,7 @@
                         top: $grup;
                         right: $grup02;
                     }
-    
+
                     & > h2 {
                         text-align: right;
                         line-height: $grup03;
@@ -521,16 +521,12 @@
                         line-height: $grup04;
                         color: $seasalt;
 
-                        transform: 
-                            translateY(-35%)
-                            rotate(-24deg);
+                        transform: translateY(-35%) rotate(-24deg);
 
                         @include media-min(584px) {
                             width: 300%;
-                            
-                            transform: 
-                            translate(-20%, -35%)
-                            rotate(-24deg);
+
+                            transform: translate(-20%, -35%) rotate(-24deg);
                         }
 
                         @include media-min(1024px) {
@@ -546,19 +542,19 @@
                     bottom: $grup-01;
 
                     @include media-min(584px) {
-                        left: $grup; 
+                        left: $grup;
                     }
 
                     @include media-min(896px) {
                         right: $grup02;
                         bottom: $grup;
                     }
-    
+
                     & > h2 {
                         color: $chamoisee;
 
                         @include media-min(584px) {
-                            text-align: right; 
+                            text-align: right;
                         }
                     }
                 }

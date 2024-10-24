@@ -48,9 +48,14 @@ export function portfolioAnimation(): void {
     if (!title) return;
 
     const letters: NodeListOf<HTMLElement> = title.querySelectorAll('.welcome-title--letter');
+    let isAnimating: boolean = false;
 
     letters.forEach((letter) => {
         letter.addEventListener('mouseenter', () => {
+            if (isAnimating) return;
+
+            isAnimating = true;
+
             const index: number = Array.from(letters).indexOf(letter);
             const before: HTMLElement[] = Array.from(letters).slice(0, index).reverse();
             const after: HTMLElement[] = Array.from(letters).slice(index + 1);
@@ -65,16 +70,19 @@ export function portfolioAnimation(): void {
                 if ((index % 3) - 2 === 0)
                     gsap.timeline().to(item, {
                         color: '#bbdb9b',
+                        webkitTextStroke: '0.5px #bbdb9b',
                         duration: 0.2
                     });
                 if ((index % 3) - 1 === 0)
                     gsap.timeline().to(item, {
                         color: '#f4e4ba',
+                        webkitTextStroke: '0.5px #f4e4ba',
                         duration: 0.2
                     });
                 if (index % 3 === 0)
                     gsap.timeline().to(item, {
                         color: '#ffe3e0',
+                        webkitTextStroke: '0.5px #ffe3e0',
                         duration: 0.2
                     });
             }
@@ -94,6 +102,10 @@ export function portfolioAnimation(): void {
                     }, 100 * i);
                 });
             }, 100);
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, 900);
         });
     });
 }
