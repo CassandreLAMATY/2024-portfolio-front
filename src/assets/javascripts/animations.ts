@@ -5,7 +5,7 @@ export function sunGlowAnimation() {
     const sunGlow: HTMLElement | null = document.querySelector('.sun-glow');
 
     if (!sunSphere || !sunGlow) return;
-    
+
     gsap.to(sunGlow, {
         rotation: 360,
         duration: 32,
@@ -22,7 +22,7 @@ export function sunGlowAnimation() {
     });
 
     let resizeTimeout: number | undefined;
-    
+
     function handleResize() {
         clearTimeout(resizeTimeout);
         resizeTimeout = window.setTimeout(() => {
@@ -49,41 +49,51 @@ export function portfolioAnimation(): void {
 
     const letters: NodeListOf<HTMLElement> = title.querySelectorAll('.welcome-title--letter');
 
-    // Each letter in the title must 'jump' around the hovered letter
-    letters.forEach(letter => {
+    letters.forEach((letter) => {
         letter.addEventListener('mouseenter', () => {
-            // Check index of hovered letter
-            // Create 2 arrays with the letters before and after the hovered letter
             const index: number = Array.from(letters).indexOf(letter);
             const before: HTMLElement[] = Array.from(letters).slice(0, index).reverse();
             const after: HTMLElement[] = Array.from(letters).slice(index + 1);
 
-            // Animate the letters before the hovered letter
-            before.forEach((letter, i) => {
-                gsap.to(letter, {
-                    x: -20 * (i + 1),
-                    y: -20 * (i + 1),
-                    duration: 0.5
-                });
-            });
+            function animate(item: HTMLElement) {
+                gsap.timeline()
+                    .to(item, { y: -20, duration: 0.2, ease: 'ease-in' })
+                    .to(item, { y: 0, duration: 1.2, ease: 'elastic.out' });
 
-            // Animate the letters after the hovered letter
-            after.forEach((letter, i) => {
-                gsap.to(letter, {
-                    x: 20 * (i + 1),
-                    y: 20 * (i + 1),
-                    duration: 0.5
-                });
-            });
-        });
+                const index: number = Array.from(letters).indexOf(item);
 
-        letter.addEventListener('mouseleave', () => {
-            // Reset the position of all letters
-            gsap.to(letters, {
-                x: 0,
-                y: 0,
-                duration: 0.5
-            });
+                if ((index % 3) - 2 === 0)
+                    gsap.timeline().to(item, {
+                        color: '#bbdb9b',
+                        duration: 0.2
+                    });
+                if ((index % 3) - 1 === 0)
+                    gsap.timeline().to(item, {
+                        color: '#f4e4ba',
+                        duration: 0.2
+                    });
+                if (index % 3 === 0)
+                    gsap.timeline().to(item, {
+                        color: '#ffe3e0',
+                        duration: 0.2
+                    });
+            }
+
+            animate(letters[index]);
+
+            setTimeout(() => {
+                before.forEach((letter, i) => {
+                    setTimeout(() => {
+                        animate(letter);
+                    }, 100 * i);
+                });
+
+                after.forEach((letter, i) => {
+                    setTimeout(() => {
+                        animate(letter);
+                    }, 100 * i);
+                });
+            }, 100);
         });
     });
 }
