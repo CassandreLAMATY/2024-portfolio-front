@@ -257,6 +257,11 @@
     text-underline-offset: 0.5rem;
   }
 }
+@media (min-width: 1024px) {
+  .bento-container .bento-heading {
+    font-size: 1.5rem;
+  }
+}
 .bento-container .bento-heading::before {
   position: absolute;
   top: 26.7px;
@@ -281,7 +286,7 @@
 }
 @media (min-width: 1024px) {
   .bento-container .bento-heading::before {
-    top: 31px;
+    top: 32px;
     left: -8rem;
     width: 8rem;
   }

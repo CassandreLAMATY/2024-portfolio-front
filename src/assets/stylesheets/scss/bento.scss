@@ -278,6 +278,10 @@
                 text-underline-offset: $grup-02;
             }
 
+            @include media-min(1024px) {
+                font-size: $grup02;
+            }
+
             &::before {
                 position: absolute;
                 top: 26.7px;
@@ -304,7 +308,7 @@
                 }
 
                 @include media-min(1024px) {
-                    top: 31px;
+                    top: 32px;
                     left: -$grup07;
 
                     width: $grup07;
