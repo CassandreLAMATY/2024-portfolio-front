@@ -29,6 +29,7 @@ onMounted(() => {
                 </div>
             </div>
             <div class="bento">
+                <div class="bento-circle"></div>
                 <h2 class="bento-heading">What would you like to see first ?</h2>
                 <div class="bento-grid">
                     <div class="bento-card" id="artworks">

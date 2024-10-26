@@ -13,6 +13,8 @@
 
 body {
     margin: 0;
+
+    overflow-x: hidden;
 }
 
 h1,
@@ -27,7 +29,7 @@ p {
 
 p {
     font-size: $grup;
-    line-height:$grup02;
+    line-height: $grup02;
 
     @include media-min(768px) {
         font-size: $grup01;
@@ -41,7 +43,7 @@ p {
 }
 
 br {
-    content: " ";
+    content: ' ';
     display: block;
     margin-bottom: $grup;
 }
@@ -88,7 +90,7 @@ button {
 
         pointer-events: none;
     }
-    
+
     &-content {
         position: relative;
         z-index: 2;
@@ -134,7 +136,6 @@ button {
         }
     }
 
-
     &_dutchWhite {
         & .btn-icon {
             color: $dutchWhite;
@@ -156,12 +157,13 @@ button {
         & .btn-content {
             border: 1px solid $dutchWhite;
             background-color: $dutchWhite;
-    
-            & .btn-icon, & .btn-title {
+
+            & .btn-icon,
+            & .btn-title {
                 color: $vanDyke;
             }
         }
-    
+
         & .btn-shadow {
             right: -$grup-02;
 
@@ -171,7 +173,7 @@ button {
 
     &-link {
         display: block;
-        flex : 1;
+        flex: 1;
 
         & > .btn {
             cursor: pointer;

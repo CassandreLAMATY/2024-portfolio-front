@@ -1,7 +1,29 @@
 @import 'variables';
 
 .bento-container {
-    background: linear-gradient(to bottom, #75574d, $chamoisee);
+    background:
+        url('@/assets/images/svg/Curves01_2.svg') 70% 0,
+        linear-gradient(to bottom, #75574d, $chamoisee);
+
+    overflow: hidden;
+
+    @include media-min(1024px) {
+        background:
+            url('@/assets/images/svg/Curves01_2.svg') 70% -50%,
+            linear-gradient(to bottom, #75574d, $chamoisee);
+    }
+
+    @include media-min(1280px) {
+        background:
+            url('@/assets/images/svg/Curves01_2.svg') 70% 0%,
+            linear-gradient(to bottom, #75574d, $chamoisee);
+    }
+
+    @include media-min(1536px) {
+        background:
+            url('@/assets/images/svg/Curves01_2.svg') 70% -30%,
+            linear-gradient(to bottom, #75574d, $chamoisee);
+    }
 
     & > div {
         display: flex;
@@ -184,12 +206,50 @@
     }
 
     .bento {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: $grup02;
 
         @include media-min(768px) {
             gap: $grup03;
+        }
+
+        &-circle {
+            position: absolute;
+            bottom: $grup04;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: $grup09;
+            aspect-ratio: 1 / 1;
+
+            border: 1px solid $seasalt;
+            border-radius: 50%;
+
+            @include media-min(584px) {
+                bottom: calc(50% - $grup03);
+                transform: translate(-50%, 50%);
+            }
+
+            @include media-min(1024px) {
+                right: 0;
+                bottom: calc(50% - $grup03);
+                left: unset;
+                transform: translate(50%, 50%);
+
+                width: $grup10;
+            }
+
+            @include media-min(1280px) {
+                transform: translate(40%, 50%);
+
+                width: calc($grup09 + $grup07);
+            }
+
+            @include media-min(1536px) {
+                width: calc($grup09 + $grup08);
+            }
         }
 
         &-heading {
