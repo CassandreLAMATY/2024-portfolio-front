@@ -228,7 +228,10 @@ header .curves {
   fill: #99715b;
   transition: transform 0.2s ease-in;
 }
-.sun-container .sun-logo #hyphen, .sun-container .sun-logo #bracket, .sun-container .sun-logo #Bbumps, .sun-container .sun-logo #Bbar {
+.sun-container .sun-logo #hyphen,
+.sun-container .sun-logo #bracket,
+.sun-container .sun-logo #Bbumps,
+.sun-container .sun-logo #Bbar {
   transition: transform 0.4s;
 }
 @media (min-width: 450px) {

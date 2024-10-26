@@ -25,6 +25,10 @@
             linear-gradient(to bottom, #75574d, $chamoisee);
     }
 
+    @include media-min(3840px) {
+        background-size: cover;
+    }
+
     & > div {
         display: flex;
         flex-direction: column;
@@ -234,7 +238,7 @@
 
             @include media-min(1024px) {
                 right: 0;
-                bottom: calc(50% - $grup03);
+                bottom: calc(50% - $grup02);
                 left: unset;
                 transform: translate(50%, 50%);
 

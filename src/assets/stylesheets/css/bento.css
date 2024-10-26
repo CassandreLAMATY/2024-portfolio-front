@@ -18,6 +18,11 @@
     background: url("@/assets/images/svg/Curves01_2.svg") 70% -30%, linear-gradient(to bottom, #75574d, #99715b);
   }
 }
+@media (min-width: 3840px) {
+  .bento-container {
+    background-size: cover;
+  }
+}
 .bento-container > div {
   display: flex;
   flex-direction: column;
@@ -214,7 +219,7 @@
 @media (min-width: 1024px) {
   .bento-container .bento-circle {
     right: 0;
-    bottom: calc(50% - 2rem);
+    bottom: calc(50% - 1.5rem);
     left: unset;
     transform: translate(50%, 50%);
     width: 64rem;

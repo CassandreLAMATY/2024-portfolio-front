@@ -102,8 +102,7 @@ header {
             fill: $dutchWhite;
             fill-opacity: 0.12;
 
-            animation: 
-                sun-glow 2s infinite ease-out;
+            animation: sun-glow 2s infinite ease-out;
 
             @include media-min(1536px) {
                 height: 35%;
@@ -125,29 +124,25 @@ header {
             transition: transform 0.2s ease-in-out;
 
             &:hover {
-                transform: 
-                    translate(-50%, -50%)
-                    scale(1.04);
+                transform: translate(-50%, -50%) scale(1.04);
 
                 & .sun-logo {
-                    transform:
-                        translate(-50%, -50%) 
-                        rotate(90deg);
+                    transform: translate(-50%, -50%) rotate(90deg);
                     animation: logo-spin_sun 0.5s;
 
-                    & #hyphen{
+                    & #hyphen {
                         transform: translateX(8px);
                     }
-            
-                    & #bracket{
+
+                    & #bracket {
                         transform: translateX(14px);
                     }
-            
-                    & #Bbumps{
+
+                    & #Bbumps {
                         transform: translateX(-9px);
                     }
-            
-                    & #Bbar{
+
+                    & #Bbar {
                         transform: translateX(-5.5px);
                     }
                 }
@@ -179,7 +174,10 @@ header {
 
             transition: transform 0.2s ease-in;
 
-            #hyphen, #bracket, #Bbumps, #Bbar{
+            #hyphen,
+            #bracket,
+            #Bbumps,
+            #Bbar {
                 transition: transform 0.4s;
             }
         }
@@ -190,35 +188,23 @@ header {
     }
 
     @include media-min(512px) {
-        transform: translate(
-            calc(-50% + 35% / 2 + $grup04 + $grup02),
-            calc(-50% + 35% / 2 + $grup03)
-        );
+        transform: translate(calc(-50% + 35% / 2 + $grup04 + $grup02), calc(-50% + 35% / 2 + $grup03));
     }
 
     @include media-min(768px) {
         width: min(512px, 80%);
 
-        transform: translateX(
-            calc(-50% + 35% / 2 + $grup04 + $grup04),
-            calc(-50% + 35% / 2 + $grup03)
-        );
+        transform: translateX(calc(-50% + 35% / 2 + $grup04 + $grup04), calc(-50% + 35% / 2 + $grup03));
     }
 
     @include media-min(1024px) {
-        transform: translate(
-            calc(-50% + 35% / 2 + $grup04 + $grup07),
-            calc(-50% + 35% / 2 + $grup05)
-        );
+        transform: translate(calc(-50% + 35% / 2 + $grup04 + $grup07), calc(-50% + 35% / 2 + $grup05));
     }
 
     @include media-min(1536px) {
         width: min(768px, 80%);
 
-        transform: translate(
-            calc(-50% + 35% / 2 + $grup04 + $grup07),
-            calc(-50% + 35% / 2 + $grup03)
-        );
+        transform: translate(calc(-50% + 35% / 2 + $grup04 + $grup07), calc(-50% + 35% / 2 + $grup03));
     }
 }
 
@@ -303,23 +289,22 @@ header {
         &::after {
             @include media-min(1280px) {
                 box-sizing: border-box;
-                content: " ";
+                content: ' ';
                 display: block;
 
                 width: calc(100% - $grup02);
                 height: calc(100% - $grup02);
                 margin: $grup02 $grup02 0 0;
 
-                background-image: 
-                    url('@/assets/images/svg/HeaderStars.svg');
+                background-image: url('@/assets/images/svg/HeaderStars.svg');
                 background-repeat: repeat-x;
-                mask-image: linear-gradient(to right, #0000 9%, #000F 98%, #0000 100%);
+                mask-image: linear-gradient(to right, #0000 9%, #000f 98%, #0000 100%);
                 background-size: initial;
                 background-position: right -50%;
             }
 
             @include media-min(1536px) {
-                mask-image: linear-gradient(to right, #0000 2%, #000F 99%, #0000 100%);
+                mask-image: linear-gradient(to right, #0000 2%, #000f 99%, #0000 100%);
                 background-position: unset;
                 background-position-x: right;
             }
@@ -349,7 +334,7 @@ header {
 .me {
     position: relative;
     z-index: 10;
-    
+
     display: flex;
     flex-direction: column;
     gap: $grup-02;
