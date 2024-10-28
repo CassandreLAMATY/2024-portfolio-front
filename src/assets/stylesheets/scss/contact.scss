@@ -1,0 +1,302 @@
+@import 'variables';
+
+.contact-container {
+    background-color: $vanDyke;
+}
+
+.contact {
+    padding: $grup03 $grup02;
+
+    &-top {
+        margin-bottom: $grup03;
+
+        & .title {
+            margin-bottom: $grup02;
+
+            color: $dutchWhite;
+            font-family: 'Raleway';
+            font-size: $grup03;
+            font-style: italic;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        & .info {
+            color: $seasalt;
+        }
+
+        .mail-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+
+            margin-top: $grup02;
+
+            &::after {
+                content: 'You can copy my e-mail address here';
+
+                margin-top: $grup-03;
+
+                font-size: $grup-01;
+                color: $dutchWhite;
+            }
+
+            & .mail {
+                padding: $grup-01 $grup;
+
+                border: 1px solid $chamoisee;
+
+                font-family: Quicksand;
+                font-size: $grup;
+                font-weight: 600;
+                color: $mistyRose;
+
+                & > span {
+                    color: $seasalt;
+                }
+
+                &-copy {
+                    margin-left: -1px;
+                    aspect-ratio: 1;
+
+                    border: 1px solid $chamoisee;
+
+                    font-size: $grup01;
+                    font-weight: 300;
+                    color: $dutchWhite;
+                }
+            }
+        }
+    }
+
+    &-form {
+        &--title {
+            position: relative;
+
+            margin-bottom: $grup-02;
+
+            background: linear-gradient(to right, $dutchWhite, $seasalt);
+            background-clip: text;
+
+            font-family: Raleway;
+            font-size: $grup01;
+            font-weight: 400;
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-decoration-color: $seasalt;
+            text-decoration-thickness: 0.5px;
+            text-underline-offset: $grup-03;
+            line-height: $grup03;
+            color: transparent;
+
+            &::before {
+                position: absolute;
+                top: 26.7px;
+                left: -$grup02;
+
+                display: block;
+
+                content: ' ';
+
+                width: $grup02;
+                height: 0.5px;
+
+                background-color: $seasalt;
+
+                @include media-min(512px) {
+                    top: 27px;
+                }
+
+                @include media-min(768px) {
+                    top: 31px;
+                    left: -$grup05;
+
+                    width: $grup05;
+                }
+
+                @include media-min(1024px) {
+                    top: 32px;
+                    left: -$grup07;
+
+                    width: $grup07;
+                }
+
+                @include media-min(1536px) {
+                    left: -3360px;
+
+                    width: 3360px;
+                }
+            }
+        }
+
+        &--info {
+            font-size: $grup-01;
+            line-height: $grup;
+            color: $dutchWhite;
+
+            & > span {
+                color: $salmonPink;
+            }
+        }
+
+        & .form {
+            &-content {
+                display: flex;
+                flex-direction: column;
+                gap: $grup02;
+
+                margin-top: $grup02;
+
+                &--group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $grup02;
+                }
+            }
+
+            &-container {
+                display: flex;
+                flex-direction: column;
+
+                & .validation {
+                    margin-top: $grup-02;
+
+                    & > span {
+                        display: block;
+
+                        width: fit-content;
+                        margin-left: auto;
+
+                        font-family: Raleway;
+                        font-style: italic;
+                        font-size: $grup-01;
+                        color: $dutchWhite;
+
+                        &.info {
+                            color: $celadon;
+                        }
+
+                        &.error {
+                            color: $salmonPink;
+                        }
+                    }
+                }
+            }
+
+            &-title {
+                font-family: Raleway;
+                font-size: $grup01;
+                font-weight: 700;
+                color: $seasalt;
+
+                &--container {
+                    display: grid;
+                    grid-template-rows: 1fr auto;
+                    grid-template-columns:
+                        'title'
+                        'subtitle';
+                    gap: $grup-03;
+
+                    margin-bottom: $grup;
+                }
+            }
+
+            &-subtitle {
+                font-size: $grup-01;
+                color: $dutchWhite;
+
+                & > span {
+                    color: $salmonPink;
+                }
+            }
+
+            &-input {
+                padding: $grup-01 $grup;
+
+                border: 1px solid $chamoisee;
+                background: unset;
+
+                font-size: $grup;
+                font-weight: 600;
+                color: $seasalt;
+
+                &::placeholder {
+                    color: #f4e4ba52;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            &-select {
+                position: relative;
+                z-index: 2;
+
+                width: 100%;
+                padding: $grup-01 $grup;
+
+                border: 0;
+                border-radius: $grup-02;
+                background-color: $chamoisee;
+
+                font-family: Quicksand;
+                font-size: $grup;
+                font-weight: 600;
+                color: $dutchWhite;
+
+                appearance: none;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid $dutchWhite;
+                }
+
+                &--container {
+                    position: relative;
+
+                    &::after {
+                        content: '\f078';
+
+                        z-index: 3;
+                        display: block;
+
+                        position: absolute;
+                        top: 50%;
+                        right: $grup;
+                        transform: translateY(-50%);
+
+                        font-family: 'Font Awesome 5 Pro';
+                        font-weight: 900;
+                        color: $vanDyke;
+
+                        pointer-events: none;
+                    }
+
+                    &:has(.form-select:focus) {
+                        &::after {
+                            transform: translateY(-50%) rotate(180deg);
+                        }
+                    }
+                }
+
+                &--shadow {
+                    position: absolute;
+                    top: $grup-02;
+                    right: $grup-02;
+
+                    width: 100%;
+                    height: 100%;
+
+                    border: 1px solid $dutchWhite;
+                    border-radius: $grup-02;
+                }
+            }
+
+            & .message-container {
+                & .message {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
