@@ -440,7 +440,7 @@ header .curves {
 }
 @media (min-width: 768px) {
   .me {
-    padding: 2rem 3rem 4rem 3rem;
+    padding: 2rem 4rem 4rem 4rem;
   }
 }
 @media (min-width: 1024px) {
