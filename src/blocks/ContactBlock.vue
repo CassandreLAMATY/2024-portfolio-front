@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import type { Ref } from 'vue';
+
+const object: Ref<string> = ref('info');
+</script>
+
 <template>
     <section class="contact-container">
         <div class="contact">
@@ -53,13 +60,13 @@
                     </div>
 
                     <div class="form-content--group">
-                        <div id="object-container">
+                        <div class="form-container" id="object-container">
                             <div class="form-title--container">
                                 <label class="form-title" for="object">What do you want to talk about&nbsp;?</label>
                             </div>
                             <div class="form-select--container">
                                 <div class="form-select--shadow"></div>
-                                <select class="form-select" name="object" id="object">
+                                <select class="form-select" name="object" id="object" v-model="object">
                                     <option value="info">I would like some information</option>
                                     <option value="work">Let’s work together !</option>
                                     <option value="other">Something else</option>
@@ -67,7 +74,9 @@
                             </div>
                         </div>
 
-                        <div class="object-container_other">
+                        <div class="object-container_other" v-if="object === 'other'">
+                            <font-awesome-icon :icon="['fas', 'arrow-down']" class="object-arrow" />
+
                             <div class="form-title--container">
                                 <span class="form-subtitle">(type your custom object here)</span>
                             </div>
@@ -85,14 +94,19 @@
                     </div>
 
                     <div class="form-content--group">
-                        <div id="message-container">
-                            <label class="form-title" for="message">Your message</label>
-                            <textarea
-                                class="message"
-                                name="message"
-                                id="message"
-                                placeholder="I like snails 🐌"
-                            ></textarea>
+                        <div class="form-container" id="message-container">
+                            <div class="form-title--container">
+                                <label class="form-title" for="message">Your message</label>
+                            </div>
+                            <div class="message-area--container">
+                                <div class="message-shadow"></div>
+                                <textarea
+                                    class="message"
+                                    name="message"
+                                    id="message"
+                                    placeholder="I like snails 🐌"
+                                ></textarea>
+                            </div>
                             <div class="validation">
                                 <span class="error">Your message should be at least 3 chars long </span>
                             </div>

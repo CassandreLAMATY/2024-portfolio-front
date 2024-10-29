@@ -152,7 +152,7 @@
 .contact-form .form-title--container {
   display: grid;
   grid-template-rows: 1fr auto;
-  grid-template-columns: "title" "subtitle";
+  grid-template-areas: "title" "subtitle";
   gap: 0.25rem;
   margin-bottom: 16px;
 }
@@ -164,6 +164,7 @@
   color: #ff9b9b;
 }
 .contact-form .form-input {
+  width: 100%;
   padding: 0.75rem 16px;
   border: 1px solid #99715b;
   background: unset;
@@ -223,8 +224,89 @@
   border: 1px solid #f4e4ba;
   border-radius: 0.5rem;
 }
-.contact-form .form .message-container .message {
+.contact-form .object-container_other .form-title--container {
+  margin-bottom: 0;
+}
+.contact-form .object-container_other .object-arrow {
   width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #99715b;
+}
+.contact-form .object-container_other .validation {
+  margin-top: 0.5rem;
+}
+.contact-form .object-container_other .validation > span {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  font-family: Raleway;
+  font-style: italic;
+  font-size: 0.75rem;
+  color: #f4e4ba;
+}
+.contact-form .object-container_other .validation > span.info {
+  color: #bbdb9b;
+}
+.contact-form .object-container_other .validation > span.error {
+  color: #ff9b9b;
+}
+.contact-form .form-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.contact-form .form-submit-button {
+  padding: 0.75rem 16px;
+  border: 1px solid #99715b;
+  border-radius: 0.5rem;
+  background-color: #99715b;
+  font-family: Raleway;
+  font-size: 16px;
+  font-weight: 700;
+  color: #f4e4ba;
+  cursor: pointer;
+}
+.contact-form .form-submit-button:hover {
+  background-color: #f4e4ba;
+  color: #99715b;
+}
+.contact-form .form-submit-button:focus {
+  outline: none;
+}
+.contact-form .message-area--container {
+  position: relative;
+  width: 100%;
+}
+.contact-form .message-area--container .message {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 16px 0.75rem;
+  aspect-ratio: 5/3;
+  resize: none;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: #99715b;
+  font-family: Quicksand;
+  font-size: 16px;
+  color: #f9f9f9;
+}
+.contact-form .message-area--container .message::placeholder {
+  color: rgba(244, 228, 186, 0.5607843137);
+}
+.contact-form .message-area--container .message:focus {
+  outline: none;
+  border: 1px solid #f4e4ba;
+}
+.contact-form .message-area--container .message-shadow {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #f4e4ba;
+  border-radius: 0.5rem;
 }
 
 /*# sourceMappingURL=contact.css.map */

@@ -191,7 +191,7 @@
                 &--container {
                     display: grid;
                     grid-template-rows: 1fr auto;
-                    grid-template-columns:
+                    grid-template-areas:
                         'title'
                         'subtitle';
                     gap: $grup-03;
@@ -210,6 +210,7 @@
             }
 
             &-input {
+                width: 100%;
                 padding: $grup-01 $grup;
 
                 border: 1px solid $chamoisee;
@@ -291,10 +292,124 @@
                     border-radius: $grup-02;
                 }
             }
+        }
 
-            & .message-container {
-                & .message {
+        & .object-container {
+            &_other {
+                & .form {
+                    &-title {
+                        &--container {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
+                & .object-arrow {
                     width: 100%;
+                    margin-bottom: $grup-02;
+
+                    font-size: $grup02;
+                    color: $chamoisee;
+                }
+
+                & .validation {
+                    margin-top: $grup-02;
+
+                    & > span {
+                        display: block;
+
+                        width: fit-content;
+                        margin-left: auto;
+
+                        font-family: Raleway;
+                        font-style: italic;
+                        font-size: $grup-01;
+                        color: $dutchWhite;
+
+                        &.info {
+                            color: $celadon;
+                        }
+
+                        &.error {
+                            color: $salmonPink;
+                        }
+                    }
+                }
+            }
+        }
+
+        & .form-submit {
+            display: flex;
+            justify-content: center;
+
+            margin-top: $grup-02;
+
+            &-button {
+                padding: $grup-01 $grup;
+
+                border: 1px solid $chamoisee;
+                border-radius: $grup-02;
+                background-color: $chamoisee;
+
+                font-family: Raleway;
+                font-size: $grup;
+                font-weight: 700;
+                color: $dutchWhite;
+
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $dutchWhite;
+                    color: $chamoisee;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        & .message-area--container {
+            position: relative;
+
+            width: 100%;
+
+            & .message {
+                position: relative;
+                z-index: 2;
+
+                width: 100%;
+                padding: $grup $grup-01;
+                aspect-ratio: 5 / 3;
+                resize: none;
+
+                border: 0;
+                border-radius: $grup-02;
+                background-color: $chamoisee;
+
+                font-family: Quicksand;
+                font-size: $grup;
+                color: $seasalt;
+
+                &::placeholder {
+                    color: #f4e4ba8f;
+                }
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid $dutchWhite;
+                }
+
+                &-shadow {
+                    position: absolute;
+                    top: $grup-03;
+                    right: $grup-02;
+
+                    width: 100%;
+                    height: 100%;
+
+                    border: 1px solid $dutchWhite;
+                    border-radius: $grup-02;
                 }
             }
         }
