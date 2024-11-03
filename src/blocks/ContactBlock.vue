@@ -11,7 +11,7 @@ const object: Ref<string> = ref('info');
         <div class="contact">
             <div class="contact-top">
                 <h2 class="title">Wanna get in touch&nbsp;?</h2>
-                <p class="info">You can contact me either by texting me on my social medias or by mail&nbsp;!</p>
+                <p class="info">You can contact me either by texting me on my social media or by mail&nbsp;!</p>
                 <div class="mail-container">
                     <span class="mail"><span>contact</span>@lamatycassandre.me</span>
                     <button class="mail-copy" aria-label="copy"><font-awesome-icon :icon="['fas', 'copy']" /></button>
