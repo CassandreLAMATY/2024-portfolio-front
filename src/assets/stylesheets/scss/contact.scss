@@ -240,6 +240,10 @@
                         max-width: unset;
                         margin: $grup-03 auto 0 auto;
 
+                        &:hover {
+                            cursor: pointer;
+                        }
+
                         & .btn-shadow {
                             right: unset;
                             left: -$grup-02;

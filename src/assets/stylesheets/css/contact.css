@@ -219,6 +219,9 @@
   max-width: unset;
   margin: 0.25rem auto 0 auto;
 }
+.contact-form .form-content .btn_form:hover {
+  cursor: pointer;
+}
 .contact-form .form-content .btn_form .btn-shadow {
   right: unset;
   left: -0.5rem;
