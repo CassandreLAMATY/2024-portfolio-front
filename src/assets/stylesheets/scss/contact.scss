@@ -101,6 +101,11 @@
                     font-size: $grup01;
                 }
 
+                @include media-min(1024px) {
+                    font-size: $grup02;
+                    line-height: $grup03;
+                }
+
                 &-copy {
                     margin-left: -1px;
                     aspect-ratio: 1;
@@ -115,6 +120,10 @@
 
                     @include media-min(768px) {
                         font-size: $grup02;
+                    }
+
+                    @include media-min(1024px) {
+                        font-size: $grup03;
                     }
                 }
             }
@@ -147,6 +156,10 @@
             }
 
             @include media-min(1024px) {
+                font-size: $grup02;
+            }
+
+            @include media-min(1280px) {
                 font-size: $grup02;
             }
 
@@ -294,6 +307,10 @@
                         font-size: $grup-01;
                         color: $dutchWhite;
 
+                        @include media-min(1024px) {
+                            font-size: $grup;
+                        }
+
                         &.info {
                             color: $celadon;
                         }
@@ -357,8 +374,18 @@
                     font-size: $grup01;
                 }
 
+                @include media-min(1024px) {
+                    font-size: $grup02;
+                    line-height: $grup03;
+                }
+
                 &::placeholder {
                     color: #f4e4ba52;
+
+                    @include media-min(1024px) {
+                        font-size: $grup02;
+                        line-height: $grup03;
+                    }
                 }
 
                 &:focus {
@@ -387,6 +414,11 @@
                 @include media-min(768px) {
                     font-size: $grup01;
                     line-height: $grup02;
+                }
+
+                @include media-min(1024px) {
+                    font-size: $grup02;
+                    line-height: $grup03;
                 }
 
                 &:focus {
@@ -507,6 +539,10 @@
                         font-size: $grup-01;
                         color: $dutchWhite;
 
+                        @include media-min(1024px) {
+                            font-size: $grup;
+                        }
+
                         &.info {
                             color: $celadon;
                         }
@@ -582,6 +618,9 @@
 
                 @include media-min(1024px) {
                     aspect-ratio: 3 / 1;
+
+                    font-size: $grup02;
+                    line-height: $grup03;
                 }
 
                 @include media-min(1280px) {
@@ -590,6 +629,11 @@
 
                 &::placeholder {
                     color: #f4e4ba8f;
+
+                    @include media-min(1024px) {
+                        font-size: $grup02;
+                        line-height: $grup03;
+                    }
                 }
 
                 &:focus {

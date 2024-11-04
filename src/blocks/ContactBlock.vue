@@ -47,9 +47,7 @@ const object: Ref<string> = ref('info');
                                     />
                                 </div>
 
-                                <div class="validation">
-                                    <span class="error">Please type a valid e-mail</span>
-                                </div>
+                                <div class="validation"></div>
                             </div>
                         </div>
 
@@ -126,9 +124,7 @@ const object: Ref<string> = ref('info');
                                         placeholder="I like snails 🐌"
                                     ></textarea>
                                 </div>
-                                <div class="validation">
-                                    <span class="error">Your message should be at least 3 chars long</span>
-                                </div>
+                                <div class="validation"></div>
                             </div>
                         </div>
                     </div>
