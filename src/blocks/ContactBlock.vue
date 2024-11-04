@@ -16,7 +16,7 @@ import { name, email, object, customObject, message } from '@/assets/javascripts
                 </div>
             </div>
 
-            <form class="contact-form" action="">
+            <!-- <form class="contact-form" action="">
                 <h3 class="contact-form--title">Or you can use this nice form !</h3>
                 <p class="contact-form--info">
                     <span>*</span> you’ll receive a confirmation by mail if you choose this option to make sure that I
@@ -42,9 +42,7 @@ import { name, email, object, customObject, message } from '@/assets/javascripts
                                     />
                                 </div>
 
-                                <div class="validation">
-                                    <span class="error">Please enter a valid name</span>
-                                </div>
+                                <div class="validation"></div>
                             </div>
                         </div>
 
@@ -134,7 +132,7 @@ import { name, email, object, customObject, message } from '@/assets/javascripts
                         type="submit"
                     />
                 </div>
-            </form>
+            </form> -->
         </div>
     </section>
 </template>

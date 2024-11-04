@@ -1,4 +1,6 @@
-export class MailController {
+import { StringController } from './';
+
+export class MailController extends StringController {
     public name: string = '';
     public email: string = '';
     public object: 'info' | 'work' | 'other' = 'info';
