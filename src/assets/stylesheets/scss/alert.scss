@@ -1,0 +1,14 @@
+@import 'variables';
+
+.alert {
+    &-container {
+        position: fixed;
+        right: $grup-02;
+        bottom: $grup-02;
+        z-index: 9999;
+    }
+    &-box {
+        border: 1px solid $dutchWhite;
+        background-color: $chamoisee;
+    }
+}

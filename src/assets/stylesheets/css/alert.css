@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+.alert-container {
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 9999;
+}
+.alert-box {
+  border: 1px solid #f4e4ba;
+  background-color: #99715b;
+}
+
+/*# sourceMappingURL=alert.css.map */
