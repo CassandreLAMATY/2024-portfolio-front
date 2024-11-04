@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { Ref } from 'vue';
 import ButtonPrimary from '@/components/ButtonPrimary.vue';
 
-const object: Ref<string> = ref('info');
+import { name, email, object, customObject, message } from '@/assets/javascripts/contact';
 </script>
 
 <template>
@@ -30,10 +28,6 @@ const object: Ref<string> = ref('info');
                         <div class="form-container" id="name-container">
                             <div class="form-title--container">
                                 <label class="form-title" for="name">Who are you ?</label>
-                                <span class="form-subtitle">
-                                    <span>*</span> you can type your pseudo if you’re not comfortable sharing your
-                                    name</span
-                                >
                             </div>
 
                             <div class="input-container">
@@ -44,10 +38,13 @@ const object: Ref<string> = ref('info');
                                         name="name"
                                         id="name"
                                         placeholder="John Doe 🥸"
+                                        v-model="name"
                                     />
                                 </div>
 
-                                <div class="validation"></div>
+                                <div class="validation">
+                                    <span class="error">Please enter a valid name</span>
+                                </div>
                             </div>
                         </div>
 
@@ -63,6 +60,7 @@ const object: Ref<string> = ref('info');
                                     name="mail"
                                     id="mail"
                                     placeholder="john.doe@gmail.com"
+                                    v-model="email"
                                 />
 
                                 <div class="validation"></div>
@@ -70,7 +68,7 @@ const object: Ref<string> = ref('info');
                         </div>
                     </div>
 
-                    <div class="form-content--group form-content--group_line">
+                    <div class="form-content--group form-content--group_line object">
                         <div class="form-container" id="object-container">
                             <div class="form-title--container">
                                 <label class="form-title" for="object">What do you want to talk about&nbsp;?</label>
@@ -89,10 +87,6 @@ const object: Ref<string> = ref('info');
                             <font-awesome-icon :icon="['fas', 'arrow-down']" class="object-arrow" />
 
                             <div>
-                                <div class="form-title--container">
-                                    <span class="form-subtitle">(type your custom object here)</span>
-                                </div>
-
                                 <div class="input-container">
                                     <input
                                         class="form-input"
@@ -100,6 +94,7 @@ const object: Ref<string> = ref('info');
                                         name="object_other"
                                         id="object_other"
                                         placeholder="Snails"
+                                        v-model="customObject"
                                     />
 
                                     <div class="validation"></div>
@@ -122,9 +117,12 @@ const object: Ref<string> = ref('info');
                                         name="message"
                                         id="message"
                                         placeholder="I like snails 🐌"
+                                        v-model="message"
                                     ></textarea>
                                 </div>
-                                <div class="validation"></div>
+                                <div class="validation">
+                                    <span class="error">Please enter a valid name</span>
+                                </div>
                             </div>
                         </div>
                     </div>

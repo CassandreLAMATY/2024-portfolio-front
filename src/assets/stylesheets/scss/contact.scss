@@ -224,11 +224,7 @@
                 flex-direction: column;
                 gap: $grup03;
 
-                margin-top: $grup02;
-
-                @include media-min(768px) {
-                    margin-top: $grup03;
-                }
+                margin-top: $grup03;
 
                 @include media-min(1024px) {
                     gap: $grup04;
@@ -237,12 +233,21 @@
                 &--group {
                     display: flex;
                     flex-direction: column;
-                    gap: $grup02;
+                    gap: $grup03;
 
                     &_line {
                         @include media-min(768px) {
-                            display: grid;
-                            grid-template-columns: 1fr 1fr;
+                            &:not(.object) {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                            }
+                        }
+
+                        @include media-min(1024px) {
+                            &.object {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                            }
                         }
                     }
                 }
@@ -331,17 +336,11 @@
                 @include media-min(768px) {
                     font-size: $grup02;
                     line-height: $grup03;
+                    white-space: nowrap;
                 }
 
                 &--container {
-                    display: grid;
-                    grid-template-rows: 1fr auto;
-                    grid-template-areas:
-                        'title'
-                        'subtitle';
-                    gap: $grup-03;
-
-                    margin-bottom: $grup;
+                    margin-bottom: $grup-01;
                 }
             }
 
@@ -410,6 +409,9 @@
                 color: $dutchWhite;
 
                 appearance: none;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
 
                 @include media-min(768px) {
                     font-size: $grup01;
@@ -480,27 +482,15 @@
 
         & .object-container {
             &_other {
-                @include media-min(768px) {
+                @include media-min(1024px) {
                     display: flex;
                     align-items: end;
                     gap: $grup02;
                 }
 
                 & > div {
-                    @include media-min(768px) {
+                    @include media-min(1024px) {
                         width: 100%;
-                    }
-                }
-
-                & .form {
-                    &-title {
-                        &--container {
-                            margin-bottom: 0;
-
-                            @include media-min(768px) {
-                                width: 100%;
-                            }
-                        }
                     }
                 }
 
@@ -511,7 +501,7 @@
                     font-size: $grup02;
                     color: $chamoisee;
 
-                    @include media-min(768px) {
+                    @include media-min(1024px) {
                         width: fit-content;
                         margin-bottom: $grup;
 
@@ -521,6 +511,24 @@
 
                 & .input-container {
                     position: relative;
+
+                    &::before {
+                        position: absolute;
+                        top: calc(0px - $grup01 - $grup-04);
+                        left: 0;
+
+                        content: '(type your custom object here)';
+
+                        font-size: $grup-01;
+                        color: $dutchWhite;
+
+                        @include media-min(768px) {
+                            top: calc(0px - $grup01 - $grup-03);
+
+                            font-size: $grup;
+                            line-height: $grup01;
+                        }
+                    }
                 }
 
                 & .validation {
