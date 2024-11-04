@@ -1,6 +1,9 @@
 import { ref } from 'vue';
 import type { Ref } from 'vue';
 
+export const personalMail: string = 'contact@lamatycassandre.me';
+
+// Form
 export const name: Ref<string> = ref('');
 export const email: Ref<string> = ref('');
 export const object: Ref<'info' | 'work' | 'other'> = ref('info');

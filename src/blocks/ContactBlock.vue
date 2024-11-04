@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import ButtonPrimary from '@/components/ButtonPrimary.vue';
 
-import { name, email, object, customObject, message } from '@/assets/javascripts/contact';
+import { personalMail, name, email, object, customObject, message } from '@/assets/javascripts/contact';
+import { copyToClipBoard } from '@/assets/javascripts/utils';
 </script>
 
 <template>
@@ -12,7 +13,14 @@ import { name, email, object, customObject, message } from '@/assets/javascripts
                 <p class="info">You can contact me either by texting me on my social media or by mail&nbsp;!</p>
                 <div class="mail-container">
                     <span class="mail"><span>contact</span>@lamatycassandre.me</span>
-                    <button class="mail-copy" aria-label="copy"><font-awesome-icon :icon="['fas', 'copy']" /></button>
+                    <button
+                        class="mail-copy"
+                        aria-label="copy"
+                        type="button"
+                        v-on:click="copyToClipBoard(personalMail)"
+                    >
+                        <font-awesome-icon :icon="['fas', 'copy']" />
+                    </button>
                 </div>
             </div>
 
