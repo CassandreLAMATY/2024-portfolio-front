@@ -9,6 +9,13 @@ import { alerts } from './assets/javascripts/alert';
     <RouterView />
 
     <div v-if="alerts.length > 0" class="alert-container">
-        <AlertBox v-for="a of alerts" :key="a.title" :title="a.title" :content="a.content" :icon="a.icon" />
+        <AlertBox
+            v-for="a of alerts"
+            :key="a.title"
+            :title="a.title"
+            :content="a.content"
+            :icon="a.icon"
+            :type="a.type"
+        />
     </div>
 </template>
