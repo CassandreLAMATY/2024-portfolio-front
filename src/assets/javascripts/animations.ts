@@ -138,3 +138,11 @@ export function portfolioAnimation(): void {
         });
     });
 }
+
+export function alertShowAnimation(alert: HTMLElement): void {
+    gsap.timeline().to(alert, { x: 0, duration: 0.2, ease: 'ease-in' });
+}
+
+export function alertHideAnimation(alert: HTMLElement): void {
+    gsap.timeline().to(alert, { x: 300, duration: 0.2, ease: 'ease-in' });
+}

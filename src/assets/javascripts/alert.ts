@@ -1,29 +1,27 @@
-import { ref, type Ref } from 'vue';
-import type { Alert } from './controllers/Alert';
+import { ref, watch, type Ref } from 'vue';
+import type { Alert } from './entities/Alert';
+import { alertHideAnimation, alertShowAnimation } from './animations';
 
-export const alerts: Ref<Alert[]> = ref([
-    {
-        title: 'Hello Hello Hello',
-        icon: ['fas', 'circle-info'],
-        type: 'danger',
-        content: 'This is a test alert.'
-    },
-    {
-        title: 'Hello Hello Hello 2',
-        icon: ['fas', 'triangle-exclamation'],
-        type: 'warning',
-        content: 'This is a test alert.'
-    },
-    {
-        title: 'Hello Hello Hello',
-        icon: ['fas', 'circle-info'],
-        type: 'success',
-        content: 'This is a test alert.'
-    },
-    {
-        title: 'Hello Hello Hello 2',
-        icon: ['fas', 'triangle-exclamation'],
-        type: 'info',
-        content: 'This is a test alert.'
-    }
-]);
+export const alerts: Ref<Alert[]> = ref([]);
+
+export function watchAlerts() {
+    watch(
+        () => alerts.value,
+        (newAlerts, oldAlerts) => {
+            if (newAlerts.length > oldAlerts.length) {
+                const alertInstance: Alert = newAlerts[newAlerts.length - 1];
+                const alert: HTMLElement | null = document.querySelectorAll('.alert-box')[
+                    newAlerts.length - 1
+                ] as HTMLElement;
+
+                if (!alert) return;
+
+                alertShowAnimation(alert);
+
+                setTimeout(() => {
+                    alertHideAnimation(alert);
+                }, alertInstance.timeout);
+            }
+        }
+    );
+}
