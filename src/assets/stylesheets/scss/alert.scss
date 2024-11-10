@@ -25,14 +25,11 @@
         border: 1px solid $dutchWhite;
         background-color: $chamoisee;
         box-shadow: -2px 4px 8px #4434333d;
+        opacity: 0;
 
         transform: translateX(calc(100% + $grup-02));
 
         pointer-events: auto;
-
-        &.active {
-            transform: translateX(0);
-        }
 
         &.danger {
             border-color: $salmonPink;

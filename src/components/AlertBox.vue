@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { closeAlert } from '@/assets/javascripts/alert';
+
 defineProps<{
     title: string;
     content: string | null;
     icon: string[];
     type: 'info' | 'success' | 'warning' | 'danger';
+    index: number;
 }>();
 </script>
 
@@ -14,7 +17,9 @@ defineProps<{
             <h2 class="alert-title">{{ title }}</h2>
             <span v-if="content" class="alert-content">{{ content }}</span>
         </div>
-        <font-awesome-icon :icon="['far', 'xmark']" class="alert-close" />
+        <button aria-label="close" type="button" v-on:click="closeAlert(index)">
+            <font-awesome-icon :icon="['far', 'xmark']" class="alert-close" />
+        </button>
     </div>
 </template>
 

@@ -1,27 +1,54 @@
-import { ref, watch, type Ref } from 'vue';
+import { nextTick, reactive, watch } from 'vue';
 import type { Alert } from './entities/Alert';
 import { alertHideAnimation, alertShowAnimation } from './animations';
 
-export const alerts: Ref<Alert[]> = ref([]);
+export const alerts: Alert[] = reactive([]);
 
-export function watchAlerts() {
+export function watchAlerts(): void {
     watch(
-        () => alerts.value,
+        () => [...alerts],
         (newAlerts, oldAlerts) => {
             if (newAlerts.length > oldAlerts.length) {
-                const alertInstance: Alert = newAlerts[newAlerts.length - 1];
-                const alert: HTMLElement | null = document.querySelectorAll('.alert-box')[
-                    newAlerts.length - 1
-                ] as HTMLElement;
+                const alertInstance = newAlerts[alerts.length - 1];
 
-                if (!alert) return;
+                if (alertInstance) {
+                    nextTick(() => {
+                        const alertElements = document.querySelectorAll('.alert-box') as NodeListOf<HTMLElement>;
+                        const alertElement: HTMLElement | undefined = alertElements[alerts.length - 1];
 
-                alertShowAnimation(alert);
+                        if (!alertElement) return;
 
-                setTimeout(() => {
-                    alertHideAnimation(alert);
-                }, alertInstance.timeout);
+                        alertShowAnimation(alertElement);
+
+                        let timeoutId: ReturnType<typeof setTimeout>;
+                        const startTimeout = () => {
+                            timeoutId = setTimeout(() => {
+                                alertHideAnimation(alertElement);
+
+                                setTimeout(() => {
+                                    const index = alerts.indexOf(alertInstance);
+                                    if (index > -1) {
+                                        alerts.splice(index, 1);
+                                    }
+                                }, 200);
+                            }, alertInstance.timeout);
+                        };
+
+                        const clearTimeoutOnHover = () => {
+                            if (timeoutId) clearTimeout(timeoutId);
+                        };
+
+                        alertElement.addEventListener('mouseenter', clearTimeoutOnHover);
+                        alertElement.addEventListener('mouseleave', startTimeout);
+
+                        startTimeout();
+                    });
+                }
             }
         }
     );
+}
+
+export function closeAlert(index: number): void {
+    alerts.splice(index, 1);
 }

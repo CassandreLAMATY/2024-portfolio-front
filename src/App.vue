@@ -2,7 +2,12 @@
 import { RouterView } from 'vue-router';
 import AlertBox from './components/AlertBox.vue';
 
-import { alerts } from './assets/javascripts/alert';
+import { alerts, watchAlerts } from './assets/javascripts/alert';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    watchAlerts();
+});
 </script>
 
 <template>
@@ -16,6 +21,7 @@ import { alerts } from './assets/javascripts/alert';
             :content="a.content"
             :icon="a.icon"
             :type="a.type"
+            :index="alerts.indexOf(a)"
         />
     </div>
 </template>

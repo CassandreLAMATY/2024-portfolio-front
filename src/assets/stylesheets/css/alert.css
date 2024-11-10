@@ -18,11 +18,9 @@
   border: 1px solid #f4e4ba;
   background-color: #99715b;
   box-shadow: -2px 4px 8px rgba(68, 52, 51, 0.2392156863);
+  opacity: 0;
   transform: translateX(calc(100% + 0.5rem));
   pointer-events: auto;
-}
-.alert-box.active {
-  transform: translateX(0);
 }
 .alert-box.danger {
   border-color: #ff9b9b;
