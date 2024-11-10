@@ -21,7 +21,7 @@ import {
                 <div class="mail-container">
                     <span class="mail"><span>contact</span>@lamatycassandre.me</span>
                     <button class="mail-copy" aria-label="copy" type="button" v-on:click="copyMailToClipboard()">
-                        <font-awesome-icon :icon="['fas', 'copy']" />
+                        <i class="mail-copy--icon fa-solid fa-copy"></i>
                     </button>
                 </div>
             </div>

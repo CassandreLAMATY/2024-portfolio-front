@@ -118,6 +118,16 @@
 
                     cursor: pointer;
 
+                    &--icon {
+                        &.fa-check {
+                            color: $celadon;
+                        }
+
+                        &.fa-xmark {
+                            color: $salmonPink;
+                        }
+                    }
+
                     @include media-min(768px) {
                         font-size: $grup02;
                     }

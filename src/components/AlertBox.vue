@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { closeAlert } from '@/assets/javascripts/alert';
+import { closeMailAlert } from '@/assets/javascripts/contact';
 
 defineProps<{
     title: string;
@@ -17,7 +17,7 @@ defineProps<{
             <h2 class="alert-title">{{ title }}</h2>
             <span v-if="content" class="alert-content">{{ content }}</span>
         </div>
-        <button aria-label="close" type="button" v-on:click="closeAlert(index)">
+        <button aria-label="close" type="button" v-on:click="closeMailAlert(index)">
             <font-awesome-icon :icon="['far', 'xmark']" class="alert-close" />
         </button>
     </div>

@@ -112,6 +112,12 @@
   color: #f4e4ba;
   cursor: pointer;
 }
+.contact-top .mail-container .mail-copy--icon.fa-check {
+  color: #bbdb9b;
+}
+.contact-top .mail-container .mail-copy--icon.fa-xmark {
+  color: #ff9b9b;
+}
 @media (min-width: 768px) {
   .contact-top .mail-container .mail-copy {
     font-size: 1.5rem;
