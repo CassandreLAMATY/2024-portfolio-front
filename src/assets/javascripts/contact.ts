@@ -1,9 +1,9 @@
 import { ref } from 'vue';
 import type { Ref } from 'vue';
-import { copyToClipBoard } from './utils';
+import { copyToClipboard } from './utils';
 import { alerts, closeAlert } from './alert';
 import { Alert } from './entities/Alert';
-import { alertHideAnimation } from './animations';
+import { HandleError } from './utils/HandleError';
 
 export const personalMail: string = 'contact@lamatycassandre.me';
 
@@ -14,9 +14,10 @@ export const object: Ref<'info' | 'work' | 'other'> = ref('info');
 export const customObject: Ref<string> = ref('');
 export const message: Ref<string> = ref('');
 
+// Functions
 export function copyMailToClipboard(): void {
     try {
-        copyToClipBoard(personalMail);
+        copyToClipboard(personalMail);
 
         const mailIcon: HTMLElement | null = document.querySelector('.mail-copy--icon');
 
@@ -32,9 +33,8 @@ export function copyMailToClipboard(): void {
                 "You can now paste it anywhere you'd like"
             )
         );
-    } catch (e) {
+    } catch (e: unknown) {
         const mailIcon: HTMLElement | null = document.querySelector('.mail-copy--icon');
-        console.log(mailIcon);
 
         if (!mailIcon) return;
 
@@ -45,9 +45,11 @@ export function copyMailToClipboard(): void {
             new Alert(
                 "Couldn't copy email address to clipboard...",
                 'danger',
-                'Sorry, something wrong happened 😢 You can still copy paste it manually (without using the button)'
+                `Sorry, something wrong happened 😢\nYou can still copy paste it manually (without using the button)`
             )
         );
+
+        console.error(HandleError.ensureError(e));
     } finally {
         setTimeout(() => {
             const mailIcon: HTMLElement | null = document.querySelector('.mail-copy--icon');

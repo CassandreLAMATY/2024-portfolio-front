@@ -4,6 +4,7 @@ export class Alert {
     public icon: string[];
     public type: 'info' | 'success' | 'warning' | 'danger';
     public timeout: number = 5000;
+    public isActive?: boolean = true;
 
     constructor(title: string, type: 'info' | 'success' | 'warning' | 'danger', content: string | null = null) {
         this.title = title;

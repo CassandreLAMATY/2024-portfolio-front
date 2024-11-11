@@ -1,14 +1,24 @@
-import { nextTick, reactive, watch } from 'vue';
+import { nextTick, reactive, ref, watch, type Ref } from 'vue';
 import type { Alert } from './entities/Alert';
 import { alertHideAnimation, alertShowAnimation } from './animations';
 
 export const alerts: Alert[] = reactive([]);
+export const isActiveAlerts: Ref<boolean> = ref(false);
+
+watch(
+    () => isActiveAlerts.value,
+    (isActive) => {
+        if (!isActive) alerts.splice(0, alerts.length);
+    }
+);
 
 export function watchAlerts(): void {
     watch(
         () => [...alerts],
         (newAlerts, oldAlerts) => {
             if (newAlerts.length > oldAlerts.length) {
+                isActiveAlerts.value = true;
+
                 const alertInstance = newAlerts[alerts.length - 1];
 
                 if (alertInstance) {
@@ -28,7 +38,11 @@ export function watchAlerts(): void {
                                 setTimeout(() => {
                                     const index = alerts.indexOf(alertInstance);
                                     if (index > -1) {
-                                        alerts.splice(index, 1);
+                                        alerts[index].isActive = false;
+
+                                        if (alerts.filter((alert) => alert.isActive).length === 0) {
+                                            isActiveAlerts.value = false;
+                                        }
                                     }
                                 }, 200);
                             }, alertInstance.timeout);
@@ -50,5 +64,20 @@ export function watchAlerts(): void {
 }
 
 export function closeAlert(index: number): void {
-    alerts.splice(index, 1);
+    const alertElements = document.querySelectorAll('.alert-box') as NodeListOf<HTMLElement>;
+    const alertElement: HTMLElement | undefined = alertElements[index];
+
+    if (!alertElement) return;
+
+    alertHideAnimation(alertElement);
+
+    setTimeout(() => {
+        if (index > -1) {
+            alerts[index].isActive = false;
+
+            if (alerts.filter((alert) => alert.isActive).length === 0) {
+                isActiveAlerts.value = false;
+            }
+        }
+    }, 200);
 }
