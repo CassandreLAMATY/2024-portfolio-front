@@ -6,6 +6,7 @@ import { Alert } from './entities/Alert';
 import { HandleError } from './utils/HandleError';
 
 export const personalMail: string = 'contact@lamatycassandre.me';
+export const isBtnDisabled: Ref<boolean> = ref(false);
 
 // Form
 export const name: Ref<string> = ref('');
@@ -25,6 +26,8 @@ export function copyMailToClipboard(): void {
 
         mailIcon.classList.remove('fa-copy');
         mailIcon.classList.add('fa-check');
+
+        isBtnDisabled.value = true;
 
         alerts.push(
             new Alert(
@@ -55,6 +58,8 @@ export function copyMailToClipboard(): void {
             const mailIcon: HTMLElement | null = document.querySelector('.mail-copy--icon');
 
             if (!mailIcon) return;
+
+            isBtnDisabled.value = false;
 
             mailIcon.classList.remove('fa-check');
             mailIcon.classList.remove('fa-xmark');

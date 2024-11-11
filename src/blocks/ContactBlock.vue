@@ -8,7 +8,8 @@ import {
     object,
     customObject,
     message,
-    copyMailToClipboard
+    copyMailToClipboard,
+    isBtnDisabled
 } from '@/assets/javascripts/contact';
 </script>
 
@@ -20,7 +21,13 @@ import {
                 <p class="info">You can contact me either by texting me on my social media or by mail&nbsp;!</p>
                 <div class="mail-container">
                     <span class="mail"><span>contact</span>@lamatycassandre.me</span>
-                    <button class="mail-copy" aria-label="copy" type="button" v-on:click="copyMailToClipboard()">
+                    <button
+                        class="mail-copy"
+                        aria-label="copy"
+                        type="button"
+                        v-on:click="copyMailToClipboard()"
+                        :disabled="isBtnDisabled"
+                    >
                         <i class="mail-copy--icon fa-solid fa-copy"></i>
                     </button>
                 </div>
