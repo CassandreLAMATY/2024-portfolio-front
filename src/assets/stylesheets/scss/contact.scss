@@ -147,12 +147,24 @@
 
         .social-container {
             display: flex;
-            gap: $grup;
+            gap: $grup02;
 
             .social {
                 &-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: $grup-02;
+
                     font-size: $grup03;
                     color: $seasalt;
+
+                    cursor: pointer;
+
+                    & > span {
+                        font-size: $grup;
+                        font-weight: 500;
+                        color: $mistyRose;
+                    }
 
                     @include media-min(1024px) {
                         font-size: $grup04;

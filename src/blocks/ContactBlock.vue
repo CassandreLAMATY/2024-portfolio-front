@@ -35,13 +35,13 @@ import {
                     <div class="social-container">
                         <a class="social-link" href="https://www.behance.net/lamatycassandre" target="_blank">
                             <button class="social-btn" type="button" aria-label="Behance">
-                                <font-awesome-icon :icon="['fab', 'square-behance']" />
+                                <font-awesome-icon :icon="['fab', 'square-behance']" /> <span>Behance</span>
                             </button>
                         </a>
 
                         <a class="social-link" href="https://www.linkedin.com/in/cassandre-lamaty/" target="_blank">
                             <button class="social-btn" type="button" aria-label="Linkedin">
-                                <font-awesome-icon :icon="['fab', 'linkedin']" />
+                                <font-awesome-icon :icon="['fab', 'linkedin']" /> <span>Linkedin</span>
                             </button>
                         </a>
                     </div>
