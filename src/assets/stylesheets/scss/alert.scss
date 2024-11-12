@@ -13,6 +13,11 @@
         gap: $grup-02;
 
         pointer-events: none;
+
+        @include media-min(768px) {
+            left: unset;
+            max-width: $grup09;
+        }
     }
 
     &-box {
@@ -137,10 +142,18 @@
         text-transform: uppercase;
         line-height: $grup03;
         color: transparent;
+
+        @include media-min(1024px) {
+            font-size: $grup02;
+        }
     }
 
     &-content {
         font-family: QuickSand;
         color: $seasalt;
+
+        @include media-min(768px) {
+            font-size: $grup01;
+        }
     }
 }

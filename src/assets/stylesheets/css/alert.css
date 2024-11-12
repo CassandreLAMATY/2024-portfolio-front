@@ -10,6 +10,12 @@
   gap: 0.5rem;
   pointer-events: none;
 }
+@media (min-width: 768px) {
+  .alert-container {
+    left: unset;
+    max-width: 32rem;
+  }
+}
 .alert-box {
   position: relative;
   display: flex;
@@ -104,9 +110,19 @@
   line-height: 2rem;
   color: transparent;
 }
+@media (min-width: 1024px) {
+  .alert-title {
+    font-size: 1.5rem;
+  }
+}
 .alert-content {
   font-family: QuickSand;
   color: #f9f9f9;
+}
+@media (min-width: 768px) {
+  .alert-content {
+    font-size: 1.25rem;
+  }
 }
 
 /*# sourceMappingURL=alert.css.map */

@@ -25,12 +25,11 @@
   }
 }
 .contact-top {
-  margin-bottom: 2rem;
-}
-@media (min-width: 768px) {
-  .contact-top {
-    margin-bottom: 4rem;
-  }
+  /* margin-bottom: $grup03;
+
+  @include media-min(768px) {
+      margin-bottom: $grup05;
+  } */
 }
 .contact-top .title {
   margin-bottom: 1.5rem;
@@ -54,6 +53,11 @@
 .contact-top .info {
   font-weight: 300;
   color: #f9f9f9;
+}
+.contact-top--content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 .contact-top .mail-container {
   display: grid;
@@ -126,6 +130,19 @@
 @media (min-width: 1024px) {
   .contact-top .mail-container .mail-copy {
     font-size: 2rem;
+  }
+}
+.contact-top .social-container {
+  display: flex;
+  gap: 16px;
+}
+.contact-top .social-container .social-btn {
+  font-size: 2rem;
+  color: #f9f9f9;
+}
+@media (min-width: 1024px) {
+  .contact-top .social-container .social-btn {
+    font-size: 3rem;
   }
 }
 .contact-form--title {

@@ -29,13 +29,7 @@ export function copyMailToClipboard(): void {
 
         isBtnDisabled.value = true;
 
-        alerts.push(
-            new Alert(
-                'Email address successfully copied to clipboard !',
-                'success',
-                "You can now paste it anywhere you'd like"
-            )
-        );
+        alerts.push(new Alert('Copy successful', 'success', "You can now paste it anywhere you'd like"));
     } catch (e: unknown) {
         const mailIcon: HTMLElement | null = document.querySelector('.mail-copy--icon');
 

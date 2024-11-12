@@ -19,17 +19,32 @@ import {
             <div class="contact-top">
                 <h2 class="title">Wanna get in touch&nbsp;?</h2>
                 <p class="info">You can contact me either by texting me on my social media or by mail&nbsp;!</p>
-                <div class="mail-container">
-                    <span class="mail"><span>contact</span>@lamatycassandre.me</span>
-                    <button
-                        class="mail-copy"
-                        aria-label="copy"
-                        type="button"
-                        v-on:click="copyMailToClipboard()"
-                        :disabled="isBtnDisabled"
-                    >
-                        <i class="mail-copy--icon fa-solid fa-copy"></i>
-                    </button>
+                <div class="contact-top--content">
+                    <div class="mail-container">
+                        <span class="mail"><span>contact</span>@lamatycassandre.me</span>
+                        <button
+                            class="mail-copy"
+                            aria-label="copy"
+                            type="button"
+                            v-on:click="copyMailToClipboard()"
+                            :disabled="isBtnDisabled"
+                        >
+                            <i class="mail-copy--icon fa-solid fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="social-container">
+                        <a class="social-link" href="https://www.behance.net/lamatycassandre" target="_blank">
+                            <button class="social-btn" type="button" aria-label="Behance">
+                                <font-awesome-icon :icon="['fab', 'square-behance']" />
+                            </button>
+                        </a>
+
+                        <a class="social-link" href="https://www.linkedin.com/in/cassandre-lamaty/" target="_blank">
+                            <button class="social-btn" type="button" aria-label="Linkedin">
+                                <font-awesome-icon :icon="['fab', 'linkedin']" />
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
 

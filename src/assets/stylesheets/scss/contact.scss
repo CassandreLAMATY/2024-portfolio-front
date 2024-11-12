@@ -24,11 +24,11 @@
     }
 
     &-top {
-        margin-bottom: $grup03;
+        /* margin-bottom: $grup03;
 
         @include media-min(768px) {
             margin-bottom: $grup05;
-        }
+        } */
 
         & .title {
             margin-bottom: $grup02;
@@ -52,6 +52,12 @@
         & .info {
             font-weight: 300;
             color: $seasalt;
+        }
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+            gap: $grup02;
         }
 
         .mail-container {
@@ -134,6 +140,22 @@
 
                     @include media-min(1024px) {
                         font-size: $grup03;
+                    }
+                }
+            }
+        }
+
+        .social-container {
+            display: flex;
+            gap: $grup;
+
+            .social {
+                &-btn {
+                    font-size: $grup03;
+                    color: $seasalt;
+
+                    @include media-min(1024px) {
+                        font-size: $grup04;
                     }
                 }
             }
