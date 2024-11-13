@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
 import AlertBox from './components/AlertBox.vue';
+import FooterBlock from './blocks/FooterBlock.vue';
 
 import { alerts, watchAlerts } from './assets/javascripts/alert';
 import { onMounted } from 'vue';
@@ -24,4 +25,6 @@ onMounted(() => {
             :index="alerts.indexOf(a)"
         />
     </div>
+
+    <FooterBlock />
 </template>

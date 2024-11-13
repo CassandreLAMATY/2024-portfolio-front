@@ -1,0 +1,119 @@
+@import 'variables';
+
+.footer {
+    background-color: $vanDyke;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        gap: $grup04;
+
+        padding: $grup03 $grup02 $grup02 $grup02;
+
+        & .footer-about--container {
+            display: flex;
+            flex-direction: column;
+            gap: $grup04;
+
+            & .footer-about {
+                display: flex;
+                flex-direction: column;
+                gap: $grup-01;
+            }
+
+            & .about {
+                color: $seasalt;
+
+                & > a {
+                    color: $jordyBlue;
+                    font-weight: 600;
+                    font-style: italic;
+                }
+
+                & br {
+                    margin-bottom: $grup-03;
+                }
+            }
+
+            & .footer-media--container {
+                display: flex;
+                gap: $grup02;
+
+                & .footer-media {
+                    &--btn {
+                        display: flex;
+                        align-items: center;
+                        gap: $grup-02;
+
+                        font-size: $grup;
+                        font-weight: 500;
+                        color: $mistyRose;
+                    }
+
+                    &--icon {
+                        font-size: $grup03;
+                        color: $seasalt;
+                    }
+                }
+            }
+        }
+    }
+
+    &-nav {
+        order: -1;
+
+        & > ul {
+            display: flex;
+            align-items: center;
+            gap: $grup02;
+
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+        }
+
+        &--link {
+            font-family: Raleway;
+            font-size: $grup01;
+            font-weight: 400;
+            color: $seasalt;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+
+    &-credits {
+        color: $seasalt;
+
+        &--container {
+            display: flex;
+            flex-direction: column;
+            gap: $grup02;
+        }
+
+        &--hr {
+            margin: $grup-02 0;
+
+            border: none;
+            border-top: 1px solid $chamoisee;
+        }
+
+        &--version {
+            color: $mistyRose;
+
+            & .version {
+                font-weight: 800;
+                color: $seasalt;
+            }
+
+            & .date {
+                color: $seasalt;
+            }
+        }
+    }
+
+    &-rights {
+        color: $dutchWhite;
+    }
+}
