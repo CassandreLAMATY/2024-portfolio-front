@@ -136,6 +136,9 @@
   display: flex;
   gap: 1.5rem;
 }
+.contact-top .social-container .social-link {
+  text-decoration: none;
+}
 .contact-top .social-container .social-btn {
   display: flex;
   align-items: center;

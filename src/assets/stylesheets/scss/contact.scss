@@ -150,6 +150,10 @@
             gap: $grup02;
 
             .social {
+                &-link {
+                    text-decoration: none;
+                }
+
                 &-btn {
                     display: flex;
                     align-items: center;
