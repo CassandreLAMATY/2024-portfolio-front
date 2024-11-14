@@ -8,6 +8,6 @@ import ContactBlock from '@/blocks/ContactBlock.vue';
 <template>
     <HeaderBlock />
     <DescriptionBlock />
-    <BentoBlock />
+    <!-- <BentoBlock /> -->
     <ContactBlock />
 </template>
