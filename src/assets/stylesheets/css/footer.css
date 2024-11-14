@@ -78,6 +78,7 @@
   font-size: 16px;
   font-weight: 500;
   color: #ffe3e0;
+  cursor: pointer;
 }
 @media (min-width: 1024px) {
   .footer-container .footer-about--container .footer-media--container .footer-media--btn {

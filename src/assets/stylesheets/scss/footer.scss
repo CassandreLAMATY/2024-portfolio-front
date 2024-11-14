@@ -71,6 +71,7 @@
 
                 & .footer-media {
                     text-decoration: none;
+
                     &--btn {
                         display: flex;
                         align-items: center;
@@ -79,6 +80,8 @@
                         font-size: $grup;
                         font-weight: 500;
                         color: $mistyRose;
+
+                        cursor: pointer;
 
                         @include media-min(1024px) {
                             font-size: $grup01;
