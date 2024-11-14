@@ -101,7 +101,7 @@
     font-size: 1.25rem;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .contact-top .mail-container .mail {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -127,7 +127,7 @@
     font-size: 1.5rem;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .contact-top .mail-container .mail-copy {
     font-size: 2rem;
   }
@@ -152,9 +152,9 @@
   font-weight: 500;
   color: #ffe3e0;
 }
-@media (min-width: 1024px) {
-  .contact-top .social-container .social-btn {
-    font-size: 3rem;
+@media (min-width: 768px) {
+  .contact-top .social-container .social-btn > span {
+    font-size: 1.25rem;
   }
 }
 .contact-form--title {

@@ -42,7 +42,7 @@ p {
         line-height: 1.75rem;
     }
 
-    @include media-min(1024px) {
+    @include media-min(1280px) {
         font-size: $grup02;
         line-height: $grup03;
     }

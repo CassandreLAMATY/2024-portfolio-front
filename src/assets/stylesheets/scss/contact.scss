@@ -107,7 +107,7 @@
                     font-size: $grup01;
                 }
 
-                @include media-min(1024px) {
+                @include media-min(1280px) {
                     font-size: $grup02;
                     line-height: $grup03;
                 }
@@ -138,7 +138,7 @@
                         font-size: $grup02;
                     }
 
-                    @include media-min(1024px) {
+                    @include media-min(1280px) {
                         font-size: $grup03;
                     }
                 }
@@ -168,10 +168,10 @@
                         font-size: $grup;
                         font-weight: 500;
                         color: $mistyRose;
-                    }
 
-                    @include media-min(1024px) {
-                        font-size: $grup04;
+                        @include media-min(768px) {
+                            font-size: $grup01;
+                        }
                     }
                 }
             }
