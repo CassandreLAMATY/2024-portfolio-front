@@ -1,3 +1,8 @@
+<script setup lang="ts">
+const version: string | undefined = import.meta.env.VITE_APP_VERSION;
+const lastUpdate: string | undefined = import.meta.env.VITE_APP_LAST_UPDATE;
+</script>
+
 <template>
     <footer class="footer">
         <div class="footer-container">
@@ -40,7 +45,8 @@
                     <span class="footer-credits">Made with ❤️ by Cassandre Lamaty</span>
                     <hr class="footer-credits--hr" />
                     <span class="footer-credits--version">
-                        <span class="version">v2.1</span> - <span class="date">2024.11.12 1:30pm</span>
+                        <span class="version">v{{ version || '0.0' }}</span> -
+                        <span class="date">{{ lastUpdate || '2003.06.04 - 00:00am' }}</span>
                     </span>
                 </div>
                 <span class="footer-rights">&copy; 2024 - Cassandre Lamaty. All Rights Reserved.</span>

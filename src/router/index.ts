@@ -6,18 +6,19 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            name: 'portfolio',
+            name: 'home',
             component: PortfolioView
+        },
+        {
+            path: '/about',
+            name: 'about me',
+            redirect: '/'
+        },
+        {
+            path: '/portfolio',
+            name: 'portfolio',
+            redirect: '/'
         }
-        /* {
-            path: '/...',
-            name: '...',
-            
-            // route level code-splitting
-            // this generates a separate chunk (About.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () => import('../views/...View.vue')
-        } */
     ]
 });
 
