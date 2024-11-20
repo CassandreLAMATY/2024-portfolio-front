@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { tags, getSkillTags } from '@/assets/javascripts/skills';
 import SkillBox from '@/components/SkillBox.vue';
+
+getSkillTags();
 </script>
 
 <template>
@@ -15,7 +18,7 @@ import SkillBox from '@/components/SkillBox.vue';
                 <span class="skills-banner--item">Maintenance</span>
             </div>
             <div class="skills-boxes--container">
-                <SkillBox />
+                <!-- <SkillBox v-for="t of tags" :key="t.text" :title="t.text" /> -->
             </div>
         </div>
     </section>
