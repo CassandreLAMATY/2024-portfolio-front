@@ -6,7 +6,7 @@ getSkillTags();
 </script>
 
 <template>
-    <section class="skills">
+    <section v-if="tags && tags.length > 0" class="skills">
         <div class="skills-container">
             <h2 class="skills-title">Skills !<span class="skills-title--span">(shake the boxes !)</span></h2>
             <div class="skills-banner">
@@ -18,7 +18,7 @@ getSkillTags();
                 <span class="skills-banner--item">Maintenance</span>
             </div>
             <div class="skills-boxes--container">
-                <!-- <SkillBox v-for="t of tags" :key="t.text" :title="t.text" /> -->
+                <SkillBox v-for="c of tags" :key="c.category" :title="c.category" :tags="c.tags" />
             </div>
         </div>
     </section>

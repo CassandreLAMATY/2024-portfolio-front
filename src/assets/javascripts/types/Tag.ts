@@ -1,8 +1,13 @@
 export type Tag = {
     category: string;
-    icon: string;
+    icon?: tagIcon;
     text: string;
     color?: string;
+};
+
+export type tagIcon = {
+    url: string;
+    alternativeText?: string;
 };
 
 export type TagsByCategory = {
