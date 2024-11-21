@@ -4,3 +4,8 @@ export type Tag = {
     text: string;
     color?: string;
 };
+
+export type TagsByCategory = {
+    category: string;
+    tags: Tag[];
+};
