@@ -32,7 +32,6 @@ export async function getSkillTags(): Promise<TagsByCategory[] | null> {
         });
 
         tags.value = tagsByCategory;
-        console.log('tags', tags.value);
 
         return tagsByCategory;
     } catch (e: unknown) {
