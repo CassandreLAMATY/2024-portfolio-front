@@ -1,0 +1,163 @@
+@import 'variables';
+
+.skills {
+    background-color: $dutchWhite;
+
+    .skills-container {
+        padding: $grup03 $grup02;
+
+        .skills {
+            &-title {
+                font-family: Raleway;
+                font-size: $grup03;
+                font-weight: 900;
+                text-transform: uppercase;
+                color: $vanDyke;
+
+                &--span {
+                    font-size: $grup-01;
+                    font-weight: 600;
+                    text-transform: none;
+                    color: $chamoisee;
+                }
+            }
+
+            &-banner {
+                position: relative;
+
+                display: flex;
+                gap: $grup02;
+
+                margin: $grup02 0;
+
+                overflow-x: hidden;
+
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 2;
+
+                    background: linear-gradient(to right, $dutchWhite, transparent 20%, transparent 80%, $dutchWhite);
+                }
+
+                &--item {
+                    display: flex;
+                    align-items: center;
+                    gap: $grup02;
+
+                    min-width: fit-content;
+
+                    font-size: $grup01;
+                    text-transform: uppercase;
+                    color: $chamoisee;
+
+                    &:not(:last-child)::after {
+                        content: '';
+
+                        width: $grup-03;
+                        height: $grup-03;
+
+                        border-radius: 50%;
+                        background-color: $mauve;
+                    }
+                }
+            }
+
+            &-boxes--container {
+                display: flex;
+                flex-direction: column;
+                gap: $grup02;
+
+                .skill-box {
+                    position: relative;
+
+                    padding: 1px;
+
+                    border: 1px solid $vanDyke;
+                    border-radius: $grup;
+
+                    &--container {
+                        display: flex;
+                        gap: $grup;
+                    }
+
+                    &--grip {
+                        font-size: $grup02;
+                        color: $chamoisee;
+                    }
+
+                    &--content {
+                        width: 100%;
+                    }
+
+                    &--title {
+                        margin-bottom: $grup-03;
+
+                        font-family: Raleway;
+                        font-weight: 900;
+                        font-style: italic;
+                        text-transform: capitalize;
+                        line-height: $grup02;
+                        color: $vanDyke;
+                    }
+
+                    &--tag {
+                        display: flex;
+                        align-items: center;
+                        gap: $grup-02;
+
+                        width: fit-content;
+                        min-height: $grup03;
+                        padding: $grup-03 $grup-01;
+
+                        border: 1.5px solid $vanDyke;
+                        border-radius: 100px;
+                        background-color: $cream;
+
+                        font-weight: 600;
+                        letter-spacing: 0.2px;
+
+                        &.celadon {
+                            background-color: $celadon;
+                        }
+
+                        &.jordyBlue {
+                            background-color: $jordyBlue;
+                        }
+
+                        &.uranianBlue {
+                            background-color: $uranianBlue;
+                        }
+
+                        &.salmonPink {
+                            background-color: $salmonPink;
+                        }
+
+                        &.mauve {
+                            background-color: $mauve;
+                        }
+
+                        &.sunset {
+                            background-color: $sunset;
+                        }
+
+                        &.cream {
+                            background-color: $cream;
+                        }
+
+                        & .tag {
+                            &-icon {
+                                width: $grup02;
+                                height: $grup02;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

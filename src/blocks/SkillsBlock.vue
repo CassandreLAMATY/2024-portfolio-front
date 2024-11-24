@@ -8,7 +8,7 @@ getSkillTags();
 <template>
     <section v-if="tags && tags.length > 0" class="skills">
         <div class="skills-container">
-            <h2 class="skills-title">Skills !<span class="skills-title--span">(shake the boxes !)</span></h2>
+            <h2 class="skills-title">Skills !&nbsp;<span class="skills-title--span">(shake the boxes !)</span></h2>
             <div class="skills-banner">
                 <span class="skills-banner--item">Brainstorm</span>
                 <span class="skills-banner--item">Design</span>
@@ -23,3 +23,7 @@ getSkillTags();
         </div>
     </section>
 </template>
+
+<style>
+@import url('@/assets/stylesheets/css/skills.css');
+</style>
