@@ -76,6 +76,7 @@
                     position: relative;
 
                     padding: 1px;
+                    aspect-ratio: 3 / 2;
 
                     border: 1px solid $vanDyke;
                     border-radius: $grup;
@@ -106,9 +107,12 @@
                     }
 
                     &--tag {
+                        position: absolute;
                         display: flex;
                         align-items: center;
                         gap: $grup-02;
+
+                        display: none;
 
                         width: fit-content;
                         min-height: $grup03;

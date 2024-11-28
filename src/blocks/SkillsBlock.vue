@@ -1,8 +1,26 @@
 <script setup lang="ts">
-import { tags, getSkillTags } from '@/assets/javascripts/skills';
+import { tags, getSkillTags, initMatter } from '@/assets/javascripts/skills';
 import SkillBox from '@/components/SkillBox.vue';
+import { nextTick, ref, watch } from 'vue';
 
 getSkillTags();
+
+const section = ref<HTMLElement | null>(null);
+
+watch(
+    () => tags.value,
+    async () => {
+        await nextTick();
+
+        section.value = document.querySelector('.skills') as HTMLElement | null;
+
+        if (section.value) {
+            const boxes: NodeListOf<HTMLElement> = section.value.querySelectorAll('.skill-box');
+
+            initMatter(section.value, boxes);
+        }
+    }
+);
 </script>
 
 <template>
@@ -18,7 +36,13 @@ getSkillTags();
                 <span class="skills-banner--item">Maintenance</span>
             </div>
             <div class="skills-boxes--container">
-                <SkillBox v-for="c of tags" :key="c.category" :title="c.category" :tags="c.tags" />
+                <SkillBox
+                    v-for="(c, index) of tags"
+                    :key="c.category"
+                    :title="c.category"
+                    :tags="c.tags"
+                    :index="index"
+                />
             </div>
         </div>
     </section>

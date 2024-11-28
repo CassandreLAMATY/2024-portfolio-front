@@ -59,6 +59,7 @@
 .skills .skills-container .skills-boxes--container .skill-box {
   position: relative;
   padding: 1px;
+  aspect-ratio: 3/2;
   border: 1px solid #443433;
   border-radius: 16px;
 }
@@ -83,9 +84,11 @@
   color: #443433;
 }
 .skills .skills-container .skills-boxes--container .skill-box--tag {
+  position: absolute;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  display: none;
   width: fit-content;
   min-height: 2rem;
   padding: 0.25rem 0.75rem;
