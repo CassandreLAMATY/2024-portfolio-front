@@ -61,11 +61,10 @@ export function initMatter(section: HTMLElement, boxes: NodeListOf<HTMLElement>)
         element: section,
         engine: engine,
         options: {
-            wireframes: true,
-            showInternalEdges: true,
+            wireframes: false,
+            showInternalEdges: false,
             width: section.clientWidth,
-            height: section.clientHeight,
-            background: 'black'
+            height: section.clientHeight
         }
     });
 
@@ -73,38 +72,26 @@ export function initMatter(section: HTMLElement, boxes: NodeListOf<HTMLElement>)
 
     for (const box of boxes) {
         const boxBorder = [
+            Bodies.rectangle(box.offsetLeft + box.clientWidth / 2, box.offsetTop - 4, box.clientWidth + 10, 11, {
+                isStatic: true
+            }),
+            Bodies.rectangle(box.offsetLeft - 4, box.offsetTop + box.clientHeight / 2, 11, box.clientHeight + 20, {
+                isStatic: true
+            }),
             Bodies.rectangle(
                 box.offsetLeft + box.clientWidth / 2,
-                box.offsetTop - section.offsetTop - 5,
+                box.offsetTop + box.clientHeight + 4,
                 box.clientWidth,
-                5,
+                11,
                 {
                     isStatic: true
                 }
             ),
             Bodies.rectangle(
-                box.offsetLeft - 5,
-                box.offsetTop - section.offsetTop + box.clientHeight / 2,
-                5,
-                box.clientHeight,
-                {
-                    isStatic: true
-                }
-            ),
-            Bodies.rectangle(
-                box.offsetLeft + box.clientWidth / 2,
-                box.offsetTop - section.offsetTop + box.clientHeight + 5,
-                box.clientWidth,
-                5,
-                {
-                    isStatic: true
-                }
-            ),
-            Bodies.rectangle(
-                box.offsetLeft + box.clientWidth + 5,
-                box.offsetTop - section.offsetTop + box.clientHeight / 2,
-                5,
-                box.clientHeight,
+                box.offsetLeft + box.clientWidth + 4,
+                box.offsetTop + box.clientHeight / 2,
+                11,
+                box.clientHeight + 20,
                 {
                     isStatic: true
                 }
@@ -127,41 +114,46 @@ export function initMatter(section: HTMLElement, boxes: NodeListOf<HTMLElement>)
  * @param tags a list of tags from only 1 category
  * @returns
  */
-export function spawnTags(section: HTMLElement, box: HTMLElement, tags: NodeListOf<HTMLElement>): void {
+export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void {
+    const boxWidth = box.clientWidth;
+
     let i: number = 1;
     for (const tag of tags) {
         setTimeout(() => {
             tag.style.display = 'flex';
-            const sectionRect: DOMRect = section.getBoundingClientRect();
-            const boxRect: DOMRect = box.getBoundingClientRect();
-            const tagRect: DOMRect = tag.getBoundingClientRect();
 
-            const randomX: number =
-                Math.ceil(Math.random() * (boxRect.width / 3)) * (Math.round(Math.random()) ? 1 : -1);
+            const tagWidth = tag.clientWidth;
+            const tagHeight = tag.clientHeight;
 
-            tag.style.left = `${(boxRect.width - tagRect.width) / 2 + randomX}px`;
+            const randomX: number = Math.ceil(Math.random() * (boxWidth / 3)) * (Math.round(Math.random()) ? 1 : -1);
+            const initPoseX: number = (boxWidth - tagWidth) / 2 + randomX;
+            const initPoseY: number = tagHeight;
 
-            if (tag.style.left) {
-                const initPose: number = tag.style.left
-                    ? parseFloat(tag.style.left.substring(0, tag.style.left.length - 2))
-                    : (boxRect.width - tagRect.width) / 2;
+            tag.style.left = `${initPoseX}px`;
+            tag.style.top = `${initPoseY}px`;
 
-                const tagBody = Matter.Bodies.rectangle(
-                    initPose + boxRect.left + tagRect.width / 2,
-                    boxRect.top - sectionRect.top + tagRect.height,
-                    tagRect.width,
-                    tagRect.height,
-                    {
-                        restitution: 0.5,
-                        friction: 0.3,
-                        chamfer: {
-                            radius: 16
-                        }
+            const tagBody = Matter.Bodies.rectangle(
+                box.offsetLeft + initPoseX + tagWidth / 2,
+                box.offsetTop + initPoseY + tagHeight / 2,
+                tagWidth + 1,
+                tagHeight + 1,
+                {
+                    restitution: 0.5,
+                    friction: 0.2,
+                    chamfer: {
+                        radius: 16
                     }
-                );
+                }
+            );
 
-                Composite.add(world, tagBody);
-            }
+            // Link canvas tags to the DOM elements
+            Matter.Events.on(engine, 'afterUpdate', () => {
+                tag.style.left = `${tagBody.position.x - tagWidth / 2 - box.offsetLeft}px`;
+                tag.style.top = `${tagBody.position.y - tagHeight / 2 - box.offsetTop}px`;
+                tag.style.transform = `rotate(${tagBody.angle}rad)`;
+            });
+
+            Composite.add(world, tagBody);
         }, 400 * i);
 
         i++;

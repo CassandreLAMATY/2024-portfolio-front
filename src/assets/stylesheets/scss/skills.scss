@@ -1,7 +1,18 @@
 @import 'variables';
 
 .skills {
+    position: relative;
+
     background-color: $dutchWhite;
+
+    & canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        opacity: 0;
+    }
 
     .skills-container {
         padding: $grup03 $grup02;

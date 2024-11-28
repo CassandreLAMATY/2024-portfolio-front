@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { spawnTags } from '@/assets/javascripts/skills';
 import { type Tag } from '@/assets/javascripts/types/Tag';
-import { onMounted } from 'vue';
+import { nextTick, onMounted } from 'vue';
 
 const props = defineProps<{
     title: string;
@@ -9,13 +9,15 @@ const props = defineProps<{
     index: number;
 }>();
 
-onMounted(() => {
+onMounted(async () => {
     const section = document.querySelector('.skills') as HTMLElement | null;
     const box = document.querySelector(`#box${props.index}`) as HTMLElement | null;
     const boxTags = document.querySelectorAll(`#box${props.index} > .skill-box--tag`) as NodeListOf<HTMLElement> | null;
 
     if (section && box && boxTags) {
-        spawnTags(section, box, boxTags);
+        await nextTick(() => {
+            spawnTags(box, boxTags);
+        });
     }
 });
 </script>
