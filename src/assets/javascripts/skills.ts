@@ -50,13 +50,13 @@ const Engine = Matter.Engine,
     Bodies = Matter.Bodies,
     Composite = Matter.Composite,
     Render = Matter.Render,
-    Runner = Matter.Runner;
+    Runner = Matter.Runner,
+    Events = Matter.Events;
 
 const engine = Engine.create(),
     world = engine.world;
 
 export function initMatter(section: HTMLElement, boxes: NodeListOf<HTMLElement>): void {
-    // create a renderer
     const render = Render.create({
         element: section,
         engine: engine,
@@ -64,42 +64,40 @@ export function initMatter(section: HTMLElement, boxes: NodeListOf<HTMLElement>)
             wireframes: false,
             showInternalEdges: false,
             width: section.clientWidth,
-            height: section.clientHeight
+            height: section.clientHeight,
+            background: 'transparent'
         }
     });
 
     const boxBorders: Matter.Body[] = [];
 
-    for (const box of boxes) {
-        const boxBorder = [
-            Bodies.rectangle(box.offsetLeft + box.clientWidth / 2, box.offsetTop - 4, box.clientWidth + 10, 11, {
-                isStatic: true
-            }),
-            Bodies.rectangle(box.offsetLeft - 4, box.offsetTop + box.clientHeight / 2, 11, box.clientHeight + 20, {
-                isStatic: true
-            }),
-            Bodies.rectangle(
-                box.offsetLeft + box.clientWidth / 2,
-                box.offsetTop + box.clientHeight + 4,
-                box.clientWidth,
-                11,
-                {
-                    isStatic: true
-                }
-            ),
-            Bodies.rectangle(
-                box.offsetLeft + box.clientWidth + 4,
-                box.offsetTop + box.clientHeight / 2,
-                11,
-                box.clientHeight + 20,
-                {
-                    isStatic: true
-                }
-            )
+    boxes.forEach((box) => {
+        const positions = [
+            { x: box.offsetLeft + box.clientWidth / 2, y: box.offsetTop - 4, width: box.clientWidth + 10, height: 11 },
+            {
+                x: box.offsetLeft - 4,
+                y: box.offsetTop + box.clientHeight / 2,
+                width: 11,
+                height: box.clientHeight + 20
+            },
+            {
+                x: box.offsetLeft + box.clientWidth / 2,
+                y: box.offsetTop + box.clientHeight + 4,
+                width: box.clientWidth,
+                height: 11
+            },
+            {
+                x: box.offsetLeft + box.clientWidth + 4,
+                y: box.offsetTop + box.clientHeight / 2,
+                width: 11,
+                height: box.clientHeight + 20
+            }
         ];
 
-        boxBorders.push(...boxBorder);
-    }
+        positions.forEach((pos) => {
+            boxBorders.push(Bodies.rectangle(pos.x, pos.y, pos.width, pos.height, { isStatic: true }));
+        });
+    });
 
     Composite.add(world, boxBorders);
 
@@ -117,45 +115,42 @@ export function initMatter(section: HTMLElement, boxes: NodeListOf<HTMLElement>)
 export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void {
     const boxWidth = box.clientWidth;
 
-    let i: number = 1;
-    for (const tag of tags) {
-        setTimeout(() => {
-            tag.style.display = 'flex';
+    tags.forEach((tag, index) => {
+        setTimeout(
+            () => {
+                tag.style.display = 'flex';
 
-            const tagWidth = tag.clientWidth;
-            const tagHeight = tag.clientHeight;
+                const tagWidth = tag.clientWidth;
+                const tagHeight = tag.clientHeight;
 
-            const randomX: number = Math.ceil(Math.random() * (boxWidth / 3)) * (Math.round(Math.random()) ? 1 : -1);
-            const initPoseX: number = (boxWidth - tagWidth) / 2 + randomX;
-            const initPoseY: number = tagHeight;
+                const randomX = Math.ceil(Math.random() * (boxWidth / 3)) * (Math.round(Math.random()) ? 1 : -1);
+                const initPoseX = (boxWidth - tagWidth) / 2 + randomX;
+                const initPoseY = tagHeight;
 
-            tag.style.left = `${initPoseX}px`;
-            tag.style.top = `${initPoseY}px`;
+                tag.style.left = `${initPoseX}px`;
+                tag.style.top = `${initPoseY}px`;
 
-            const tagBody = Matter.Bodies.rectangle(
-                box.offsetLeft + initPoseX + tagWidth / 2,
-                box.offsetTop + initPoseY + tagHeight / 2,
-                tagWidth + 1,
-                tagHeight + 1,
-                {
-                    restitution: 0.5,
-                    friction: 0.2,
-                    chamfer: {
-                        radius: 16
+                const tagBody = Bodies.rectangle(
+                    box.offsetLeft + initPoseX + tagWidth / 2,
+                    box.offsetTop + initPoseY + tagHeight / 2,
+                    tagWidth + 2,
+                    tagHeight + 2,
+                    {
+                        restitution: 0.5,
+                        friction: 0.2,
+                        chamfer: { radius: 16 }
                     }
-                }
-            );
+                );
 
-            // Link canvas tags to the DOM elements
-            Matter.Events.on(engine, 'afterUpdate', () => {
-                tag.style.left = `${tagBody.position.x - tagWidth / 2 - box.offsetLeft}px`;
-                tag.style.top = `${tagBody.position.y - tagHeight / 2 - box.offsetTop}px`;
-                tag.style.transform = `rotate(${tagBody.angle}rad)`;
-            });
+                Events.on(engine, 'afterUpdate', () => {
+                    tag.style.left = `${tagBody.position.x - tagWidth / 2 - box.offsetLeft}px`;
+                    tag.style.top = `${tagBody.position.y - tagHeight / 2 - box.offsetTop}px`;
+                    tag.style.transform = `rotate(${tagBody.angle}rad)`;
+                });
 
-            Composite.add(world, tagBody);
-        }, 400 * i);
-
-        i++;
-    }
+                Composite.add(world, tagBody);
+            },
+            400 * (index + 1)
+        );
+    });
 }
