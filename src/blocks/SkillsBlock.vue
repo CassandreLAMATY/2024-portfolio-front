@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { isMobile } from '@/assets/javascripts/global';
 import { tags, getSkillTags, initMatter } from '@/assets/javascripts/skills';
 import SkillBox from '@/components/SkillBox.vue';
 import { nextTick, ref, watch } from 'vue';
@@ -26,7 +27,11 @@ watch(
 <template>
     <section v-if="tags && tags.length > 0" class="skills">
         <div class="skills-container">
-            <h2 class="skills-title">Skills !&nbsp;<span class="skills-title--span">(shake the boxes !)</span></h2>
+            <h2 class="skills-title">
+                Skills !&nbsp;<span class="skills-title--span"
+                    >(<span v-if="!isMobile">shake</span><span v-else>punch</span> the boxes !)</span
+                >
+            </h2>
             <div class="skills-banner">
                 <span class="skills-banner--item">Brainstorm</span>
                 <span class="skills-banner--item">Design</span>
