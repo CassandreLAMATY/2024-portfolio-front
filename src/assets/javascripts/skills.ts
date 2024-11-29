@@ -153,4 +153,54 @@ export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void
             400 * (index + 1)
         );
     });
+
+    punchTags(tags, box);
+}
+
+export function punchTags(tags: NodeListOf<HTMLElement>, box: HTMLElement): void {
+    box.addEventListener('click', (event: MouseEvent) => {
+        const clickX = event.clientX - box.offsetLeft;
+        const clickY = event.clientY - box.offsetTop;
+
+        console.log('Clic détecté dans la boîte aux coordonnées :', clickX, clickY);
+
+        const explosionRadius = 100;
+        const explosionForce = 0.05;
+
+        // Obtenir tous les corps dans le monde Matter.js
+        const bodies = Composite.allBodies(world);
+
+        tags.forEach((tag) => {
+            const tagRect = tag.getBoundingClientRect();
+            const tagX = tagRect.left + tagRect.width / 2 - box.offsetLeft;
+            const tagY = tagRect.top + tagRect.height / 2 - box.offsetTop;
+
+            console.log('Position du tag :', tagX, tagY);
+
+            const dx = tagX - clickX;
+            const dy = tagY - clickY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance <= explosionRadius) {
+                const tagBody = bodies.find(
+                    (body) =>
+                        Math.abs(body.position.x - (tagX + box.offsetLeft)) < 1 &&
+                        Math.abs(body.position.y - (tagY + box.offsetTop)) < 1
+                );
+
+                if (tagBody) {
+                    const forceMagnitude = (1 - distance / explosionRadius) * explosionForce;
+                    const forceX = (dx / distance) * forceMagnitude;
+                    const forceY = (dy / distance) * forceMagnitude;
+
+                    console.log('Force appliquée :', forceX, forceY);
+
+                    Matter.Body.applyForce(tagBody, tagBody.position, {
+                        x: forceX,
+                        y: forceY
+                    });
+                }
+            }
+        });
+    });
 }
