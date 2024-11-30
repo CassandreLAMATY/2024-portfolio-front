@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { isMobile } from '@/assets/javascripts/global';
-import { tags, getSkillTags, initMatter } from '@/assets/javascripts/skills';
+import { tags, getSkillTags, initMatter, watchResize } from '@/assets/javascripts/skills';
 import SkillBox from '@/components/SkillBox.vue';
 import { nextTick, ref, watch } from 'vue';
 
@@ -17,8 +17,10 @@ watch(
 
         if (section.value) {
             const boxes: NodeListOf<HTMLElement> = section.value.querySelectorAll('.skill-box');
+            const tags: NodeListOf<HTMLElement> = section.value.querySelectorAll('.skill-box--tag');
 
             initMatter(section.value, boxes);
+            watchResize(section.value, boxes, tags);
         }
     }
 );

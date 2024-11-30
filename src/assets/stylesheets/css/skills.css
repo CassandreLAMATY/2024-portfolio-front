@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   z-index: 1;
-  opacity: 0.5;
+  opacity: 0;
   pointer-events: none;
 }
 .skills .skills-container {
@@ -26,6 +26,11 @@
   font-weight: 600;
   text-transform: none;
   color: #99715b;
+}
+.skills .skills-container .skills-title--span > span {
+  font-family: Raleway;
+  font-style: italic;
+  font-weight: 800;
 }
 .skills .skills-container .skills-banner {
   position: relative;
@@ -107,6 +112,8 @@
   background-color: #eaf3c0;
   font-weight: 600;
   letter-spacing: 0.2px;
+  user-select: none;
+  pointer-events: none;
 }
 .skills .skills-container .skills-boxes--container .skill-box--tag.celadon {
   background-color: #bbdb9b;

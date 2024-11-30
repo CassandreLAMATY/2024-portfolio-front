@@ -5,13 +5,17 @@ import { HandleError } from './utils/HandleError';
 import { ref, type Ref } from 'vue';
 import Matter from 'matter-js';
 
-const apiUrl: string | null = import.meta.env.VITE_STRAPI_API_URL;
-const apiToken: string | null = import.meta.env.VITE_STRAPI_API_TOKEN;
+const apiUrl: string | null = import.meta.env.VITE_STRAPI_API_URL,
+    apiToken: string | null = import.meta.env.VITE_STRAPI_API_TOKEN;
 
 const apiHandler = new ApiHandler(apiUrl, apiToken);
 
 export const tags: Ref<TagsByCategory[] | null> = ref(null);
 
+/**
+ * Get all skill tags from Strapi sorted by category
+ * @returns a list of skill tags sorted by category
+ */
 export async function getSkillTags(): Promise<TagsByCategory[] | null> {
     try {
         const t: Tag[] = await apiHandler.get<StrapiResponse<Tag>>('/skill-tags', { populate: '*' }).then((r) => {
@@ -22,15 +26,15 @@ export async function getSkillTags(): Promise<TagsByCategory[] | null> {
             return r.data;
         });
 
-        const categories: string[] = Array.from(new Set(t.map((tag: Tag) => tag.category)));
-        const tagsByCategory: TagsByCategory[] = categories.map((c: string) => {
-            const tags: Tag[] = t.filter((tag: Tag) => tag.category === c);
+        const categories: string[] = Array.from(new Set(t.map((tag: Tag) => tag.category))),
+            tagsByCategory: TagsByCategory[] = categories.map((c: string) => {
+                const tags: Tag[] = t.filter((tag: Tag) => tag.category === c);
 
-            return {
-                category: c,
-                tags: tags
-            };
-        });
+                return {
+                    category: c,
+                    tags: tags
+                };
+            });
 
         tags.value = tagsByCategory;
 
@@ -43,7 +47,7 @@ export async function getSkillTags(): Promise<TagsByCategory[] | null> {
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------- Matter.js implementation ---------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------
 
 const Engine = Matter.Engine,
@@ -55,9 +59,17 @@ const Engine = Matter.Engine,
 
 const engine = Engine.create(),
     world = engine.world;
+let render: Matter.Render,
+    runner: Matter.Runner,
+    isResizing = false;
 
+/**
+ * Initialize Matter.js
+ * @param section section containing the boxes
+ * @param boxes boxes containing the tags
+ */
 export function initMatter(section: HTMLElement, boxes: NodeListOf<HTMLElement>): void {
-    const render = Render.create({
+    render = Render.create({
         element: section,
         engine: engine,
         options: {
@@ -103,29 +115,34 @@ export function initMatter(section: HTMLElement, boxes: NodeListOf<HTMLElement>)
 
     engine.gravity.y = 0.6;
 
+    runner = Runner.create();
+
     Render.run(render);
-    Runner.run(Runner.create(), engine);
+    Runner.run(runner, engine);
 }
 
 /**
- *
+ * Spawn tags inside the box
  * @param tags a list of tags from only 1 category
- * @returns
  */
 export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void {
     const boxWidth = box.clientWidth;
 
     tags.forEach((tag, index) => {
+        if (isResizing) return;
+
         setTimeout(
             () => {
+                if (isResizing) return;
+
                 tag.style.display = 'flex';
 
-                const tagWidth = tag.clientWidth;
-                const tagHeight = tag.clientHeight;
+                const tagWidth = tag.clientWidth,
+                    tagHeight = tag.clientHeight;
 
-                const randomX = Math.ceil(Math.random() * (boxWidth / 3)) * (Math.round(Math.random()) ? 1 : -1);
-                const initPoseX = (boxWidth - tagWidth) / 2 + randomX;
-                const initPoseY = tagHeight;
+                const randomX = Math.ceil(Math.random() * (boxWidth / 3)) * (Math.round(Math.random()) ? 1 : -1),
+                    initPoseX = (boxWidth - tagWidth) / 2 + randomX,
+                    initPoseY = tagHeight;
 
                 tag.style.left = `${initPoseX}px`;
                 tag.style.top = `${initPoseY}px`;
@@ -138,7 +155,8 @@ export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void
                     {
                         restitution: 0.5,
                         friction: 0.2,
-                        chamfer: { radius: 16 }
+                        chamfer: { radius: 16 },
+                        label: 'tag'
                     }
                 );
 
@@ -157,50 +175,99 @@ export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void
     punchTags(tags, box);
 }
 
+/**
+ * Click anywhere inside the box to punch the tags that are inside the explosion radius
+ * @param tags array of tags
+ * @param box box containing the tags
+ */
 export function punchTags(tags: NodeListOf<HTMLElement>, box: HTMLElement): void {
     box.addEventListener('click', (event: MouseEvent) => {
-        const clickX = event.clientX - box.offsetLeft;
-        const clickY = event.clientY - box.offsetTop;
+        const clickX = event.offsetX,
+            clickY = event.offsetY;
 
-        console.log('Clic détecté dans la boîte aux coordonnées :', clickX, clickY);
+        const explosionRadius = 100,
+            explosionForce = 0.1;
 
-        const explosionRadius = 100;
-        const explosionForce = 0.05;
+        const bodies = Composite.allBodies(world),
+            tagBodies = bodies.filter((body) => body.label === 'tag');
 
-        // Obtenir tous les corps dans le monde Matter.js
-        const bodies = Composite.allBodies(world);
+        for (const tag of tags) {
+            const tagX = tag.offsetLeft + tag.clientWidth / 2,
+                tagY = tag.offsetTop + tag.clientHeight / 2;
 
-        tags.forEach((tag) => {
-            const tagRect = tag.getBoundingClientRect();
-            const tagX = tagRect.left + tagRect.width / 2 - box.offsetLeft;
-            const tagY = tagRect.top + tagRect.height / 2 - box.offsetTop;
+            // Distance tag - click
+            const dx = tagX - clickX,
+                dy = tagY - clickY,
+                d = Math.sqrt(dx * dx + dy * dy);
 
-            console.log('Position du tag :', tagX, tagY);
-
-            const dx = tagX - clickX;
-            const dy = tagY - clickY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance <= explosionRadius) {
-                const tagBody = bodies.find(
+            if (d <= explosionRadius) {
+                const tb = tagBodies.find(
                     (body) =>
                         Math.abs(body.position.x - (tagX + box.offsetLeft)) < 1 &&
                         Math.abs(body.position.y - (tagY + box.offsetTop)) < 1
                 );
 
-                if (tagBody) {
-                    const forceMagnitude = (1 - distance / explosionRadius) * explosionForce;
-                    const forceX = (dx / distance) * forceMagnitude;
-                    const forceY = (dy / distance) * forceMagnitude;
+                if (tb) {
+                    const forceMagnitude = (1 - d / explosionRadius) * explosionForce,
+                        forceX = (dx / d) * forceMagnitude,
+                        forceY = (dy / d) * forceMagnitude;
 
-                    console.log('Force appliquée :', forceX, forceY);
-
-                    Matter.Body.applyForce(tagBody, tagBody.position, {
+                    Matter.Body.applyForce(tb, tb.position, {
                         x: forceX,
                         y: forceY
                     });
                 }
             }
+        }
+    });
+}
+
+/**
+ * On resize :
+ * - Remove everything related to Matter.js
+ * - Hide the tags
+ *
+ * After resize :
+ * - Re-init Matter.js
+ * - Re-spawn tags
+ * @param section section containing the boxes
+ * @param boxes boxes containing the tags
+ * @param tags every tag inside the section
+ */
+export function watchResize(section: HTMLElement, boxes: NodeListOf<HTMLElement>, tags: NodeListOf<HTMLElement>): void {
+    // Timeout to prevent multiple calls to initMatter and spawnTags
+    let actionTimeout: number | null = null;
+
+    window.addEventListener('resize', () => {
+        isResizing = true;
+
+        Events.off(engine, 'afterUpdate', () => {});
+        Composite.clear(world, false, true);
+
+        tags.forEach((tag) => {
+            tag.style.display = 'none';
         });
+
+        setTimeout(() => {
+            Render.stop(render);
+            Runner.stop(runner);
+
+            // Clear the timeout if it's already set
+            if (actionTimeout) {
+                clearTimeout(actionTimeout);
+            }
+
+            // If the user stops resizing for 200ms, re-init Matter.js and re-spawn tags
+            actionTimeout = setTimeout(() => {
+                isResizing = false;
+
+                initMatter(section, boxes);
+                for (const box of boxes) {
+                    const boxTags: NodeListOf<HTMLElement> = box.querySelectorAll('.skill-box--tag');
+
+                    spawnTags(box, boxTags);
+                }
+            }, 500);
+        }, 100);
     });
 }
