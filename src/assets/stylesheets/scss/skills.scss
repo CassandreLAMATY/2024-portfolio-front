@@ -19,6 +19,22 @@
     .skills-container {
         padding: $grup03 $grup02;
 
+        @include media-min(768px) {
+            padding: $grup05;
+        }
+
+        @include media-min(1024px) {
+            padding: $grup05 $grup07;
+        }
+
+        @include media-min(1536px) {
+            box-sizing: content-box;
+
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: $grup06 $grup08;
+        }
+
         .skills {
             &-title {
                 font-family: Raleway;
@@ -27,11 +43,27 @@
                 text-transform: uppercase;
                 color: $vanDyke;
 
+                @include media-min(768px) {
+                    font-size: $grup04;
+                }
+
+                @include media-min(1280px) {
+                    font-size: $grup06;
+                }
+
                 &--span {
                     font-size: $grup-01;
                     font-weight: 600;
                     text-transform: none;
                     color: $chamoisee;
+
+                    @include media-min(768px) {
+                        font-size: $grup;
+                    }
+
+                    @include media-min(1280px) {
+                        font-size: $grup;
+                    }
 
                     & > span {
                         font-family: Raleway;
@@ -50,6 +82,14 @@
                 margin: $grup02 0;
 
                 overflow-x: hidden;
+
+                @include media-min(768px) {
+                    margin: $grup03 0;
+                }
+
+                @include media-min(1024px) {
+                    margin: $grup04 0;
+                }
 
                 &::after {
                     content: ' ';
@@ -74,6 +114,10 @@
                     text-transform: uppercase;
                     color: $chamoisee;
 
+                    @include media-min(1024px) {
+                        font-size: $grup02;
+                    }
+
                     &:not(:last-child)::after {
                         content: '';
 
@@ -91,6 +135,15 @@
                 flex-direction: column;
                 gap: $grup02;
 
+                @include media-min(640px) {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @include media-min(1280px) {
+                    gap: $grup04;
+                }
+
                 .skill-box {
                     position: relative;
 
@@ -99,6 +152,22 @@
 
                     border: 1px solid $vanDyke;
                     border-radius: $grup;
+
+                    @include media-min(640px) {
+                        aspect-ratio: 2 / 3;
+                    }
+
+                    @include media-min(768px) {
+                        aspect-ratio: 4 / 3;
+                    }
+
+                    @include media-min(1024px) {
+                        aspect-ratio: 3 / 2;
+                    }
+
+                    @include media-min(1280px) {
+                        aspect-ratio: 5 / 3;
+                    }
 
                     &--container {
                         display: flex;
@@ -120,11 +189,16 @@
                         margin-bottom: $grup-03;
 
                         font-family: Raleway;
+                        font-size: $grup01;
                         font-weight: 900;
                         font-style: italic;
                         text-transform: capitalize;
                         line-height: $grup02;
                         color: $vanDyke;
+
+                        @include media-min(1024px) {
+                            font-size: $grup02;
+                        }
                     }
 
                     &--tag {
@@ -148,6 +222,14 @@
 
                         user-select: none;
                         pointer-events: none;
+
+                        @include media-min(1024px) {
+                            gap: $grup-01;
+
+                            padding: $grup-03 $grup;
+
+                            font-size: $grup01;
+                        }
 
                         &.celadon {
                             background-color: $celadon;
@@ -181,6 +263,11 @@
                             &-icon {
                                 width: $grup02;
                                 height: $grup02;
+
+                                @include media-min(1024px) {
+                                    width: $grup03;
+                                    height: $grup03;
+                                }
                             }
                         }
                     }

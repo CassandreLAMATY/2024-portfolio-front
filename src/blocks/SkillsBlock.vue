@@ -30,9 +30,7 @@ watch(
     <section v-if="tags && tags.length > 0" class="skills">
         <div class="skills-container">
             <h2 class="skills-title">
-                Skills !&nbsp;<span class="skills-title--span"
-                    >(<span v-if="!isMobile">shake</span><span v-else>punch</span> the boxes !)</span
-                >
+                Skills !&nbsp;<span class="skills-title--span">(<span>punch</span> the boxes !)</span>
             </h2>
             <div class="skills-banner">
                 <span class="skills-banner--item">Brainstorm</span>

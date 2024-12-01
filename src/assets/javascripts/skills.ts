@@ -3,7 +3,7 @@ import type { Tag, TagsByCategory } from './types/Tag';
 import type { StrapiResponse } from './types/StrapiResponse';
 import { HandleError } from './utils/HandleError';
 import { ref, type Ref } from 'vue';
-import Matter from 'matter-js';
+import Matter, { World } from 'matter-js';
 
 const apiUrl: string | null = import.meta.env.VITE_STRAPI_API_URL,
     apiToken: string | null = import.meta.env.VITE_STRAPI_API_TOKEN;
@@ -85,24 +85,24 @@ export function initMatter(section: HTMLElement, boxes: NodeListOf<HTMLElement>)
 
     boxes.forEach((box) => {
         const positions = [
-            { x: box.offsetLeft + box.clientWidth / 2, y: box.offsetTop - 4, width: box.clientWidth + 10, height: 11 },
+            { x: box.offsetLeft + box.clientWidth / 2, y: box.offsetTop - 9, width: box.clientWidth + 20, height: 21 },
             {
-                x: box.offsetLeft - 4,
+                x: box.offsetLeft - 9,
                 y: box.offsetTop + box.clientHeight / 2,
-                width: 11,
-                height: box.clientHeight + 20
+                width: 21,
+                height: box.clientHeight + 40
             },
             {
                 x: box.offsetLeft + box.clientWidth / 2,
-                y: box.offsetTop + box.clientHeight + 4,
+                y: box.offsetTop + box.clientHeight + 9,
                 width: box.clientWidth,
-                height: 11
+                height: 21
             },
             {
-                x: box.offsetLeft + box.clientWidth + 4,
+                x: box.offsetLeft + box.clientWidth + 9,
                 y: box.offsetTop + box.clientHeight / 2,
-                width: 11,
-                height: box.clientHeight + 20
+                width: 21,
+                height: box.clientHeight + 40
             }
         ];
 
@@ -131,7 +131,7 @@ export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void
     tags.forEach((tag, index) => {
         if (isResizing) return;
 
-        setTimeout(
+        const timeoutId = setTimeout(
             () => {
                 if (isResizing) return;
 
@@ -155,7 +155,7 @@ export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void
                     {
                         restitution: 0.5,
                         friction: 0.2,
-                        chamfer: { radius: 16 },
+                        chamfer: { radius: 24 },
                         label: 'tag'
                     }
                 );
@@ -170,13 +170,38 @@ export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void
             },
             400 * (index + 1)
         );
-    });
 
-    punchTags(tags, box);
+        // Add timeout to the array to clear them on resize
+        timeouts.push(timeoutId);
+
+        punchTags(tags, box);
+    });
+}
+
+const outOfBoundsListeners = new Map<Matter.Body, () => void>();
+
+function removeOutOfBorderTags(tb: Matter.Body, box: HTMLElement, tag: HTMLElement) {
+    if (
+        tb.position.x < box.offsetLeft - 30 ||
+        tb.position.x > box.clientWidth + box.offsetLeft + 30 ||
+        tb.position.y < box.offsetTop - 30 ||
+        tb.position.y > box.clientHeight + box.offsetTop + 30
+    ) {
+        Composite.remove(world, tb);
+        tag.style.display = 'none';
+
+        // Remove listener if tag is out of bounds
+        const listener = outOfBoundsListeners.get(tb);
+        if (listener) {
+            Events.off(engine, 'afterUpdate', listener);
+            outOfBoundsListeners.delete(tb);
+        }
+    }
 }
 
 /**
  * Click anywhere inside the box to punch the tags that are inside the explosion radius
+ * Delete tag if out of bounds
  * @param tags array of tags
  * @param box box containing the tags
  */
@@ -186,7 +211,7 @@ export function punchTags(tags: NodeListOf<HTMLElement>, box: HTMLElement): void
             clickY = event.offsetY;
 
         const explosionRadius = 100,
-            explosionForce = 0.1;
+            explosionForce = 0.05;
 
         const bodies = Composite.allBodies(world),
             tagBodies = bodies.filter((body) => body.label === 'tag');
@@ -216,11 +241,20 @@ export function punchTags(tags: NodeListOf<HTMLElement>, box: HTMLElement): void
                         x: forceX,
                         y: forceY
                     });
+
+                    if (!outOfBoundsListeners.has(tb)) {
+                        const listener = () => removeOutOfBorderTags(tb, box, tag);
+                        outOfBoundsListeners.set(tb, listener);
+                        Events.on(engine, 'afterUpdate', listener);
+                    }
                 }
             }
         }
     });
 }
+
+let actionTimeout: number | null = null;
+const timeouts: number[] = []; // Store all timeouts to clear them on resize
 
 /**
  * On resize :
@@ -234,15 +268,27 @@ export function punchTags(tags: NodeListOf<HTMLElement>, box: HTMLElement): void
  * @param boxes boxes containing the tags
  * @param tags every tag inside the section
  */
-export function watchResize(section: HTMLElement, boxes: NodeListOf<HTMLElement>, tags: NodeListOf<HTMLElement>): void {
-    // Timeout to prevent multiple calls to initMatter and spawnTags
-    let actionTimeout: number | null = null;
 
+export function watchResize(section: HTMLElement, boxes: NodeListOf<HTMLElement>, tags: NodeListOf<HTMLElement>): void {
     window.addEventListener('resize', () => {
         isResizing = true;
 
-        Events.off(engine, 'afterUpdate', () => {});
+        // Stop all timeouts to prevent any action during the resize and clear the array
+        timeouts.forEach(clearTimeout);
+        timeouts.length = 0;
+
+        // Delete every listener
+        outOfBoundsListeners.forEach((listener) => {
+            Events.off(engine, 'afterUpdate', listener);
+        });
+        outOfBoundsListeners.clear();
+
+        // Reset Matter.js
+        // @ts-ignore
+        Events.off(engine, 'afterUpdate');
         Composite.clear(world, false, true);
+        World.clear(world, false);
+        Engine.clear(engine);
 
         tags.forEach((tag) => {
             tag.style.display = 'none';
@@ -252,21 +298,20 @@ export function watchResize(section: HTMLElement, boxes: NodeListOf<HTMLElement>
             Render.stop(render);
             Runner.stop(runner);
 
-            // Clear the timeout if it's already set
             if (actionTimeout) {
                 clearTimeout(actionTimeout);
             }
 
-            // If the user stops resizing for 200ms, re-init Matter.js and re-spawn tags
+            // After 500ms, re-init Matter.js and re-spawn tags
             actionTimeout = setTimeout(() => {
                 isResizing = false;
 
                 initMatter(section, boxes);
-                for (const box of boxes) {
-                    const boxTags: NodeListOf<HTMLElement> = box.querySelectorAll('.skill-box--tag');
 
+                boxes.forEach((box) => {
+                    const boxTags: NodeListOf<HTMLElement> = box.querySelectorAll('.skill-box--tag');
                     spawnTags(box, boxTags);
-                }
+                });
             }, 500);
         }, 100);
     });
