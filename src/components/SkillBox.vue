@@ -24,7 +24,6 @@ onMounted(async () => {
 
 <template>
     <div class="skill-box--container">
-        <font-awesome-icon class="skill-box--grip" :icon="['fal', 'grip-lines-vertical']" />
         <div class="skill-box--content">
             <h3 class="skill-box--title">{{ title }}</h3>
             <div class="skill-box" :id="'box' + index">
