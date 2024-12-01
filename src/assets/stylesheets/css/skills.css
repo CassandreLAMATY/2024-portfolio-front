@@ -1,4 +1,99 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+/* HEADER */
+@keyframes sun-glow {
+  0% {
+    fill-opacity: 0.12;
+  }
+  50% {
+    fill-opacity: 0.24;
+  }
+  100% {
+    fill-opacity: 0.12;
+  }
+}
+@keyframes sun-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+/* LOGO */
+@keyframes logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(100deg);
+  }
+  80% {
+    transform: rotate(100deg);
+  }
+  98% {
+    transform: rotate(88deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes logo-spin_sun {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(100deg);
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(100deg);
+  }
+  98% {
+    transform: translate(-50%, -50%) rotate(88deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+.logo-animation {
+  transition: transform 0.2s ease-in;
+}
+.logo-animation:hover {
+  cursor: pointer;
+  transform: rotate(90deg);
+  transition: transform 0.5s ease-out;
+  animation: logo-spin 0.5s;
+}
+.logo-animation:hover.sun-logo {
+  transform: translate(-50%, -50%) rotate(90deg);
+  animation: logo-spin_sun 0.5s;
+}
+.logo-animation:hover #hyphen {
+  transform: translateX(8px);
+}
+.logo-animation:hover #bracket {
+  transform: translateX(14px);
+}
+.logo-animation:hover #Bbumps {
+  transform: translateX(-9px);
+}
+.logo-animation:hover #Bbar {
+  transform: translateX(-5.5px);
+}
+.logo-animation #hyphen,
+.logo-animation #bracket,
+.logo-animation #Bbumps,
+.logo-animation #Bbar {
+  transition: transform 0.4s;
+}
+@keyframes skillsBanner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .skills {
   position: relative;
   background-color: #f4e4ba;
@@ -72,8 +167,6 @@
 }
 .skills .skills-container .skills-banner {
   position: relative;
-  display: flex;
-  gap: 1.5rem;
   margin: 1.5rem 0;
   overflow-x: hidden;
 }
@@ -97,6 +190,12 @@
   z-index: 2;
   background: linear-gradient(to right, #f4e4ba, transparent 20%, transparent 80%, #f4e4ba);
 }
+.skills .skills-container .skills-banner--container {
+  display: flex;
+  gap: 1.5rem;
+  min-width: fit-content;
+  animation: skillsBanner 30s linear infinite;
+}
 .skills .skills-container .skills-banner--item {
   display: flex;
   align-items: center;
@@ -111,7 +210,7 @@
     font-size: 1.5rem;
   }
 }
-.skills .skills-container .skills-banner--item:not(:last-child)::after {
+.skills .skills-container .skills-banner--item::after {
   content: "";
   width: 0.25rem;
   height: 0.25rem;

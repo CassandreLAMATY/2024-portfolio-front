@@ -78,8 +78,19 @@
 .logo-animation:hover #Bbar {
   transform: translateX(-5.5px);
 }
-.logo-animation #hyphen, .logo-animation #bracket, .logo-animation #Bbumps, .logo-animation #Bbar {
+.logo-animation #hyphen,
+.logo-animation #bracket,
+.logo-animation #Bbumps,
+.logo-animation #Bbar {
   transition: transform 0.4s;
+}
+@keyframes skillsBanner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /*# sourceMappingURL=animations.css.map */
