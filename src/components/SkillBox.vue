@@ -9,6 +9,8 @@ const props = defineProps<{
     index: number;
 }>();
 
+const apiUrl = import.meta.env.VITE_STRAPI_URL;
+
 onMounted(async () => {
     const section = document.querySelector('.skills') as HTMLElement | null;
     const box = document.querySelector(`#box${props.index}`) as HTMLElement | null;
@@ -31,7 +33,7 @@ onMounted(async () => {
                     <img
                         class="tag-icon"
                         v-if="t.icon && t.icon.url"
-                        :src="'https://strapidev.lamatycassandre.me/' + t.icon.url"
+                        :src="apiUrl + t.icon.url"
                         :alt="t.icon.alternativeText ?? 'logo'"
                     />
                     <span class="tag-text">{{ t.text }}</span>
