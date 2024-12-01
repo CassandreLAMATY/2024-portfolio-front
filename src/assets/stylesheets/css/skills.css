@@ -127,7 +127,19 @@
     padding: 6rem 16rem;
   }
 }
-.skills .skills-container .skills-title {
+.skills .skills-container .skills-title--container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (min-width: 512px) {
+  .skills .skills-container .skills-title--container {
+    flex-direction: unset;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.skills .skills-container .skills-title--container .skills-title {
   font-family: Raleway;
   font-size: 2rem;
   font-weight: 900;
@@ -135,32 +147,32 @@
   color: #443433;
 }
 @media (min-width: 768px) {
-  .skills .skills-container .skills-title {
+  .skills .skills-container .skills-title--container .skills-title {
     font-size: 3rem;
   }
 }
 @media (min-width: 1280px) {
-  .skills .skills-container .skills-title {
+  .skills .skills-container .skills-title--container .skills-title {
     font-size: 6rem;
   }
 }
-.skills .skills-container .skills-title--span {
+.skills .skills-container .skills-title--container .skills-title--span {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: none;
   color: #99715b;
 }
 @media (min-width: 768px) {
-  .skills .skills-container .skills-title--span {
+  .skills .skills-container .skills-title--container .skills-title--span {
     font-size: 16px;
   }
 }
 @media (min-width: 1280px) {
-  .skills .skills-container .skills-title--span {
+  .skills .skills-container .skills-title--container .skills-title--span {
     font-size: 16px;
   }
 }
-.skills .skills-container .skills-title--span > span {
+.skills .skills-container .skills-title--container .skills-title--span > span {
   font-family: Raleway;
   font-style: italic;
   font-weight: 800;

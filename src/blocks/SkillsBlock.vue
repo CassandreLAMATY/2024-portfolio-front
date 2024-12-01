@@ -5,25 +5,28 @@ import SkillBox from '@/components/SkillBox.vue';
 import SkillsBannerTags from '@/components/SkillsBannerTags.vue';
 
 import { isTablet } from '@/assets/javascripts/global';
-import { tags, getSkillTags, initMatter, watchResize } from '@/assets/javascripts/skills';
+import { tags, getSkillTags, initMatter, watchResize, resetSkillsSection } from '@/assets/javascripts/skills';
+import ButtonPrimary from '@/components/ButtonPrimary.vue';
 
 getSkillTags();
 
-const section = ref<HTMLElement | null>(null);
+const _section = ref<HTMLElement | null>(null);
+const _boxes = ref<NodeListOf<HTMLElement> | null>(null);
+const _tags = ref<NodeListOf<HTMLElement> | null>(null);
 
 watch(
     () => tags.value,
     async () => {
         await nextTick();
 
-        section.value = document.querySelector('.skills') as HTMLElement | null;
+        _section.value = document.querySelector('.skills') as HTMLElement | null;
 
-        if (section.value) {
-            const boxes: NodeListOf<HTMLElement> = section.value.querySelectorAll('.skill-box');
-            const tags: NodeListOf<HTMLElement> = section.value.querySelectorAll('.skill-box--tag');
+        if (_section.value) {
+            _boxes.value = _section.value.querySelectorAll('.skill-box');
+            _tags.value = _section.value.querySelectorAll('.skill-box--tag');
 
-            initMatter(section.value, boxes);
-            watchResize(section.value, boxes, tags);
+            initMatter(_section.value, _boxes.value);
+            watchResize(_section.value, _boxes.value, _tags.value);
         }
     }
 );
@@ -32,9 +35,20 @@ watch(
 <template>
     <section v-if="tags && tags.length > 0" class="skills">
         <div class="skills-container">
-            <h2 class="skills-title">
-                Skills !&nbsp;<span class="skills-title--span">(<span>punch</span> the tags !)</span>
-            </h2>
+            <div class="skills-title--container">
+                <h2 class="skills-title">
+                    Skills !&nbsp;<span class="skills-title--span">(<span>punch</span> the tags !)</span>
+                </h2>
+                <ButtonPrimary
+                    v-if="_section && _boxes && _tags"
+                    v-on:click="resetSkillsSection(_section, _boxes, _tags)"
+                    title="Reset Tags"
+                    :icon="['fas', 'rotate-right']"
+                    classes="btn_tertiary"
+                    type="button"
+                />
+            </div>
+
             <div class="skills-banner">
                 <div class="skills-banner--container">
                     <SkillsBannerTags :isAriaHidden="false" />

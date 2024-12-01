@@ -36,44 +36,58 @@
             padding: $grup06 $grup08;
         }
 
-        .skills {
-            &-title {
-                font-family: Raleway;
-                font-size: $grup03;
-                font-weight: 900;
-                text-transform: uppercase;
-                color: $vanDyke;
+        .skills-title--container {
+            display: flex;
+            flex-direction: column;
+            gap: $grup-02;
 
-                @include media-min(768px) {
-                    font-size: $grup04;
-                }
+            @include media-min(512px) {
+                flex-direction: unset;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-                @include media-min(1280px) {
-                    font-size: $grup06;
-                }
-
-                &--span {
-                    font-size: $grup-01;
-                    font-weight: 600;
-                    text-transform: none;
-                    color: $chamoisee;
+            .skills {
+                &-title {
+                    font-family: Raleway;
+                    font-size: $grup03;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    color: $vanDyke;
 
                     @include media-min(768px) {
-                        font-size: $grup;
+                        font-size: $grup04;
                     }
 
                     @include media-min(1280px) {
-                        font-size: $grup;
+                        font-size: $grup06;
                     }
 
-                    & > span {
-                        font-family: Raleway;
-                        font-style: italic;
-                        font-weight: 800;
+                    &--span {
+                        font-size: $grup-01;
+                        font-weight: 600;
+                        text-transform: none;
+                        color: $chamoisee;
+
+                        @include media-min(768px) {
+                            font-size: $grup;
+                        }
+
+                        @include media-min(1280px) {
+                            font-size: $grup;
+                        }
+
+                        & > span {
+                            font-family: Raleway;
+                            font-style: italic;
+                            font-weight: 800;
+                        }
                     }
                 }
             }
+        }
 
+        .skills {
             &-banner {
                 position: relative;
 

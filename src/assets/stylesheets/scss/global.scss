@@ -68,6 +68,8 @@ button {
     max-height: 100%;
 
     &:hover {
+        cursor: pointer;
+
         &.btn_primary {
             & > .btn-content {
                 background-color: #ba8c69;
@@ -79,6 +81,12 @@ button {
             & > .btn-content {
                 background-color: #f8eed9;
                 border: 1px solid $celadon;
+            }
+        }
+
+        &.btn_tertiary {
+            & > .btn-content {
+                background-color: #ceb4ff;
             }
         }
     }
@@ -174,6 +182,37 @@ button {
             right: -$grup-02;
 
             border-color: $celadon;
+        }
+    }
+
+    &_tertiary {
+        width: fit-content;
+        height: fit-content;
+
+        & .btn-content {
+            border: 1px solid $vanDyke;
+            background-color: $mauve;
+
+            & .btn-icon,
+            & .btn-title {
+                text-transform: capitalize;
+                font-size: $grup-01;
+                color: $vanDyke;
+
+                @include media-min(512px) {
+                    font-size: $grup;
+                }
+
+                @include media-min(1024px) {
+                    font-size: $grup01;
+                }
+            }
+        }
+
+        & .btn-shadow {
+            left: -$grup-02;
+
+            border-color: $vanDyke;
         }
     }
 

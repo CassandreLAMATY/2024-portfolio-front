@@ -257,6 +257,75 @@ let actionTimeout: number | null = null;
 const timeouts: number[] = []; // Store all timeouts to clear them on resize
 
 /**
+ * - Set cursor to loading
+ * - Remove everything related to Matter.js
+ * - Hide the tags
+ *
+ * 500ms after :
+ * - Re-init Matter.js
+ * - Re-spawn tags
+ * - Set cursor to default
+ * @param section section containing the boxes
+ * @param boxes boxes containing the tags
+ * @param tags every tag inside the section
+ * @param timeout time before re-init Matter.js
+ */
+export function resetSkillsSection(
+    section: HTMLElement,
+    boxes: NodeListOf<HTMLElement>,
+    tags: NodeListOf<HTMLElement>,
+    timeout: number = 200
+): void {
+    isResizing = true;
+
+    document.body.style.cursor = 'progress';
+
+    // Stop all timeouts to prevent any action during the resize and clear the array
+    timeouts.forEach(clearTimeout);
+    timeouts.length = 0;
+
+    // Delete every listener
+    outOfBoundsListeners.forEach((listener) => {
+        Events.off(engine, 'afterUpdate', listener);
+    });
+    outOfBoundsListeners.clear();
+
+    // Reset Matter.js
+    // @ts-ignore
+    Events.off(engine, 'afterUpdate');
+    Composite.clear(world, false, true);
+    World.clear(world, false);
+    Engine.clear(engine);
+
+    tags.forEach((tag) => {
+        tag.style.display = 'none';
+    });
+
+    setTimeout(() => {
+        Render.stop(render);
+        Runner.stop(runner);
+
+        if (actionTimeout) {
+            clearTimeout(actionTimeout);
+        }
+
+        // After 500ms, re-init Matter.js and re-spawn tags
+        actionTimeout = setTimeout(() => {
+            isResizing = false;
+
+            initMatter(section, boxes);
+
+            boxes.forEach((box) => {
+                const boxTags: NodeListOf<HTMLElement> = box.querySelectorAll('.skill-box--tag');
+                spawnTags(box, boxTags);
+            });
+
+            document.body.style.cursor = 'default';
+        }, timeout);
+    }, 100);
+}
+
+/**
  * On resize :
  * - Remove everything related to Matter.js
  * - Hide the tags
@@ -268,51 +337,8 @@ const timeouts: number[] = []; // Store all timeouts to clear them on resize
  * @param boxes boxes containing the tags
  * @param tags every tag inside the section
  */
-
 export function watchResize(section: HTMLElement, boxes: NodeListOf<HTMLElement>, tags: NodeListOf<HTMLElement>): void {
     window.addEventListener('resize', () => {
-        isResizing = true;
-
-        // Stop all timeouts to prevent any action during the resize and clear the array
-        timeouts.forEach(clearTimeout);
-        timeouts.length = 0;
-
-        // Delete every listener
-        outOfBoundsListeners.forEach((listener) => {
-            Events.off(engine, 'afterUpdate', listener);
-        });
-        outOfBoundsListeners.clear();
-
-        // Reset Matter.js
-        // @ts-ignore
-        Events.off(engine, 'afterUpdate');
-        Composite.clear(world, false, true);
-        World.clear(world, false);
-        Engine.clear(engine);
-
-        tags.forEach((tag) => {
-            tag.style.display = 'none';
-        });
-
-        setTimeout(() => {
-            Render.stop(render);
-            Runner.stop(runner);
-
-            if (actionTimeout) {
-                clearTimeout(actionTimeout);
-            }
-
-            // After 500ms, re-init Matter.js and re-spawn tags
-            actionTimeout = setTimeout(() => {
-                isResizing = false;
-
-                initMatter(section, boxes);
-
-                boxes.forEach((box) => {
-                    const boxTags: NodeListOf<HTMLElement> = box.querySelectorAll('.skill-box--tag');
-                    spawnTags(box, boxTags);
-                });
-            }, 500);
-        }, 100);
+        resetSkillsSection(section, boxes, tags, 500);
     });
 }

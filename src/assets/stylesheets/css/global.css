@@ -62,6 +62,9 @@ button {
   max-width: 16rem;
   max-height: 100%;
 }
+.btn:hover {
+  cursor: pointer;
+}
 .btn:hover.btn_primary > .btn-content {
   background-color: #ba8c69;
   border: 1px solid #f4e4ba;
@@ -69,6 +72,9 @@ button {
 .btn:hover.btn_secondary > .btn-content {
   background-color: #f8eed9;
   border: 1px solid #bbdb9b;
+}
+.btn:hover.btn_tertiary > .btn-content {
+  background-color: #ceb4ff;
 }
 .btn-shadow {
   position: absolute;
@@ -143,6 +149,33 @@ button {
 .btn_secondary .btn-shadow {
   right: -0.5rem;
   border-color: #bbdb9b;
+}
+.btn_tertiary {
+  width: fit-content;
+  height: fit-content;
+}
+.btn_tertiary .btn-content {
+  border: 1px solid #443433;
+  background-color: #b3a7ff;
+}
+.btn_tertiary .btn-content .btn-icon, .btn_tertiary .btn-content .btn-title {
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  color: #443433;
+}
+@media (min-width: 512px) {
+  .btn_tertiary .btn-content .btn-icon, .btn_tertiary .btn-content .btn-title {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .btn_tertiary .btn-content .btn-icon, .btn_tertiary .btn-content .btn-title {
+    font-size: 1.25rem;
+  }
+}
+.btn_tertiary .btn-shadow {
+  left: -0.5rem;
+  border-color: #443433;
 }
 .btn-link {
   display: block;
