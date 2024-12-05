@@ -324,22 +324,20 @@
 
         &-grid {
             display: grid;
-            grid-template-rows: repeat(5, 1fr);
+            grid-template-rows: repeat(4, 1fr);
             grid-template-areas:
                 'artworks'
                 'design'
                 'audiovisual'
-                'uiux'
                 'dev';
             gap: $grup02;
 
             @include media-min(584px) {
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
                 grid-template-areas:
                     'artworks design'
-                    'audiovisual dev'
-                    'uiux        dev';
+                    'audiovisual dev';
                 gap: $grup;
             }
 
@@ -351,7 +349,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, 1fr);
                 grid-template-areas:
-                    'artworks audiovisual uiux'
+                    'artworks artworks audiovisual'
                     'design   dev         dev';
             }
 
@@ -380,7 +378,14 @@
             & #artworks {
                 grid-area: artworks;
 
-                background: linear-gradient(to bottom, $mauve, $dutchWhite);
+                & .bento-card {
+                    background: linear-gradient(to bottom, $mauve, $dutchWhite);
+
+                    @include media-min(584px) {
+                        height: 100%;
+                        aspect-ratio: unset;
+                    }
+                }
 
                 & .bento-card--bg {
                     position: absolute;
@@ -394,6 +399,11 @@
                     background-size: 70%;
                     background-position: 130% -50%;
                     border-radius: $grup;
+
+                    @include media-min(1280px) {
+                        background-size: 360px;
+                        background-position: 100% -10%;
+                    }
                 }
 
                 & .bento-title--container {
@@ -480,45 +490,6 @@
                 }
             }
 
-            & #uiux {
-                grid-area: uiux;
-
-                background-color: $celadon;
-
-                & .bento-title--container {
-                    right: $grup;
-                    top: 50%;
-
-                    transform: translateY(-50%);
-
-                    @include media-min(584px) {
-                        left: $grup;
-                        right: unset;
-                    }
-
-                    @include media-min(896px) {
-                        left: $grup02;
-                    }
-
-                    @include media-min(1280px) {
-                        left: unset;
-                        right: $grup02;
-                    }
-
-                    & > h2 {
-                        color: $chamoisee;
-                        line-height: $grup;
-                        letter-spacing: -$grup-03;
-                        text-orientation: upright;
-                        writing-mode: vertical-lr;
-
-                        & > span {
-                            padding: $grup-02 0;
-                        }
-                    }
-                }
-            }
-
             & #design {
                 grid-area: design;
 
@@ -542,18 +513,41 @@
                     top: $grup-01;
                     right: $grup;
 
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: $grup-04;
+
                     @include media-min(896px) {
                         top: $grup;
-                        right: $grup02;
+                        left: $grup02;
                     }
 
                     & > h2 {
                         text-align: right;
-                        line-height: $grup03;
                         color: $seasalt;
 
                         & > br {
                             margin: 0;
+                        }
+
+                        & > span {
+                            padding: $grup-02 0;
+                        }
+                    }
+
+                    & > .bento-subtitles--container {
+                        display: flex;
+                        flex-direction: column;
+                        gap: $grup-04;
+
+                        & > h3 {
+                            font-family: Raleway;
+                            font-size: $grup;
+                            font-weight: 800;
+                            font-style: italic;
+                            text-transform: uppercase;
+                            color: $vanDyke;
                         }
                     }
                 }
@@ -609,9 +603,9 @@
                     right: $grup;
                     bottom: $grup-01;
 
-                    @include media-min(584px) {
-                        left: $grup;
-                    }
+                    display: flex;
+                    flex-direction: column;
+                    gap: $grup-04;
 
                     @include media-min(896px) {
                         right: $grup02;
@@ -621,8 +615,26 @@
                     & > h2 {
                         color: $chamoisee;
 
-                        @include media-min(584px) {
-                            text-align: right;
+                        & > span {
+                            padding: $grup-02 0;
+                        }
+                    }
+
+                    & > .bento-subtitles--container {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        gap: $grup-04;
+
+                        & > h3 {
+                            width: fit-content;
+
+                            font-family: Raleway;
+                            font-size: $grup;
+                            font-weight: 800;
+                            font-style: italic;
+                            color: $vanDyke;
+                            text-transform: uppercase;
                         }
                     }
                 }

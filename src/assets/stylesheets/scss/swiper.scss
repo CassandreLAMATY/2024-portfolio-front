@@ -1,0 +1,121 @@
+@import 'variables';
+
+.custom_swiper-container {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: $grup-02;
+
+    .custom_swiper {
+        position: relative;
+
+        width: 100%;
+
+        @include media-min(768px) {
+            &::after {
+                content: '';
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+
+                background: linear-gradient(to right, $chamoisee, transparent 20%, transparent 80%, $chamoisee);
+
+                pointer-events: none;
+            }
+        }
+
+        .swiper {
+            &-slide {
+                position: relative;
+
+                &--img {
+                    display: block;
+
+                    width: 100%;
+
+                    border-radius: $grup;
+                }
+
+                &--content {
+                    position: absolute;
+                    bottom: $grup-02;
+                    left: $grup-01;
+
+                    & > h2 {
+                        font-size: $grup;
+                        font-weight: 500;
+                        color: $dutchWhite;
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper-utils {
+        position: relative;
+
+        width: 100%;
+        height: fit-content;
+
+        .custom_swiper-navigation {
+            display: flex;
+            gap: $grup-03;
+            & > .custom_swiper-navigation--prev,
+            & > .custom_swiper-navigation--next {
+                height: $grup02;
+                width: $grup02;
+
+                font-size: $grup02;
+                line-height: $grup02;
+                color: $vanDyke;
+
+                @include media-min(768px) {
+                    height: $grup03;
+                    width: $grup03;
+
+                    font-size: $grup03;
+                    line-height: $grup03;
+                }
+            }
+        }
+
+        .custom_swiper-pagination {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            display: flex;
+            gap: $grup-03;
+
+            width: fit-content;
+            height: $grup-02;
+
+            & > .swiper-pagination-bullet {
+                all: unset;
+
+                display: block;
+
+                width: $grup-02;
+                height: $grup-02;
+
+                border-radius: 50%;
+                background-color: $vanDyke;
+                opacity: 0.32;
+
+                &-active {
+                    background-color: $vanDyke;
+                    opacity: 1;
+
+                    transition: opacity 0.2s;
+                }
+            }
+        }
+    }
+}

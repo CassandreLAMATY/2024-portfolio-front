@@ -32,18 +32,20 @@ onMounted(() => {
                 <div class="bento-circle"></div>
                 <h2 class="bento-heading">What would you like to see first ?</h2>
                 <div class="bento-grid">
-                    <div class="bento-card" id="artworks">
-                        <div class="bento-card--bg"></div>
+                    <routerLink to="/artworks" id="artworks">
+                        <div class="bento-card">
+                            <div class="bento-card--bg"></div>
 
-                        <div class="bento-title--container">
-                            <h2>Artworks</h2>
-                            <div class="bento-subtitles--container">
-                                <h3>Illustration</h3>
-                                <h3>Charadesign</h3>
-                                <h3>Pixel art</h3>
+                            <div class="bento-title--container">
+                                <h2>Artworks</h2>
+                                <div class="bento-subtitles--container">
+                                    <h3>Illustration</h3>
+                                    <h3>Charadesign</h3>
+                                    <h3>Pixel art</h3>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </routerLink>
                     <div class="bento-card" id="audiovisual">
                         <div class="bento-title--container">
                             <div class="bento-subtitles--container">
@@ -53,15 +55,13 @@ onMounted(() => {
                             <h2>Audiovisual</h2>
                         </div>
                     </div>
-                    <div class="bento-card" id="uiux">
-                        <div class="bento-title--container">
-                            <h2>UI<span>/</span>UX</h2>
-                        </div>
-                    </div>
                     <div class="bento-card" id="design">
                         <div class="bento-card--bg"></div>
                         <div class="bento-title--container">
                             <h2>Graphic<br />Design</h2>
+                            <div class="bento-subtitles--container">
+                                <h3>UI / UX</h3>
+                            </div>
                         </div>
                     </div>
                     <div class="bento-card" id="dev">

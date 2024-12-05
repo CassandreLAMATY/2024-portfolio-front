@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+.custom_swiper-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.custom_swiper-container .custom_swiper {
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .custom_swiper-container .custom_swiper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: linear-gradient(to right, #99715b, transparent 20%, transparent 80%, #99715b);
+    pointer-events: none;
+  }
+}
+.custom_swiper-container .custom_swiper .swiper-slide {
+  position: relative;
+}
+.custom_swiper-container .custom_swiper .swiper-slide--img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+}
+.custom_swiper-container .custom_swiper .swiper-slide--content {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.75rem;
+}
+.custom_swiper-container .custom_swiper .swiper-slide--content > h2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #f4e4ba;
+}
+.custom_swiper-container .swiper-utils {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+.custom_swiper-container .swiper-utils .custom_swiper-navigation {
+  display: flex;
+  gap: 0.25rem;
+}
+.custom_swiper-container .swiper-utils .custom_swiper-navigation > .custom_swiper-navigation--prev, .custom_swiper-container .swiper-utils .custom_swiper-navigation > .custom_swiper-navigation--next {
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: #443433;
+}
+@media (min-width: 768px) {
+  .custom_swiper-container .swiper-utils .custom_swiper-navigation > .custom_swiper-navigation--prev, .custom_swiper-container .swiper-utils .custom_swiper-navigation > .custom_swiper-navigation--next {
+    height: 2rem;
+    width: 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+.custom_swiper-container .swiper-utils .custom_swiper-pagination {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.25rem;
+  width: fit-content;
+  height: 0.5rem;
+}
+.custom_swiper-container .swiper-utils .custom_swiper-pagination > .swiper-pagination-bullet {
+  all: unset;
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #443433;
+  opacity: 0.32;
+}
+.custom_swiper-container .swiper-utils .custom_swiper-pagination > .swiper-pagination-bullet-active {
+  background-color: #443433;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+/*# sourceMappingURL=swiper.css.map */

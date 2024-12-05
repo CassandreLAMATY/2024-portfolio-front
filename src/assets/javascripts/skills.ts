@@ -20,7 +20,7 @@ export async function getSkillTags(): Promise<TagsByCategory[] | null> {
     try {
         const t: Tag[] = await apiHandler.get<StrapiResponse<Tag>>('/skill-tags', { populate: '*' }).then((r) => {
             if (!r || !r.data || r.data.length === 0) {
-                throw new Error('No skill tags found');
+                throw new Error('No skill tag found');
             }
 
             return r.data;
