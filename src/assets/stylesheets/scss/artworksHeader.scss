@@ -3,7 +3,7 @@
 header {
     position: relative;
 
-    background-color: $dutchWhite;
+    background: linear-gradient(to bottom, $dutchWhite 0, $dutchWhite $grup05, $chamoisee $grup05, $chamoisee 100%);
 
     overflow: hidden;
 
@@ -13,13 +13,12 @@ header {
             flex-direction: column;
             gap: calc($grup02 + $grup-02);
 
-            margin-top: $grup03;
-            padding: $grup03 $grup02;
+            padding: $grup07 $grup02 $grup03 $grup02;
 
             @include media-min(768px) {
                 gap: calc($grup03 + $grup-02);
 
-                padding: $grup05;
+                padding: $grup08 $grup05 $grup05 $grup05;
             }
 
             @include media-min(1024px) {
@@ -32,7 +31,13 @@ header {
 
                 max-width: 1280px;
                 margin: $grup05 auto 0 auto;
-                padding: $grup06 $grup08;
+                padding: $grup08 $grup08 $grup06 $grup08;
+            }
+
+            @include media-min(1792px) {
+                display: grid;
+                grid-template-columns: 3fr 5fr;
+                gap: $grup06;
             }
 
             &--waves {
@@ -42,23 +47,30 @@ header {
                 right: 0;
                 z-index: 1;
 
-                height: 100%;
-
-                & > svg path {
-                    fill: $chamoisee;
+                @include media-min(768px) {
+                    top: $grup03;
                 }
 
-                & div {
-                    position: relative;
-                    top: -$grup02;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
+                @include media-min(1696px) {
+                    top: -$grup06;
+                }
+
+                & > .waves-bg {
+                    background-image: url('@/assets/images/svg/Waves01.svg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center top;
 
                     width: 100%;
-                    height: 100%;
+                    height: $grup07;
 
-                    background-color: $chamoisee;
+                    @include media-min(768px) {
+                        height: $grup08;
+                    }
+
+                    @include media-min(1696px) {
+                        height: $grup09;
+                    }
                 }
             }
         }
@@ -79,22 +91,21 @@ header {
                 display: grid;
                 align-items: end;
 
-                height: $grup07;
-
                 & > h1 {
-                    margin-top: auto;
-
                     font-family: Raleway;
                     font-size: $grup03;
+                    line-height: $grup03;
                     font-weight: 900;
                     color: $dutchWhite;
 
                     @include media-min(768px) {
                         font-size: $grup04;
+                        line-height: $grup04;
                     }
 
                     @include media-min(1280px) {
                         font-size: $grup06;
+                        line-height: $grup06;
                     }
                 }
             }

@@ -10,18 +10,16 @@
   position: relative;
   width: 100%;
 }
-@media (min-width: 768px) {
-  .custom_swiper-container .custom_swiper::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    background: linear-gradient(to right, #99715b, transparent 20%, transparent 80%, #99715b);
-    pointer-events: none;
-  }
+.custom_swiper-container .custom_swiper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(to right, #99715b, transparent 10%, transparent 90%, #99715b);
+  pointer-events: none;
 }
 .custom_swiper-container .custom_swiper .swiper-slide {
   position: relative;

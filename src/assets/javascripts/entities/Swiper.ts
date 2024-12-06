@@ -4,7 +4,7 @@ export class Swiper {
     public initSwiperOptions() {
         return {
             modules: [Autoplay, Grid, Navigation, Pagination],
-            slidesPerView: 1,
+            slidesPerView: 1.2,
             spaceBetween: 24,
             centerSlides: true,
             loop: true,
@@ -23,7 +23,7 @@ export class Swiper {
             },
             breakpoints: {
                 768: {
-                    slidesPerView: 1.5
+                    slidesPerView: 1.3
                 }
             }
         };
