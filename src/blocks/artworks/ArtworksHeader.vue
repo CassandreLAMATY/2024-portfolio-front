@@ -1,10 +1,9 @@
 <script setup lang="ts">
+import type { Artwork } from '@/assets/javascripts/types/Artwork';
 import ButtonPrimary from '@/components/ButtonPrimary.vue';
 import SwiperContainer from '@/components/SwiperContainer.vue';
 
-import { artworks, getArtworks } from '@/assets/javascripts/artworks';
-
-getArtworks();
+defineProps<{ artworks: Artwork[] }>();
 </script>
 
 <template>

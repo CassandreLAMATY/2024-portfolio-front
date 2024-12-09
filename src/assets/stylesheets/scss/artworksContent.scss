@@ -1,0 +1,49 @@
+@import 'variables';
+
+.artworks {
+    background-color: $vanDyke;
+
+    &-container {
+        display: grid;
+        gap: $grup02;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: masonry;
+        grid-auto-flow: dense;
+
+        padding: $grup03 $grup02;
+
+        @include media-min(768px) {
+            gap: calc($grup03 + $grup-02);
+
+            padding: $grup08 $grup05 $grup05 $grup05;
+        }
+
+        @include media-min(1024px) {
+            margin-top: $grup07;
+            padding: $grup07 $grup07 $grup05 $grup07;
+        }
+
+        @include media-min(1536px) {
+            box-sizing: content-box;
+
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: $grup06 $grup08;
+        }
+
+        & .artwork {
+            min-width: fit-content;
+            height: fit-content;
+
+            &-img {
+                display: block;
+
+                width: 100%;
+
+                &--container {
+                    min-width: fit-content;
+                }
+            }
+        }
+    }
+}
