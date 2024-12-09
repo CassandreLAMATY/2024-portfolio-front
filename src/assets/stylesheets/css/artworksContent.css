@@ -3,23 +3,25 @@
   background-color: #443433;
 }
 .artworks-container {
-  display: grid;
+  columns: 2;
   gap: 1.5rem;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: masonry;
-  grid-auto-flow: dense;
   padding: 2rem 1.5rem;
 }
 @media (min-width: 768px) {
   .artworks-container {
-    gap: 2.5rem;
     padding: 16rem 4rem 4rem 4rem;
   }
 }
 @media (min-width: 1024px) {
   .artworks-container {
     margin-top: 8rem;
-    padding: 8rem 8rem 4rem 8rem;
+    padding: 4rem 8rem;
+  }
+}
+@media (min-width: 1280px) {
+  .artworks-container {
+    columns: 3;
+    margin-top: 0;
   }
 }
 @media (min-width: 1536px) {
@@ -33,10 +35,20 @@
 .artworks-container .artwork {
   min-width: fit-content;
   height: fit-content;
+  margin-bottom: 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  transition: 0.1s;
+  break-inside: avoid;
+}
+.artworks-container .artwork:hover {
+  border: 1px solid #ff9b9b;
+  box-shadow: -2px 4px 8px rgba(39, 36, 37, 0.2392156863);
 }
 .artworks-container .artwork-img {
   display: block;
   width: 100%;
+  border-radius: 16px;
 }
 .artworks-container .artwork-img--container {
   min-width: fit-content;

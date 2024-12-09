@@ -4,23 +4,24 @@
     background-color: $vanDyke;
 
     &-container {
-        display: grid;
+        columns: 2;
         gap: $grup02;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: masonry;
-        grid-auto-flow: dense;
 
         padding: $grup03 $grup02;
 
         @include media-min(768px) {
-            gap: calc($grup03 + $grup-02);
-
             padding: $grup08 $grup05 $grup05 $grup05;
         }
 
         @include media-min(1024px) {
             margin-top: $grup07;
-            padding: $grup07 $grup07 $grup05 $grup07;
+            padding: $grup05 $grup07;
+        }
+
+        @include media-min(1280px) {
+            columns: 3;
+
+            margin-top: 0;
         }
 
         @include media-min(1536px) {
@@ -34,11 +35,27 @@
         & .artwork {
             min-width: fit-content;
             height: fit-content;
+            margin-bottom: $grup02;
+
+            border: 1px solid transparent;
+            border-radius: $grup;
+
+            transition: 0.1s;
+
+            break-inside: avoid;
+
+            &:hover {
+                border: 1px solid $salmonPink;
+
+                box-shadow: -2px 4px 8px #2724253d;
+            }
 
             &-img {
                 display: block;
 
                 width: 100%;
+
+                border-radius: $grup;
 
                 &--container {
                     min-width: fit-content;
