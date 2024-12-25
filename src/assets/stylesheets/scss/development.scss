@@ -1,0 +1,128 @@
+@import 'variables';
+
+.devHeader {
+    position: relative;
+    background-color: $chamoisee;
+
+    &-bg {
+        position: absolute;
+        top: calc(0px - $grup06 - 4px + $grup03);
+        left: 0;
+        width: 150vw;
+        height: $grup06;
+
+        background-color: $dutchWhite;
+
+        transform: rotate(8deg);
+        transform-origin: top left;
+
+        &::after {
+            box-sizing: border-box;
+            content: ' ';
+            display: block;
+
+            width: 100%;
+            height: 130%;
+
+            background-image: url('@/assets/images/svg/DotsBg.svg');
+            background-repeat: repeat;
+
+            transform: rotate(-8deg);
+        }
+
+        &--content {
+            position: relative;
+            top: calc(100% - $grup - $grup-01);
+            left: 70vw;
+
+            display: none;
+            align-items: center;
+            gap: $grup;
+
+            @include media-min(460px) {
+                display: flex;
+            }
+
+            & .ornament-container {
+                & > #ornament02 {
+                    &:not(:first-child) {
+                        margin-left: -17px;
+                    }
+                }
+            }
+
+            & #ornament01 {
+                width: auto;
+                height: $grup-01;
+            }
+
+            & #ornament02 {
+                width: auto;
+                height: $grup-02;
+            }
+        }
+    }
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        gap: $grup03;
+
+        padding: $grup03 $grup02;
+        & .devHeader {
+            &-title {
+                width: fit-content;
+
+                font-family: Raleway;
+                font-size: $grup03;
+                font-weight: 900;
+                color: $dutchWhite;
+                text-transform: uppercase;
+                text-shadow:
+                    1px 1px 0 $chamoisee,
+                    -1px 1px 0 $chamoisee,
+                    -1px -1px 0 $chamoisee,
+                    1px -1px 0 $chamoisee;
+                letter-spacing: 0.5px;
+
+                &--container {
+                    position: relative;
+
+                    width: fit-content;
+                }
+            }
+
+            &-exclamation {
+                position: absolute;
+                top: -$grup-02;
+                right: -$grup01;
+
+                width: $grup;
+                height: auto;
+            }
+
+            &-content {
+                color: $seasalt;
+                &--container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $grup02;
+                }
+            }
+        }
+    }
+
+    &-btn {
+        &--container {
+            display: flex;
+            gap: $grup02;
+
+            padding-left: $grup-02;
+
+            & .btn-shadow {
+                left: -$grup-02;
+                right: 0;
+            }
+        }
+    }
+}

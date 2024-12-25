@@ -1,12 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import DevHeader from '@/blocks/development/DevHeader.vue';
+</script>
 
 <template>
-    <section>
-        <div>
-            <h1>Development</h1>
-            <div>
-                <p></p>
-            </div>
-        </div>
-    </section>
+    <DevHeader />
 </template>
+
+<style>
+@import url('@/assets/stylesheets/css/development.css');
+</style>

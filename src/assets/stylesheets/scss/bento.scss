@@ -370,6 +370,11 @@
                     cursor: pointer;
                 }
 
+                @include media-min(584px) {
+                    height: $grup08;
+                    aspect-ratio: unset;
+                }
+
                 @include media-min(896px) {
                     padding: $grup $grup02;
                 }
@@ -380,11 +385,6 @@
 
                 & .bento-card {
                     background: linear-gradient(to bottom, $mauve, $dutchWhite);
-
-                    @include media-min(584px) {
-                        height: 100%;
-                        aspect-ratio: unset;
-                    }
                 }
 
                 & .bento-card--bg {
@@ -556,13 +556,6 @@
             & #dev {
                 grid-area: dev;
 
-                background-color: $dutchWhite;
-
-                @include media-min(584px) {
-                    height: 100%;
-                    aspect-ratio: unset;
-                }
-
                 & .bento-card--bg {
                     position: absolute;
                     top: 0;
@@ -571,6 +564,8 @@
                     left: 0;
 
                     border-radius: $grup;
+
+                    background-color: $dutchWhite;
 
                     overflow: hidden;
 

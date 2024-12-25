@@ -335,6 +335,12 @@
   transform: scale(1.02);
   cursor: pointer;
 }
+@media (min-width: 584px) {
+  .bento-container .bento-grid .bento-card {
+    height: 16rem;
+    aspect-ratio: unset;
+  }
+}
 @media (min-width: 896px) {
   .bento-container .bento-grid .bento-card {
     padding: 16px 1.5rem;
@@ -345,12 +351,6 @@
 }
 .bento-container .bento-grid #artworks .bento-card {
   background: linear-gradient(to bottom, #b3a7ff, #f4e4ba);
-}
-@media (min-width: 584px) {
-  .bento-container .bento-grid #artworks .bento-card {
-    height: 100%;
-    aspect-ratio: unset;
-  }
 }
 .bento-container .bento-grid #artworks .bento-card--bg {
   position: absolute;
@@ -495,13 +495,6 @@
 }
 .bento-container .bento-grid #dev {
   grid-area: dev;
-  background-color: #f4e4ba;
-}
-@media (min-width: 584px) {
-  .bento-container .bento-grid #dev {
-    height: 100%;
-    aspect-ratio: unset;
-  }
 }
 .bento-container .bento-grid #dev .bento-card--bg {
   position: absolute;
@@ -510,6 +503,7 @@
   bottom: 0;
   left: 0;
   border-radius: 16px;
+  background-color: #f4e4ba;
   overflow: hidden;
 }
 .bento-container .bento-grid #dev .bento-card--bg > p {

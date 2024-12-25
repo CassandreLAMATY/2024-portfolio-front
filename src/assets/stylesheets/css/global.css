@@ -50,6 +50,9 @@ br {
   display: block;
   margin-bottom: 16px;
 }
+br.br-01 {
+  margin-bottom: 0.75rem;
+}
 
 button {
   border: none;
@@ -183,6 +186,15 @@ button {
 }
 .btn-link > .btn {
   cursor: pointer;
+}
+
+.parenthesis {
+  font-size: 0.75rem;
+}
+
+.link {
+  color: #c2ebff;
+  text-underline-offset: 2px;
 }
 
 /*# sourceMappingURL=global.css.map */

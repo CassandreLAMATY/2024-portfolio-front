@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+.devHeader {
+  position: relative;
+  background-color: #99715b;
+}
+.devHeader-bg {
+  position: absolute;
+  top: calc(0px - 6rem - 4px + 2rem);
+  left: 0;
+  width: 150vw;
+  height: 6rem;
+  background-color: #f4e4ba;
+  transform: rotate(8deg);
+  transform-origin: top left;
+}
+.devHeader-bg::after {
+  box-sizing: border-box;
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 130%;
+  background-image: url("@/assets/images/svg/DotsBg.svg");
+  background-repeat: repeat;
+  transform: rotate(-8deg);
+}
+.devHeader-bg--content {
+  position: relative;
+  top: calc(100% - 16px - 0.75rem);
+  left: 70vw;
+  display: none;
+  align-items: center;
+  gap: 16px;
+}
+@media (min-width: 460px) {
+  .devHeader-bg--content {
+    display: flex;
+  }
+}
+.devHeader-bg--content .ornament-container > #ornament02:not(:first-child) {
+  margin-left: -17px;
+}
+.devHeader-bg--content #ornament01 {
+  width: auto;
+  height: 0.75rem;
+}
+.devHeader-bg--content #ornament02 {
+  width: auto;
+  height: 0.5rem;
+}
+.devHeader-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+}
+.devHeader-container .devHeader-title {
+  width: fit-content;
+  font-family: Raleway;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #f4e4ba;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #99715b, -1px 1px 0 #99715b, -1px -1px 0 #99715b, 1px -1px 0 #99715b;
+  letter-spacing: 0.5px;
+}
+.devHeader-container .devHeader-title--container {
+  position: relative;
+  width: fit-content;
+}
+.devHeader-container .devHeader-exclamation {
+  position: absolute;
+  top: -0.5rem;
+  right: -1.25rem;
+  width: 16px;
+  height: auto;
+}
+.devHeader-container .devHeader-content {
+  color: #f9f9f9;
+}
+.devHeader-container .devHeader-content--container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.devHeader-btn--container {
+  display: flex;
+  gap: 1.5rem;
+  padding-left: 0.5rem;
+}
+.devHeader-btn--container .btn-shadow {
+  left: -0.5rem;
+  right: 0;
+}
+
+/*# sourceMappingURL=development.css.map */

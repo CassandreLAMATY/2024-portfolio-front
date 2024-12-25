@@ -11,3 +11,10 @@ export type StrapiResponse<T> = {
         pagination: PaginationMeta;
     };
 };
+
+export type StrapiResponseUnique<T> = {
+    data: T;
+    meta: {
+        pagination: PaginationMeta;
+    };
+};

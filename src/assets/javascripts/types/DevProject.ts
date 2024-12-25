@@ -1,0 +1,13 @@
+import type { StrapiImage } from './StrapiImage';
+import type { Tag } from './Tag';
+
+export type DevProject = {
+    title: string;
+    icon: StrapiImage;
+    description?: string;
+    images?: StrapiImage[];
+    skillTags?: Tag[];
+    links?: { link: string; name: string }[];
+    subtitle?: string;
+    imageComment?: string;
+};

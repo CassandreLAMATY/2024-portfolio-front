@@ -52,6 +52,10 @@ br {
     content: ' ';
     display: block;
     margin-bottom: $grup;
+
+    &.br-01 {
+        margin-bottom: $grup-01;
+    }
 }
 
 button {
@@ -224,4 +228,13 @@ button {
             cursor: pointer;
         }
     }
+}
+
+.parenthesis {
+    font-size: $grup-01;
+}
+
+.link {
+    color: $uranianBlue;
+    text-underline-offset: 2px;
 }
