@@ -109,7 +109,7 @@ button {
     font-size: 1.5rem;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .btn-icon {
     font-size: 2rem;
   }
@@ -127,7 +127,7 @@ button {
     font-size: 1.25rem;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .btn-title {
     font-size: 1.5rem;
   }

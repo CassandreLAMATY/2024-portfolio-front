@@ -6,15 +6,25 @@
 
     &-bg {
         position: absolute;
-        top: calc(0px - $grup06 - 4px + $grup03);
+        top: calc(0px - $grup07 - 4px + $grup03);
         left: 0;
         width: 150vw;
-        height: $grup06;
+        height: $grup07;
 
         background-color: $dutchWhite;
 
         transform: rotate(8deg);
         transform-origin: top left;
+
+        @include media-min(512px) {
+            top: calc(0px - $grup08 - 4px + $grup03);
+            height: $grup08;
+        }
+
+        @include media-min(768px) {
+            top: calc(0px - $grup08 - 4px + $grup05);
+            height: $grup08;
+        }
 
         &::after {
             box-sizing: border-box;
@@ -43,6 +53,47 @@
                 display: flex;
             }
 
+            // ToDO: auto calc
+            @include media-min(576px) {
+                left: 65vw;
+            }
+
+            @include media-min(640px) {
+                left: 60vw;
+            }
+
+            @include media-min(704px) {
+                left: 55vw;
+            }
+
+            @include media-min(768px) {
+                left: 65vw;
+            }
+
+            @include media-min(832px) {
+                left: 60vw;
+            }
+
+            @include media-min(896px) {
+                left: 55vw;
+            }
+
+            @include media-min(960px) {
+                left: 50vw;
+            }
+
+            @include media-min(1088px) {
+                left: 45vw;
+            }
+
+            @include media-min(1216px) {
+                left: 40vw;
+            }
+
+            @include media-min(1280px) {
+                left: 70vw;
+            }
+
             & .ornament-container {
                 & > #ornament02 {
                     &:not(:first-child) {
@@ -69,6 +120,30 @@
         gap: $grup03;
 
         padding: $grup03 $grup02;
+
+        @include media-min(512px) {
+            gap: $grup04;
+        }
+
+        @include media-min(640px) {
+            gap: $grup05;
+        }
+
+        @include media-min(768px) {
+            gap: $grup05;
+
+            padding: $grup05;
+        }
+
+        @include media-min(960px) {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+                'title title title title title title title title title title title title'
+                'content content content content content content content content content content . .';
+        }
+
         & .devHeader {
             &-title {
                 width: fit-content;
@@ -85,8 +160,22 @@
                     1px -1px 0 $chamoisee;
                 letter-spacing: 0.5px;
 
+                @include media-min(512px) {
+                    font-size: $grup04;
+                }
+
+                @include media-min(768px) {
+                    font-size: $grup05;
+                }
+
+                @include media-min(1280px) {
+                    font-size: $grup06;
+                }
+
                 &--container {
                     position: relative;
+
+                    grid-area: title;
 
                     width: fit-content;
                 }
@@ -107,6 +196,8 @@
                     display: flex;
                     flex-direction: column;
                     gap: $grup02;
+
+                    grid-area: content;
                 }
             }
         }

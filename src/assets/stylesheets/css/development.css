@@ -5,13 +5,25 @@
 }
 .devHeader-bg {
   position: absolute;
-  top: calc(0px - 6rem - 4px + 2rem);
+  top: calc(0px - 8rem - 4px + 2rem);
   left: 0;
   width: 150vw;
-  height: 6rem;
+  height: 8rem;
   background-color: #f4e4ba;
   transform: rotate(8deg);
   transform-origin: top left;
+}
+@media (min-width: 512px) {
+  .devHeader-bg {
+    top: calc(0px - 16rem - 4px + 2rem);
+    height: 16rem;
+  }
+}
+@media (min-width: 768px) {
+  .devHeader-bg {
+    top: calc(0px - 16rem - 4px + 4rem);
+    height: 16rem;
+  }
 }
 .devHeader-bg::after {
   box-sizing: border-box;
@@ -36,6 +48,56 @@
     display: flex;
   }
 }
+@media (min-width: 576px) {
+  .devHeader-bg--content {
+    left: 65vw;
+  }
+}
+@media (min-width: 640px) {
+  .devHeader-bg--content {
+    left: 60vw;
+  }
+}
+@media (min-width: 704px) {
+  .devHeader-bg--content {
+    left: 55vw;
+  }
+}
+@media (min-width: 768px) {
+  .devHeader-bg--content {
+    left: 65vw;
+  }
+}
+@media (min-width: 832px) {
+  .devHeader-bg--content {
+    left: 60vw;
+  }
+}
+@media (min-width: 896px) {
+  .devHeader-bg--content {
+    left: 55vw;
+  }
+}
+@media (min-width: 960px) {
+  .devHeader-bg--content {
+    left: 50vw;
+  }
+}
+@media (min-width: 1088px) {
+  .devHeader-bg--content {
+    left: 45vw;
+  }
+}
+@media (min-width: 1216px) {
+  .devHeader-bg--content {
+    left: 40vw;
+  }
+}
+@media (min-width: 1280px) {
+  .devHeader-bg--content {
+    left: 70vw;
+  }
+}
 .devHeader-bg--content .ornament-container > #ornament02:not(:first-child) {
   margin-left: -17px;
 }
@@ -53,6 +115,30 @@
   gap: 2rem;
   padding: 2rem 1.5rem;
 }
+@media (min-width: 512px) {
+  .devHeader-container {
+    gap: 3rem;
+  }
+}
+@media (min-width: 640px) {
+  .devHeader-container {
+    gap: 4rem;
+  }
+}
+@media (min-width: 768px) {
+  .devHeader-container {
+    gap: 4rem;
+    padding: 4rem;
+  }
+}
+@media (min-width: 960px) {
+  .devHeader-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "title title title title title title title title title title title title" "content content content content content content content content content content . .";
+  }
+}
 .devHeader-container .devHeader-title {
   width: fit-content;
   font-family: Raleway;
@@ -63,8 +149,24 @@
   text-shadow: 1px 1px 0 #99715b, -1px 1px 0 #99715b, -1px -1px 0 #99715b, 1px -1px 0 #99715b;
   letter-spacing: 0.5px;
 }
+@media (min-width: 512px) {
+  .devHeader-container .devHeader-title {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) {
+  .devHeader-container .devHeader-title {
+    font-size: 4rem;
+  }
+}
+@media (min-width: 1280px) {
+  .devHeader-container .devHeader-title {
+    font-size: 6rem;
+  }
+}
 .devHeader-container .devHeader-title--container {
   position: relative;
+  grid-area: title;
   width: fit-content;
 }
 .devHeader-container .devHeader-exclamation {
@@ -81,6 +183,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  grid-area: content;
 }
 .devHeader-btn--container {
   display: flex;

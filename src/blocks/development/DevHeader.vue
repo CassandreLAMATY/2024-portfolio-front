@@ -20,7 +20,7 @@ onMounted(async () => {
             <div class="devHeader-bg--content">
                 <Ornament01SVG id="ornament01" />
                 <div class="ornament-container">
-                    <Ornament02SVG v-for="i in 10" :key="i" id="ornament02" />
+                    <Ornament02SVG v-for="i in 20" :key="i" id="ornament02" />
                 </div>
             </div>
         </div>
@@ -29,6 +29,7 @@ onMounted(async () => {
                 <h1 class="devHeader-title">{{ devIntro.title }}</h1>
                 <ExclamationSVG class="devHeader-exclamation" fill="#99715b" stroke="#99715b" />
             </div>
+
             <div class="devHeader-content--container">
                 <p v-html="devIntro.description" class="devHeader-content"></p>
                 <div class="devHeader-btn--container">

@@ -132,7 +132,7 @@ button {
             font-size: $grup02;
         }
 
-        @include media-min(1024px) {
+        @include media-min(1280px) {
             font-size: $grup03;
         }
     }
@@ -149,7 +149,7 @@ button {
             font-size: $grup01;
         }
 
-        @include media-min(1024px) {
+        @include media-min(1280px) {
             font-size: $grup02;
         }
     }
