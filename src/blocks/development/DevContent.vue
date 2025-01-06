@@ -54,7 +54,16 @@ onMounted(async () => {
                                 <p v-html="c.description"></p>
                             </div>
                         </div>
-                        <img class="swiper-slide--img" src="https://placehold.co/1920x1080" />
+                        <div class="swiper-slide--imgs">
+                            <img
+                                v-for="i of c.images"
+                                :key="i.url"
+                                class="image"
+                                :src="apiUrl + i.url"
+                                :alt="i.alternativeText"
+                            />
+                            <span>{{ c.imagesComment }}</span>
+                        </div>
                     </div>
                     <div class="swiper-slide--bottom">
                         <div class="tags">

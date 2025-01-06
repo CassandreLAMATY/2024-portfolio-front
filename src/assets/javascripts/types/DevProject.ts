@@ -9,5 +9,5 @@ export type DevProject = {
     skill_tags?: Tag[];
     links?: { link: string; name: string }[];
     subtitle?: string;
-    imageComment?: string;
+    imagesComment?: string;
 };
