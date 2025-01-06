@@ -14,10 +14,6 @@ onMounted(() => {
     window.addEventListener('resize', () => {
         meHeightCalc();
     });
-
-    window.removeEventListener('resize', () => {
-        meHeightCalc();
-    });
 });
 </script>
 
@@ -40,28 +36,18 @@ onMounted(() => {
             <div class="mountains bg-mountains">
                 <svg>
                     <defs>
-                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="30%"  gradientUnits="userSpaceOnUse">
+                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="30%" gradientUnits="userSpaceOnUse">
                             <stop offset="0%" style="stop-color: #896b8d; stop-opacity: 1" />
                             <stop offset="100%" style="stop-color: #9991c9; stop-opacity: 1" />
                         </linearGradient>
                     </defs>
                 </svg>
 
-                <svg
-                    viewBox="0 0 100 100"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="mountain"
-                    id="bgmountain01"
-                >
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mountain" id="bgmountain01">
                     <polygon points="70 80, 100 100, 50 100" fill="url(#gradient2)" />
                 </svg>
 
-                <svg
-                    viewBox="0 0 100 100"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="mountain"
-                    id="bgmountain02"
-                >
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mountain" id="bgmountain02">
                     <polygon points="60 70, 90 100, 40 100" fill="url(#gradient2)" />
                 </svg>
             </div>
@@ -70,43 +56,30 @@ onMounted(() => {
                 <div class="mountains-container">
                     <svg>
                         <defs>
-                            <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="67%"  gradientUnits="userSpaceOnUse">
+                            <linearGradient
+                                id="gradient1"
+                                x1="0%"
+                                y1="0%"
+                                x2="0%"
+                                y2="67%"
+                                gradientUnits="userSpaceOnUse"
+                            >
                                 <stop offset="0%" style="stop-color: #433432; stop-opacity: 1" />
                                 <stop offset="100%" style="stop-color: #533f3b; stop-opacity: 1" />
                             </linearGradient>
                         </defs>
                     </svg>
 
-                    <svg
-                        viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="mountain"
-                        id="mountain02"
-                    >
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mountain" id="mountain02">
                         <polygon points="50 15, 120 100, 0 100" fill="url(#gradient1)" />
                     </svg>
-                    <svg
-                        viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="mountain"
-                        id="mountain03"
-                    >
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mountain" id="mountain03">
                         <polygon points="50 50, 100 100, 15 100" fill="url(#gradient1)" />
                     </svg>
-                    <svg
-                        viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="mountain"
-                        id="mountain01"
-                    >
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mountain" id="mountain01">
                         <polygon points="100 -50, 100 100, 0 100" fill="url(#gradient1)" />
                     </svg>
-                    <svg
-                        viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="mountain"
-                        id="mountain04"
-                    >
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mountain" id="mountain04">
                         <polygon points="0 15, 100 100, 0 100" fill="url(#gradient1)" />
                     </svg>
                 </div>
