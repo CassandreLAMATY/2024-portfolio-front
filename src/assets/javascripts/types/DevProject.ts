@@ -6,7 +6,7 @@ export type DevProject = {
     icon: StrapiImage;
     description?: string;
     images?: StrapiImage[];
-    skillTags?: Tag[];
+    skill_tags?: Tag[];
     links?: { link: string; name: string }[];
     subtitle?: string;
     imageComment?: string;
