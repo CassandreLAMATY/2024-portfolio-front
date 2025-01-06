@@ -1,4 +1,4 @@
-import { computed, ref, type Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 
 import { ApiHandler } from '@/api/ApiHandler';
 import { HandleError } from '@/assets/javascripts/utils/HandleError';

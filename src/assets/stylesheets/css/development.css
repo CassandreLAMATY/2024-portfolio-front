@@ -153,6 +153,8 @@
   }
 }
 .devHeader-container {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -185,7 +187,6 @@
 @media (min-width: 1024px) {
   .devHeader-container {
     padding: 4rem 8rem;
-    grid-template-areas: "title title title title title title title title title title title title" "content content content content content content content content . . . .";
   }
 }
 @media (min-width: 1152px) {
@@ -199,6 +200,12 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: calc(6rem + 16px) 16rem 6rem 16rem;
+    grid-template-areas: "title title title title title title title title title title title title" "content content content content content content content content . . . .";
+  }
+}
+@media (min-width: 1792px) {
+  .devHeader-container {
+    padding: 8rem 16rem 4rem 16rem;
   }
 }
 @media (min-width: 1984px) {
