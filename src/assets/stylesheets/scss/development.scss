@@ -346,12 +346,8 @@
                 padding: $grup05 $grup07;
             }
 
-            @include media-min(1536px) {
-                box-sizing: content-box;
-
-                max-width: 1280px;
-                margin: 0 auto;
-                padding: 0 $grup08 $grup06 $grup08;
+            @include media-min(1280px) {
+                padding: $grup04;
             }
 
             &.dutchWhite {
@@ -454,9 +450,16 @@
             }
 
             &-container {
+                position: relative;
+
                 display: flex;
                 flex-direction: column;
                 gap: $grup02;
+
+                @include media-min(1280px) {
+                    height: 100%;
+                    max-height: 100%;
+                }
 
                 & .devCard {
                     &-top {
@@ -491,8 +494,8 @@
                                 }
 
                                 @include media-min(768px) {
-                                    font-size: calc($grup03 + $grup);
-                                    line-height: calc($grup03 + $grup);
+                                    font-size: $grup04;
+                                    line-height: $grup04;
                                 }
 
                                 &-container {
@@ -547,8 +550,40 @@
                         flex-direction: column;
                         gap: $grup;
 
+                        @include media-min(1280px) {
+                            display: grid;
+                            grid-template-columns: repeat(12, 1fr);
+                            grid-template-rows: auto 1fr;
+                            gap: $grup02;
+                            grid-template-areas:
+                                'content1 content1 content1 content1 content1 content1 . img img img img img'
+                                'content2 content2 content2 content2 content2 content2 . img img img img img';
+                        }
+
+                        @include media-min(1536px) {
+                            grid-template-areas:
+                                'content1 content1 content1 content1 content1 content1 img img img img img img'
+                                'content2 content2 content2 content2 content2 content2 img img img img img img';
+                        }
+
                         & p {
                             color: $raisinBlack;
+
+                            @include media-min(1280px) {
+                                max-height: fit-content;
+                            }
+                        }
+
+                        &--intro {
+                            @include media-min(1280px) {
+                                grid-area: content1;
+                            }
+                        }
+
+                        &--text {
+                            @include media-min(1280px) {
+                                grid-area: content2;
+                            }
                         }
 
                         &--image {
@@ -562,6 +597,11 @@
 
                             &-container {
                                 position: relative;
+
+                                @include media-min(1280px) {
+                                    grid-area: img;
+                                    align-self: center;
+                                }
 
                                 &::before {
                                     content: '';
@@ -630,6 +670,10 @@
                                 gap: $grup;
                             }
 
+                            @include media-min(1280px) {
+                                margin-top: auto;
+                            }
+
                             & .separator {
                                 width: 100%;
                                 height: 1px;
@@ -658,6 +702,10 @@
                                         font-size: $grup-01;
                                         font-weight: 600;
 
+                                        &:nth-child(n + 5) {
+                                            display: none;
+                                        }
+
                                         @include media-min(512px) {
                                             gap: $grup-02;
 
@@ -667,12 +715,22 @@
                                             font-size: $grup;
                                         }
 
+                                        @include media-min(768px) {
+                                            &:nth-child(n) {
+                                                display: flex;
+                                            }
+
+                                            &:nth-child(n + 8) {
+                                                display: none;
+                                            }
+                                        }
+
                                         @include media-min(1024px) {
                                             height: calc($grup02 + $grup-02);
                                         }
 
-                                        &:nth-child(n + 5) {
-                                            display: none;
+                                        @include media-min(1024px) {
+                                            height: calc($grup02 + $grup-02);
                                         }
 
                                         &-icon {
@@ -702,6 +760,48 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        & .devSwiper {
+            max-width: 1536px;
+            margin: 0 auto;
+
+            & .custom_swiper {
+                position: relative;
+
+                &::after {
+                    content: ' ';
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 10;
+
+                    background: linear-gradient(
+                        to right,
+                        $chamoisee 0%,
+                        transparent 8%,
+                        transparent 92%,
+                        $chamoisee 100%
+                    );
+
+                    pointer-events: none;
+                }
+            }
+
+            & .slide-container {
+                height: auto;
+
+                & .slide {
+                    height: 100%;
+
+                    & .devCard {
+                        height: 100%;
                     }
                 }
             }

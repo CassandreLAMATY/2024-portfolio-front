@@ -2,6 +2,7 @@
 import { onMounted, ref, type Ref } from 'vue';
 
 import DevMobileCard from '@/components/DevMobileCard.vue';
+import DevSwiperCard from '@/components/DevSwiperCard.vue';
 
 import { getDevProjects } from '@/assets/javascripts/development';
 import type { DevProject } from '@/assets/javascripts/types/DevProject';
@@ -22,8 +23,8 @@ onMounted(async () => {
         <div v-if="isLaptop" class="devContent-container">
             <DevMobileCard v-for="(devProject, i) in devProjects" :key="i" :devProject="devProject" :apiUrl="apiUrl" />
         </div>
-        <div v-else class="devContent-container">
-            <DevSwiperCard v-for="(devProject, i) in devProjects" :key="i" :devProject="devProject" :apiUrl="apiUrl" />
+        <div v-else-if="devProjects" class="devContent-container">
+            <DevSwiperCard :devProjects="devProjects" :apiUrl="apiUrl" />
         </div>
     </div>
 </template>
