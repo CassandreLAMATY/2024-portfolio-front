@@ -28,4 +28,23 @@ export class Swiper {
             }
         };
     }
+
+    public initDevSwiperOptions() {
+        return {
+            modules: [Autoplay, Grid],
+            slidesPerView: 1.2,
+            spaceBetween: 24,
+            centerSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: true
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 1.3
+                }
+            }
+        };
+    }
 }

@@ -1,4 +1,5 @@
 import { ref, type Ref } from 'vue';
+import qs from 'qs';
 
 import { ApiHandler } from '@/api/ApiHandler';
 import { HandleError } from '@/assets/javascripts/utils/HandleError';
@@ -46,11 +47,23 @@ export async function getDevIntro(): Promise<DevIntro | null> {
  */
 export async function getDevProjects(): Promise<DevProject[] | null> {
     try {
+        const queryString = qs.stringify(
+            {
+                populate: {
+                    skill_tags: { populate: 'icon' },
+                    image: true,
+                    icon: true
+                },
+                sort: ['order']
+            },
+            { encodeValuesOnly: true }
+        );
+
         const d: DevProject[] = await apiHandler
-            .get<StrapiResponse<DevProject>>('/dev-projects', { populate: '*' })
+            .get<StrapiResponse<DevProject>>(`/dev-projects?${queryString}`)
             .then((r) => {
                 if (!r || !r.data || r.data.length === 0) {
-                    throw new Error('No dev projects found');
+                    throw new Error('No dev project found');
                 }
 
                 return r.data;

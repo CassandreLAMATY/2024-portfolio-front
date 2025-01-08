@@ -42,7 +42,7 @@ p {
         line-height: 1.75rem;
     }
 
-    @include media-min(1280px) {
+    @include media-min(1536px) {
         font-size: $grup02;
         line-height: $grup03;
     }
@@ -132,7 +132,7 @@ button {
             font-size: $grup02;
         }
 
-        @include media-min(1280px) {
+        @include media-min(1536px) {
             font-size: $grup03;
         }
     }
@@ -149,7 +149,7 @@ button {
             font-size: $grup01;
         }
 
-        @include media-min(1280px) {
+        @include media-min(1536px) {
             font-size: $grup02;
         }
     }
@@ -232,9 +232,55 @@ button {
 
 .parenthesis {
     font-size: $grup-01;
+
+    @include media-min(1024px) {
+        font-size: $grup;
+    }
 }
 
 .link {
     color: $uranianBlue;
     text-underline-offset: 2px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.btn {
+    &-round {
+        width: $grup03;
+        height: $grup03;
+
+        border: 1px solid $vanDyke;
+        border-radius: 50%;
+        background-color: $dutchWhite;
+
+        font-size: $grup;
+        color: $vanDyke;
+
+        @include media-min(512px) {
+            width: calc($grup03 + $grup-03);
+            height: calc($grup03 + $grup-03);
+
+            font-size: $grup01;
+        }
+
+        @include media-min(1024px) {
+            width: calc($grup03 + $grup-03);
+            height: calc($grup03 + $grup-03);
+
+            font-size: $grup01;
+        }
+
+        &--link {
+            &:hover {
+                cursor: pointer;
+            }
+
+            & > *:hover {
+                cursor: pointer;
+            }
+        }
+    }
 }

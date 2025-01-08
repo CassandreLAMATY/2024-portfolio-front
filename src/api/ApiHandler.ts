@@ -1,3 +1,5 @@
+import qs from 'qs';
+
 export class ApiHandler {
     private API_URL: string | null;
     private API_TOKEN: string | null;
@@ -26,8 +28,8 @@ export class ApiHandler {
     }
 
     public async get<T>(url: string, params: Record<string, string> = {}): Promise<T> {
-        const queryParams = new URLSearchParams(params);
-        const apiUrl = `${url}?${queryParams}`;
+        const queryParams = qs.stringify(params, { encode: false });
+        const apiUrl = `${url}${queryParams ? `?${queryParams}` : ''}`;
         return await this.request<T>(apiUrl, {});
     }
 

@@ -38,7 +38,7 @@ p {
     line-height: 1.75rem;
   }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1536px) {
   p {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -109,7 +109,7 @@ button {
     font-size: 1.5rem;
   }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1536px) {
   .btn-icon {
     font-size: 2rem;
   }
@@ -127,7 +127,7 @@ button {
     font-size: 1.25rem;
   }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1536px) {
   .btn-title {
     font-size: 1.5rem;
   }
@@ -191,10 +191,49 @@ button {
 .parenthesis {
   font-size: 0.75rem;
 }
+@media (min-width: 1024px) {
+  .parenthesis {
+    font-size: 16px;
+  }
+}
 
 .link {
   color: #c2ebff;
   text-underline-offset: 2px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.btn-round {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #443433;
+  border-radius: 50%;
+  background-color: #f4e4ba;
+  font-size: 16px;
+  color: #443433;
+}
+@media (min-width: 512px) {
+  .btn-round {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .btn-round {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.25rem;
+  }
+}
+.btn-round--link:hover {
+  cursor: pointer;
+}
+.btn-round--link > *:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=global.css.map */

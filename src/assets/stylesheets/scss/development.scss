@@ -235,7 +235,7 @@
                 width: fit-content;
 
                 font-family: Raleway;
-                font-size: $grup03;
+                font-size: calc($grup03 + $grup-02);
                 font-weight: 900;
                 color: $dutchWhite;
                 text-transform: uppercase;
@@ -326,6 +326,384 @@
             & .btn-shadow {
                 left: -$grup-02;
                 right: 0;
+            }
+        }
+    }
+}
+
+.devContent {
+    background-color: $chamoisee;
+
+    &-container {
+        & .devCard {
+            padding: $grup03 $grup02;
+
+            @include media-min(768px) {
+                padding: $grup05;
+            }
+
+            @include media-min(1024px) {
+                padding: $grup05 $grup07;
+            }
+
+            @include media-min(1536px) {
+                box-sizing: content-box;
+
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 $grup08 $grup06 $grup08;
+            }
+
+            &.dutchWhite {
+                background-color: $dutchWhite;
+
+                & .btn {
+                    &-round {
+                        background-color: $sunset;
+                    }
+                }
+
+                & .devCard-content--image-container {
+                    &::before {
+                        border-top-color: $sunset;
+                    }
+                    &::after {
+                        border-bottom-color: $sunset;
+                    }
+                }
+            }
+
+            &.periwinkle {
+                background-color: $periwinkle;
+
+                & .btn {
+                    &-round {
+                        background-color: $mauve;
+                    }
+                }
+
+                & .devCard-content--image-container {
+                    &::before {
+                        border-top-color: $mauve;
+                    }
+                    &::after {
+                        border-bottom-color: $mauve;
+                    }
+                }
+            }
+
+            &.mistyRose {
+                background-color: $mistyRose;
+
+                & .btn {
+                    &-round {
+                        background-color: $salmonPink;
+                    }
+                }
+
+                & .devCard-content--image-container {
+                    &::before {
+                        border-top-color: $salmonPink;
+                    }
+                    &::after {
+                        border-bottom-color: $salmonPink;
+                    }
+                }
+            }
+
+            &.cream {
+                background-color: $cream;
+
+                & .btn {
+                    &-round {
+                        background-color: $celadon;
+                    }
+                }
+
+                & .devCard-content--image-container {
+                    &::before {
+                        border-top-color: $celadon;
+                    }
+                    &::after {
+                        border-bottom-color: $celadon;
+                    }
+                }
+            }
+
+            &.uranianBlue {
+                background-color: $uranianBlue;
+
+                & .btn {
+                    &-round {
+                        background-color: $jordyBlue;
+                    }
+                }
+
+                & .devCard-content--image-container {
+                    &::before {
+                        border-top-color: $jordyBlue;
+                    }
+                    &::after {
+                        border-bottom-color: $jordyBlue;
+                    }
+                }
+
+                & a {
+                    color: $vanDyke;
+                }
+            }
+
+            &-container {
+                display: flex;
+                flex-direction: column;
+                gap: $grup02;
+
+                & .devCard {
+                    &-top {
+                        display: flex;
+                        justify-content: space-between;
+
+                        & .title {
+                            &-links {
+                                display: flex;
+                                gap: $grup-02;
+                            }
+                        }
+
+                        &--container {
+                            display: flex;
+                            flex-direction: column;
+                            gap: $grup-02;
+
+                            width: fit-content;
+
+                            & .title {
+                                font-family: Raleway;
+                                font-weight: 900;
+                                font-size: $grup03;
+                                line-height: $grup03;
+                                letter-spacing: 0.5px;
+                                color: $raisinBlack;
+
+                                @include media-min(512px) {
+                                    font-size: calc($grup03 + $grup-02);
+                                    line-height: calc($grup03 + $grup-02);
+                                }
+
+                                @include media-min(768px) {
+                                    font-size: calc($grup03 + $grup);
+                                    line-height: calc($grup03 + $grup);
+                                }
+
+                                &-container {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: $grup;
+                                }
+
+                                &-icon {
+                                    height: $grup03;
+
+                                    @include media-min(512px) {
+                                        height: calc($grup03 + $grup-02);
+                                    }
+
+                                    @include media-min(768px) {
+                                        height: calc($grup03 + $grup);
+                                    }
+                                }
+                            }
+
+                            & .separator {
+                                width: 100%;
+                                height: 1px;
+                                margin: 0;
+
+                                border-color: $chamoisee;
+                            }
+
+                            & .subtitle {
+                                width: fit-content;
+
+                                color: $chamoisee;
+                                text-transform: uppercase;
+                                letter-spacing: 0.5px;
+                                font-weight: 500;
+                                font-size: $grup-01;
+
+                                @include media-min(512px) {
+                                    font-size: $grup;
+                                }
+
+                                & br {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    &-content {
+                        display: flex;
+                        flex-direction: column;
+                        gap: $grup;
+
+                        & p {
+                            color: $raisinBlack;
+                        }
+
+                        &--image {
+                            display: block;
+
+                            // Removing 4px border from the image
+                            width: calc(100% - $grup-03 - $grup-03);
+                            margin: $grup-03;
+
+                            border-radius: $grup-03;
+
+                            &-container {
+                                position: relative;
+
+                                &::before {
+                                    content: '';
+
+                                    position: absolute;
+                                    bottom: -$grup-03;
+                                    left: -$grup;
+
+                                    width: 0;
+                                    height: 0;
+                                    border-left: $grup02 solid transparent;
+                                    border-right: $grup02 solid transparent;
+
+                                    border-top: $grup02 solid;
+
+                                    transform: rotate(45deg);
+
+                                    @include media-min(768px) {
+                                        bottom: -$grup-02;
+                                        left: - calc($grup01 + $grup-03);
+
+                                        border-left: $grup03 solid transparent;
+                                        border-right: $grup03 solid transparent;
+
+                                        border-top: $grup03 solid;
+                                    }
+                                }
+
+                                &::after {
+                                    content: '';
+
+                                    position: absolute;
+                                    top: -$grup-03;
+                                    right: -$grup;
+
+                                    width: 0;
+                                    height: 0;
+                                    border-left: $grup02 solid transparent;
+                                    border-right: $grup02 solid transparent;
+
+                                    border-bottom: $grup02 solid;
+
+                                    transform: rotate(45deg);
+
+                                    @include media-min(768px) {
+                                        top: -$grup-02;
+                                        right: - calc($grup01 + $grup-03);
+
+                                        border-left: $grup03 solid transparent;
+                                        border-right: $grup03 solid transparent;
+
+                                        border-bottom: $grup03 solid;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &-tags {
+                        &--container {
+                            display: flex;
+                            flex-direction: column;
+                            gap: $grup-02;
+
+                            @include media-min(768px) {
+                                gap: $grup;
+                            }
+
+                            & .separator {
+                                width: 100%;
+                                height: 1px;
+                                margin: 0;
+
+                                border-color: $chamoisee;
+                            }
+
+                            & .tags {
+                                &-container {
+                                    display: flex;
+                                    gap: $grup-03;
+
+                                    & .tag {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: $grup-03;
+
+                                        min-width: unset;
+                                        height: $grup02;
+                                        padding: 0 $grup-02;
+
+                                        border-radius: 50px;
+                                        border: 1px solid $vanDyke;
+
+                                        font-size: $grup-01;
+                                        font-weight: 600;
+
+                                        @include media-min(512px) {
+                                            gap: $grup-02;
+
+                                            height: calc($grup02 + $grup-03);
+                                            padding: 0 calc($grup-02 + $grup-04);
+
+                                            font-size: $grup;
+                                        }
+
+                                        @include media-min(1024px) {
+                                            height: calc($grup02 + $grup-02);
+                                        }
+
+                                        &:nth-child(n + 5) {
+                                            display: none;
+                                        }
+
+                                        &-icon {
+                                            height: $grup;
+                                        }
+
+                                        &.jordyBlue {
+                                            background-color: $jordyBlue;
+                                        }
+
+                                        &.mauve {
+                                            background-color: $mauve;
+                                        }
+
+                                        &.celadon {
+                                            background-color: $celadon;
+                                        }
+
+                                        &.sunset {
+                                            background-color: $sunset;
+                                        }
+
+                                        &.salmonPink {
+                                            background-color: $salmonPink;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

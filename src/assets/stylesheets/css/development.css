@@ -236,7 +236,7 @@
 .devHeader-container .devHeader-title {
   width: fit-content;
   font-family: Raleway;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 900;
   color: #f4e4ba;
   text-transform: uppercase;
@@ -317,6 +317,298 @@
 .devHeader-btn--container .btn-shadow {
   left: -0.5rem;
   right: 0;
+}
+
+.devContent {
+  background-color: #99715b;
+}
+.devContent-container .devCard {
+  padding: 2rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .devContent-container .devCard {
+    padding: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .devContent-container .devCard {
+    padding: 4rem 8rem;
+  }
+}
+@media (min-width: 1536px) {
+  .devContent-container .devCard {
+    box-sizing: content-box;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16rem 6rem 16rem;
+  }
+}
+.devContent-container .devCard.dutchWhite {
+  background-color: #f4e4ba;
+}
+.devContent-container .devCard.dutchWhite .btn-round {
+  background-color: #ffcd88;
+}
+.devContent-container .devCard.dutchWhite .devCard-content--image-container::before {
+  border-top-color: #ffcd88;
+}
+.devContent-container .devCard.dutchWhite .devCard-content--image-container::after {
+  border-bottom-color: #ffcd88;
+}
+.devContent-container .devCard.periwinkle {
+  background-color: #dfcfff;
+}
+.devContent-container .devCard.periwinkle .btn-round {
+  background-color: #b3a7ff;
+}
+.devContent-container .devCard.periwinkle .devCard-content--image-container::before {
+  border-top-color: #b3a7ff;
+}
+.devContent-container .devCard.periwinkle .devCard-content--image-container::after {
+  border-bottom-color: #b3a7ff;
+}
+.devContent-container .devCard.mistyRose {
+  background-color: #ffe3e0;
+}
+.devContent-container .devCard.mistyRose .btn-round {
+  background-color: #ff9b9b;
+}
+.devContent-container .devCard.mistyRose .devCard-content--image-container::before {
+  border-top-color: #ff9b9b;
+}
+.devContent-container .devCard.mistyRose .devCard-content--image-container::after {
+  border-bottom-color: #ff9b9b;
+}
+.devContent-container .devCard.cream {
+  background-color: #eaf3c0;
+}
+.devContent-container .devCard.cream .btn-round {
+  background-color: #bbdb9b;
+}
+.devContent-container .devCard.cream .devCard-content--image-container::before {
+  border-top-color: #bbdb9b;
+}
+.devContent-container .devCard.cream .devCard-content--image-container::after {
+  border-bottom-color: #bbdb9b;
+}
+.devContent-container .devCard.uranianBlue {
+  background-color: #c2ebff;
+}
+.devContent-container .devCard.uranianBlue .btn-round {
+  background-color: #93beff;
+}
+.devContent-container .devCard.uranianBlue .devCard-content--image-container::before {
+  border-top-color: #93beff;
+}
+.devContent-container .devCard.uranianBlue .devCard-content--image-container::after {
+  border-bottom-color: #93beff;
+}
+.devContent-container .devCard.uranianBlue a {
+  color: #443433;
+}
+.devContent-container .devCard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.devContent-container .devCard-container .devCard-top {
+  display: flex;
+  justify-content: space-between;
+}
+.devContent-container .devCard-container .devCard-top .title-links {
+  display: flex;
+  gap: 0.5rem;
+}
+.devContent-container .devCard-container .devCard-top--container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: fit-content;
+}
+.devContent-container .devCard-container .devCard-top--container .title {
+  font-family: Raleway;
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 2rem;
+  letter-spacing: 0.5px;
+  color: #272425;
+}
+@media (min-width: 512px) {
+  .devContent-container .devCard-container .devCard-top--container .title {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .devContent-container .devCard-container .devCard-top--container .title {
+    font-size: calc(2rem + 16px);
+    line-height: calc(2rem + 16px);
+  }
+}
+.devContent-container .devCard-container .devCard-top--container .title-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.devContent-container .devCard-container .devCard-top--container .title-icon {
+  height: 2rem;
+}
+@media (min-width: 512px) {
+  .devContent-container .devCard-container .devCard-top--container .title-icon {
+    height: 2.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .devContent-container .devCard-container .devCard-top--container .title-icon {
+    height: calc(2rem + 16px);
+  }
+}
+.devContent-container .devCard-container .devCard-top--container .separator {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border-color: #99715b;
+}
+.devContent-container .devCard-container .devCard-top--container .subtitle {
+  width: fit-content;
+  color: #99715b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+@media (min-width: 512px) {
+  .devContent-container .devCard-container .devCard-top--container .subtitle {
+    font-size: 16px;
+  }
+}
+.devContent-container .devCard-container .devCard-top--container .subtitle br {
+  margin-bottom: 0;
+}
+.devContent-container .devCard-container .devCard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.devContent-container .devCard-container .devCard-content p {
+  color: #272425;
+}
+.devContent-container .devCard-container .devCard-content--image {
+  display: block;
+  width: calc(100% - 0.25rem - 0.25rem);
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+}
+.devContent-container .devCard-container .devCard-content--image-container {
+  position: relative;
+}
+.devContent-container .devCard-container .devCard-content--image-container::before {
+  content: "";
+  position: absolute;
+  bottom: -0.25rem;
+  left: -16px;
+  width: 0;
+  height: 0;
+  border-left: 1.5rem solid transparent;
+  border-right: 1.5rem solid transparent;
+  border-top: 1.5rem solid;
+  transform: rotate(45deg);
+}
+@media (min-width: 768px) {
+  .devContent-container .devCard-container .devCard-content--image-container::before {
+    bottom: -0.5rem;
+    left: -1.5rem;
+    border-left: 2rem solid transparent;
+    border-right: 2rem solid transparent;
+    border-top: 2rem solid;
+  }
+}
+.devContent-container .devCard-container .devCard-content--image-container::after {
+  content: "";
+  position: absolute;
+  top: -0.25rem;
+  right: -16px;
+  width: 0;
+  height: 0;
+  border-left: 1.5rem solid transparent;
+  border-right: 1.5rem solid transparent;
+  border-bottom: 1.5rem solid;
+  transform: rotate(45deg);
+}
+@media (min-width: 768px) {
+  .devContent-container .devCard-container .devCard-content--image-container::after {
+    top: -0.5rem;
+    right: -1.5rem;
+    border-left: 2rem solid transparent;
+    border-right: 2rem solid transparent;
+    border-bottom: 2rem solid;
+  }
+}
+.devContent-container .devCard-container .devCard-tags--container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (min-width: 768px) {
+  .devContent-container .devCard-container .devCard-tags--container {
+    gap: 16px;
+  }
+}
+.devContent-container .devCard-container .devCard-tags--container .separator {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border-color: #99715b;
+}
+.devContent-container .devCard-container .devCard-tags--container .tags-container {
+  display: flex;
+  gap: 0.25rem;
+}
+.devContent-container .devCard-container .devCard-tags--container .tags-container .tag {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: unset;
+  height: 1.5rem;
+  padding: 0 0.5rem;
+  border-radius: 50px;
+  border: 1px solid #443433;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+@media (min-width: 512px) {
+  .devContent-container .devCard-container .devCard-tags--container .tags-container .tag {
+    gap: 0.5rem;
+    height: 1.75rem;
+    padding: 0 0.625rem;
+    font-size: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .devContent-container .devCard-container .devCard-tags--container .tags-container .tag {
+    height: 2rem;
+  }
+}
+.devContent-container .devCard-container .devCard-tags--container .tags-container .tag:nth-child(n+5) {
+  display: none;
+}
+.devContent-container .devCard-container .devCard-tags--container .tags-container .tag-icon {
+  height: 16px;
+}
+.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.jordyBlue {
+  background-color: #93beff;
+}
+.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.mauve {
+  background-color: #b3a7ff;
+}
+.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.celadon {
+  background-color: #bbdb9b;
+}
+.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.sunset {
+  background-color: #ffcd88;
+}
+.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.salmonPink {
+  background-color: #ff9b9b;
 }
 
 /*# sourceMappingURL=development.css.map */
