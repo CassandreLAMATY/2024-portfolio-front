@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@property --gradient-position {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
 .devHeader {
   position: relative;
   background-color: #99715b;
@@ -344,7 +349,13 @@
   background-color: #f4e4ba;
 }
 .devContent-container .devCard.dutchWhite .btn-round {
-  background-color: #ffcd88;
+  --gradient-position: 0%;
+  background: linear-gradient(to top, #f4e4ba 0%, #ffcd88 var(--gradient-position), #ffcd88 100%);
+  transition: --gradient-position 0.1s ease-out;
+}
+.devContent-container .devCard.dutchWhite .btn-round--link:hover > .btn-round {
+  --gradient-position: 100%;
+  background: linear-gradient(to top, #f4e4ba 0%, #ffcd88 var(--gradient-position), #ffcd88 100%);
 }
 .devContent-container .devCard.dutchWhite .devCard-content--image-container::before {
   border-top-color: #ffcd88;
@@ -356,7 +367,13 @@
   background-color: #dfcfff;
 }
 .devContent-container .devCard.periwinkle .btn-round {
-  background-color: #b3a7ff;
+  --gradient-position: 0%;
+  background: linear-gradient(to top, #ffe3e0 0%, #b3a7ff var(--gradient-position), #b3a7ff 100%);
+  transition: --gradient-position 0.1s ease-out;
+}
+.devContent-container .devCard.periwinkle .btn-round--link:hover > .btn-round {
+  --gradient-position: 100%;
+  background: linear-gradient(to top, #ffe3e0 0%, #b3a7ff var(--gradient-position), #b3a7ff 100%);
 }
 .devContent-container .devCard.periwinkle .devCard-content--image-container::before {
   border-top-color: #b3a7ff;
@@ -368,7 +385,13 @@
   background-color: #ffe3e0;
 }
 .devContent-container .devCard.mistyRose .btn-round {
-  background-color: #ff9b9b;
+  --gradient-position: 0%;
+  background: linear-gradient(to top, #ffcd88 0%, #ff9b9b var(--gradient-position), #ff9b9b 100%);
+  transition: --gradient-position 0.1s ease-out;
+}
+.devContent-container .devCard.mistyRose .btn-round--link:hover > .btn-round {
+  --gradient-position: 100%;
+  background: linear-gradient(to top, #ffcd88 0%, #ff9b9b var(--gradient-position), #ff9b9b 100%);
 }
 .devContent-container .devCard.mistyRose .devCard-content--image-container::before {
   border-top-color: #ff9b9b;
@@ -380,7 +403,13 @@
   background-color: #eaf3c0;
 }
 .devContent-container .devCard.cream .btn-round {
-  background-color: #bbdb9b;
+  --gradient-position: 0%;
+  background: linear-gradient(to top, #ffe3e0 0%, #bbdb9b var(--gradient-position), #bbdb9b 100%);
+  transition: --gradient-position 0.1s ease-out;
+}
+.devContent-container .devCard.cream .btn-round--link:hover > .btn-round {
+  --gradient-position: 100%;
+  background: linear-gradient(to top, #ffe3e0 0%, #bbdb9b var(--gradient-position), #bbdb9b 100%);
 }
 .devContent-container .devCard.cream .devCard-content--image-container::before {
   border-top-color: #bbdb9b;
@@ -392,7 +421,13 @@
   background-color: #c2ebff;
 }
 .devContent-container .devCard.uranianBlue .btn-round {
-  background-color: #93beff;
+  --gradient-position: 0%;
+  background: linear-gradient(to top, #eaf3c0 0%, #93beff var(--gradient-position), #93beff 100%);
+  transition: --gradient-position 0.1s ease-out;
+}
+.devContent-container .devCard.uranianBlue .btn-round--link:hover > .btn-round {
+  --gradient-position: 100%;
+  background: linear-gradient(to top, #eaf3c0 0%, #93beff var(--gradient-position), #93beff 100%);
 }
 .devContent-container .devCard.uranianBlue .devCard-content--image-container::before {
   border-top-color: #93beff;

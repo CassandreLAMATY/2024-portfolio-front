@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import type { DevProject } from '@/assets/javascripts/types/DevProject';
-import DevMobileCard from './DevMobileCard.vue';
+import DevMobileCard from './DevCard.vue';
 
 register();
 

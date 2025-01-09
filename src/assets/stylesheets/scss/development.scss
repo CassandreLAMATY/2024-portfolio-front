@@ -1,5 +1,11 @@
 @import 'variables';
 
+@property --gradient-position {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
 .devHeader {
     position: relative;
     background-color: $chamoisee;
@@ -355,7 +361,27 @@
 
                 & .btn {
                     &-round {
-                        background-color: $sunset;
+                        --gradient-position: 0%;
+
+                        background: linear-gradient(
+                            to top,
+                            $dutchWhite 0%,
+                            $sunset var(--gradient-position),
+                            $sunset 100%
+                        );
+
+                        transition: --gradient-position 0.1s ease-out;
+
+                        &--link:hover > .btn-round {
+                            --gradient-position: 100%;
+
+                            background: linear-gradient(
+                                to top,
+                                $dutchWhite 0%,
+                                $sunset var(--gradient-position),
+                                $sunset 100%
+                            );
+                        }
                     }
                 }
 
@@ -374,7 +400,27 @@
 
                 & .btn {
                     &-round {
-                        background-color: $mauve;
+                        --gradient-position: 0%;
+
+                        background: linear-gradient(
+                            to top,
+                            $mistyRose 0%,
+                            $mauve var(--gradient-position),
+                            $mauve 100%
+                        );
+
+                        transition: --gradient-position 0.1s ease-out;
+
+                        &--link:hover > .btn-round {
+                            --gradient-position: 100%;
+
+                            background: linear-gradient(
+                                to top,
+                                $mistyRose 0%,
+                                $mauve var(--gradient-position),
+                                $mauve 100%
+                            );
+                        }
                     }
                 }
 
@@ -393,7 +439,27 @@
 
                 & .btn {
                     &-round {
-                        background-color: $salmonPink;
+                        --gradient-position: 0%;
+
+                        background: linear-gradient(
+                            to top,
+                            $sunset 0%,
+                            $salmonPink var(--gradient-position),
+                            $salmonPink 100%
+                        );
+
+                        transition: --gradient-position 0.1s ease-out;
+
+                        &--link:hover > .btn-round {
+                            --gradient-position: 100%;
+
+                            background: linear-gradient(
+                                to top,
+                                $sunset 0%,
+                                $salmonPink var(--gradient-position),
+                                $salmonPink 100%
+                            );
+                        }
                     }
                 }
 
@@ -412,7 +478,27 @@
 
                 & .btn {
                     &-round {
-                        background-color: $celadon;
+                        --gradient-position: 0%;
+
+                        background: linear-gradient(
+                            to top,
+                            $mistyRose 0%,
+                            $celadon var(--gradient-position),
+                            $celadon 100%
+                        );
+
+                        transition: --gradient-position 0.1s ease-out;
+
+                        &--link:hover > .btn-round {
+                            --gradient-position: 100%;
+
+                            background: linear-gradient(
+                                to top,
+                                $mistyRose 0%,
+                                $celadon var(--gradient-position),
+                                $celadon 100%
+                            );
+                        }
                     }
                 }
 
@@ -431,7 +517,27 @@
 
                 & .btn {
                     &-round {
-                        background-color: $jordyBlue;
+                        --gradient-position: 0%;
+
+                        background: linear-gradient(
+                            to top,
+                            $cream 0%,
+                            $jordyBlue var(--gradient-position),
+                            $jordyBlue 100%
+                        );
+
+                        transition: --gradient-position 0.1s ease-out;
+
+                        &--link:hover > .btn-round {
+                            --gradient-position: 100%;
+
+                            background: linear-gradient(
+                                to top,
+                                $cream 0%,
+                                $jordyBlue var(--gradient-position),
+                                $jordyBlue 100%
+                            );
+                        }
                     }
                 }
 

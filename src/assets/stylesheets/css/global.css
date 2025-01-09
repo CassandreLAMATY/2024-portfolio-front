@@ -38,12 +38,6 @@ p {
     line-height: 1.75rem;
   }
 }
-@media (min-width: 1536px) {
-  p {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-}
 
 br {
   content: " ";
@@ -125,11 +119,6 @@ button {
 @media (min-width: 768px) {
   .btn-title {
     font-size: 1.25rem;
-  }
-}
-@media (min-width: 1536px) {
-  .btn-title {
-    font-size: 1.5rem;
   }
 }
 .btn_dutchWhite .btn-icon {
@@ -228,6 +217,9 @@ button {
     height: 2.25rem;
     font-size: 1.25rem;
   }
+}
+.btn-round--link {
+  height: fit-content;
 }
 .btn-round--link:hover {
   cursor: pointer;

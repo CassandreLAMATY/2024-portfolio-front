@@ -1,10 +1,24 @@
 <script setup lang="ts">
+import { btnRoundAnimation } from '@/assets/javascripts/gsap';
 import type { DevProject } from '@/assets/javascripts/types/DevProject';
+import { onMounted } from 'vue';
 
 defineProps<{
     apiUrl: string;
     devProject: DevProject;
 }>();
+
+onMounted(() => {
+    const btnsRound: NodeListOf<HTMLElement> = document.querySelectorAll('.btn-round');
+
+    if (btnsRound) {
+        btnsRound.forEach((btn) => {
+            btn.addEventListener('mouseenter', () => {
+                btnRoundAnimation(btn);
+            });
+        });
+    }
+});
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from 'vue';
 
-import DevMobileCard from '@/components/DevMobileCard.vue';
+import DevMobileCard from '@/components/DevCard.vue';
 import DevSwiperCard from '@/components/DevSwiperCard.vue';
 
 import { getDevProjects } from '@/assets/javascripts/development';
