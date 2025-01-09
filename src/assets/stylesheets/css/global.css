@@ -228,4 +228,64 @@ button {
   cursor: pointer;
 }
 
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: unset;
+  height: 1.5rem;
+  padding: 0 0.5rem;
+  border-radius: 50px;
+  border: 1px solid #443433;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.tag:nth-child(n+5) {
+  display: none;
+}
+@media (min-width: 512px) {
+  .tag {
+    gap: 0.5rem;
+    height: 1.75rem;
+    padding: 0 0.625rem;
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) {
+  .tag:nth-child(n) {
+    display: flex;
+  }
+  .tag:nth-child(n+8) {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  .tag {
+    height: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .tag {
+    height: 2rem;
+  }
+}
+.tag-icon {
+  height: 16px;
+}
+.tag.jordyBlue {
+  background-color: #93beff;
+}
+.tag.mauve {
+  background-color: #b3a7ff;
+}
+.tag.celadon {
+  background-color: #bbdb9b;
+}
+.tag.sunset {
+  background-color: #ffcd88;
+}
+.tag.salmonPink {
+  background-color: #ff9b9b;
+}
+
 /*# sourceMappingURL=global.css.map */

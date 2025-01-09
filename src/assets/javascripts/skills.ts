@@ -154,7 +154,7 @@ export function spawnTags(box: HTMLElement, tags: NodeListOf<HTMLElement>): void
                     tagHeight + 2,
                     {
                         restitution: 0.5,
-                        friction: 0.2,
+                        friction: 0.5,
                         chamfer: { radius: 24 },
                         label: 'tag'
                     }

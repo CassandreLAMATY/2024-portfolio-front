@@ -643,65 +643,6 @@
   display: flex;
   gap: 0.25rem;
 }
-.devContent-container .devCard-container .devCard-tags--container .tags-container .tag {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  min-width: unset;
-  height: 1.5rem;
-  padding: 0 0.5rem;
-  border-radius: 50px;
-  border: 1px solid #443433;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-.devContent-container .devCard-container .devCard-tags--container .tags-container .tag:nth-child(n+5) {
-  display: none;
-}
-@media (min-width: 512px) {
-  .devContent-container .devCard-container .devCard-tags--container .tags-container .tag {
-    gap: 0.5rem;
-    height: 1.75rem;
-    padding: 0 0.625rem;
-    font-size: 16px;
-  }
-}
-@media (min-width: 768px) {
-  .devContent-container .devCard-container .devCard-tags--container .tags-container .tag:nth-child(n) {
-    display: flex;
-  }
-  .devContent-container .devCard-container .devCard-tags--container .tags-container .tag:nth-child(n+8) {
-    display: none;
-  }
-}
-@media (min-width: 1024px) {
-  .devContent-container .devCard-container .devCard-tags--container .tags-container .tag {
-    height: 2rem;
-  }
-}
-@media (min-width: 1024px) {
-  .devContent-container .devCard-container .devCard-tags--container .tags-container .tag {
-    height: 2rem;
-  }
-}
-.devContent-container .devCard-container .devCard-tags--container .tags-container .tag-icon {
-  height: 16px;
-}
-.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.jordyBlue {
-  background-color: #93beff;
-}
-.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.mauve {
-  background-color: #b3a7ff;
-}
-.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.celadon {
-  background-color: #bbdb9b;
-}
-.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.sunset {
-  background-color: #ffcd88;
-}
-.devContent-container .devCard-container .devCard-tags--container .tags-container .tag.salmonPink {
-  background-color: #ff9b9b;
-}
 .devContent-container .devSwiper {
   max-width: 1536px;
   margin: 0 auto;

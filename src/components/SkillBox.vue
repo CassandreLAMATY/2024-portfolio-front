@@ -29,14 +29,14 @@ onMounted(async () => {
         <div class="skill-box--content">
             <h3 class="skill-box--title">{{ title }}</h3>
             <div class="skill-box" :id="'box' + index">
-                <div v-for="t of tags" :key="t.text" :class="'skill-box--tag ' + t.color">
+                <div v-for="t of tags" :key="t.text" :class="`skill-box--tag ${t.color} ${!t.text ? 'no-text' : ''}`">
                     <img
                         class="tag-icon"
                         v-if="t.icon && t.icon.url"
                         :src="apiUrl + t.icon.url"
                         :alt="t.icon.alternativeText ?? 'logo'"
                     />
-                    <span class="tag-text">{{ t.text }}</span>
+                    <span v-if="t.text" class="tag-text">{{ t.text }}</span>
                 </div>
             </div>
         </div>

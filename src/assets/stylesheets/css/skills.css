@@ -354,5 +354,27 @@
     height: 2rem;
   }
 }
+.skills .skills-container .skills-boxes--container .skill-box--tag.no-text {
+  height: 2rem;
+}
+@media (min-width: 1024px) {
+  .skills .skills-container .skills-boxes--container .skill-box--tag.no-text {
+    height: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .skills .skills-container .skills-boxes--container .skill-box--tag.no-text {
+    height: 2.75rem;
+  }
+}
+.skills .skills-container .skills-boxes--container .skill-box--tag.no-text > .tag-icon {
+  height: 16px;
+  width: auto;
+}
+@media (min-width: 1024px) {
+  .skills .skills-container .skills-boxes--container .skill-box--tag.no-text > .tag-icon {
+    height: 1.25rem;
+  }
+}
 
 /*# sourceMappingURL=skills.css.map */
