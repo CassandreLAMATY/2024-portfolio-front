@@ -33,8 +33,8 @@ const options = swiper.initSwiperOptions();
             class="custom_swiper"
         >
             <swiper-slide v-for="(c, i) of content" :key="i" class="swiper-slide--container">
-                <div class="swiper-slide">
-                    <img class="swiper-slide--img" src="https://placehold.co/1920x1080" />
+                <div v-if="c.swiperRender" class="swiper-slide">
+                    <img class="swiper-slide--img" :src="apiUrl + c.swiperRender.url" />
                     <div class="swiper-slide--content">
                         <h2>{{ c.title }}</h2>
                     </div>

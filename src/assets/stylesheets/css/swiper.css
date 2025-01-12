@@ -27,7 +27,6 @@
 .custom_swiper-container .custom_swiper .swiper-slide--img {
   display: block;
   width: 100%;
-  border-radius: 16px;
 }
 .custom_swiper-container .custom_swiper .swiper-slide--content {
   position: absolute;

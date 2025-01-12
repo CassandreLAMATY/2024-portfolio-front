@@ -7,6 +7,7 @@ export type Artwork = {
     year?: number;
     links?: Link;
     render?: StrapiImage;
+    swiperRender?: StrapiImage;
     wips?: StrapiImage[];
 };
 
