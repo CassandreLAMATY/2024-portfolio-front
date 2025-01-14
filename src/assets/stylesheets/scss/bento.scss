@@ -382,6 +382,11 @@
                 &.disabled {
                     filter: grayscale(1);
                     cursor: not-allowed;
+
+                    &:hover {
+                        transform: scale(1);
+                    }
+
                     &::after {
                         content: ' ';
 

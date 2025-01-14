@@ -350,6 +350,9 @@
   filter: grayscale(1);
   cursor: not-allowed;
 }
+.bento-container .bento-grid .bento-card.disabled:hover {
+  transform: scale(1);
+}
 .bento-container .bento-grid .bento-card.disabled::after {
   content: " ";
   position: absolute;
