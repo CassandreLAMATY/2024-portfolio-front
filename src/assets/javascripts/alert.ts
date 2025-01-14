@@ -1,5 +1,5 @@
 import { nextTick, reactive, ref, watch, type Ref } from 'vue';
-import type { Alert } from './entities/Alert';
+import { Alert } from './entities/Alert';
 import { alertHideAnimation, alertShowAnimation } from './animations';
 
 export const alerts: Alert[] = reactive([]);

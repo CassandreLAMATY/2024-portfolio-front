@@ -127,7 +127,7 @@
     font-size: 1.5rem;
   }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1536px) {
   .contact-top .mail-container .mail-copy {
     font-size: 2rem;
   }
