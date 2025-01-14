@@ -46,7 +46,7 @@ onMounted(() => {
                             </div>
                         </div>
                     </routerLink>
-                    <div class="bento-card" id="audiovisual">
+                    <div class="bento-card disabled" id="audiovisual">
                         <div class="bento-title--container">
                             <div class="bento-subtitles--container">
                                 <h3>Video</h3>
@@ -55,7 +55,7 @@ onMounted(() => {
                             <h2>Audiovisual</h2>
                         </div>
                     </div>
-                    <div class="bento-card" id="design">
+                    <div class="bento-card disabled" id="design">
                         <div class="bento-card--bg"></div>
                         <div class="bento-title--container">
                             <h2>Graphic<br />Design</h2>

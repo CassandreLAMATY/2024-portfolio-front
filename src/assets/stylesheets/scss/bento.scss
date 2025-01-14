@@ -378,6 +378,24 @@
                 @include media-min(896px) {
                     padding: $grup $grup02;
                 }
+
+                &.disabled {
+                    filter: grayscale(1);
+                    cursor: not-allowed;
+                    &::after {
+                        content: ' ';
+
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        z-index: 2;
+
+                        border-radius: $grup;
+                        backdrop-filter: blur(1px);
+                    }
+                }
             }
 
             & #artworks {

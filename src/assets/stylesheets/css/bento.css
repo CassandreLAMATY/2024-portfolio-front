@@ -346,6 +346,21 @@
     padding: 16px 1.5rem;
   }
 }
+.bento-container .bento-grid .bento-card.disabled {
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
+.bento-container .bento-grid .bento-card.disabled::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  border-radius: 16px;
+  backdrop-filter: blur(1px);
+}
 .bento-container .bento-grid #artworks {
   grid-area: artworks;
 }
