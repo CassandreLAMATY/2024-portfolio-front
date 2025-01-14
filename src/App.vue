@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router';
 import AlertBox from './components/AlertBox.vue';
 import FooterBlock from './blocks/FooterBlock.vue';
+import NavBar from '@/components/NavBar.vue';
 
 import { alerts, watchAlerts } from './assets/javascripts/alert';
 import { onMounted } from 'vue';
@@ -12,6 +13,8 @@ onMounted(() => {
 </script>
 
 <template>
+    <NavBar />
+
     <RouterView />
 
     <div v-if="alerts.length > 0" class="alert-container">

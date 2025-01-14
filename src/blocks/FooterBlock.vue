@@ -31,9 +31,9 @@ const lastUpdate: string | undefined = import.meta.env.VITE_APP_LAST_UPDATE;
                 </div>
                 <div class="footer-nav">
                     <ul>
-                        <RouterLink to="/about" class="footer-nav--link">
+                        <!-- <RouterLink to="/about" class="footer-nav--link">
                             <li>About Me</li>
-                        </RouterLink>
+                        </RouterLink> -->
                         <RouterLink to="/portfolio" class="footer-nav--link">
                             <li>Portfolio</li>
                         </RouterLink>

@@ -107,7 +107,7 @@
                     font-size: $grup01;
                 }
 
-                @include media-min(1280px) {
+                @include media-min(1536px) {
                     font-size: $grup02;
                     line-height: $grup03;
                 }

@@ -101,7 +101,7 @@
     font-size: 1.25rem;
   }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1536px) {
   .contact-top .mail-container .mail {
     font-size: 1.5rem;
     line-height: 2rem;

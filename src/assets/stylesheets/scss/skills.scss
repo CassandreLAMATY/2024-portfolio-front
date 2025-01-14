@@ -231,7 +231,7 @@
                         display: none;
 
                         width: fit-content;
-                        min-height: $grup03;
+                        height: calc($grup03 + $grup-02);
                         padding: $grup-03 $grup-01;
 
                         border: 1.5px solid $vanDyke;
@@ -247,7 +247,7 @@
                         @include media-min(1024px) {
                             gap: $grup-01;
 
-                            padding: $grup-03 $grup;
+                            padding: $grup-03 $grup-01;
 
                             font-size: $grup01;
                         }
@@ -293,16 +293,6 @@
                         }
 
                         &.no-text {
-                            height: calc($grup02 + $grup-02);
-
-                            @include media-min(1024px) {
-                                height: calc($grup03 + $grup-02);
-                            }
-
-                            @include media-min(1280px) {
-                                height: calc($grup03 + $grup-01);
-                            }
-
                             & > .tag-icon {
                                 height: $grup;
                                 width: auto;
