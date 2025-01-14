@@ -196,7 +196,7 @@
 }
 @media (min-width: 1152px) {
   .devHeader-container {
-    padding: 6rem 16rem 4rem 16rem;
+    padding: 6rem 8rem 4rem 8rem;
   }
 }
 @media (min-width: 1536px) {
@@ -669,6 +669,73 @@
 }
 .devContent-container .devSwiper .slide-container .slide .devCard {
   height: 100%;
+}
+.devContent-container .swiper-utils {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  padding: 2rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .devContent-container .swiper-utils {
+    padding: 0.5rem 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .devContent-container .swiper-utils {
+    padding: 0.5rem 8rem;
+  }
+}
+@media (min-width: 1536px) {
+  .devContent-container .swiper-utils {
+    box-sizing: content-box;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 6rem 16rem;
+  }
+}
+.devContent-container .swiper-utils .custom_swiper-navigation {
+  display: flex;
+  gap: 0.25rem;
+}
+.devContent-container .swiper-utils .custom_swiper-navigation > .custom_swiper-navigation--prev, .devContent-container .swiper-utils .custom_swiper-navigation > .custom_swiper-navigation--next {
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: #443433;
+}
+@media (min-width: 768px) {
+  .devContent-container .swiper-utils .custom_swiper-navigation > .custom_swiper-navigation--prev, .devContent-container .swiper-utils .custom_swiper-navigation > .custom_swiper-navigation--next {
+    height: 2rem;
+    width: 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+.devContent-container .swiper-utils .custom_swiper-pagination {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.25rem;
+  width: fit-content;
+  height: 0.5rem;
+}
+.devContent-container .swiper-utils .custom_swiper-pagination > .swiper-pagination-bullet {
+  all: unset;
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #443433;
+  opacity: 0.32;
+}
+.devContent-container .swiper-utils .custom_swiper-pagination > .swiper-pagination-bullet-active {
+  background-color: #443433;
+  opacity: 1;
+  transition: opacity 0.2s;
 }
 
 /*# sourceMappingURL=development.css.map */

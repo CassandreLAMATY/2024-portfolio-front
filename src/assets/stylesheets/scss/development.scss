@@ -197,7 +197,7 @@
         }
 
         @include media-min(1152px) {
-            padding: calc($grup05 + $grup03) $grup08 $grup05 $grup08;
+            padding: calc($grup05 + $grup03) $grup07 $grup05 $grup07;
         }
 
         @include media-min(1536px) {
@@ -837,6 +837,86 @@
 
                     & .devCard {
                         height: 100%;
+                    }
+                }
+            }
+        }
+
+        .swiper-utils {
+            position: relative;
+
+            width: 100%;
+            height: fit-content;
+
+            padding: $grup03 $grup02;
+
+            @include media-min(768px) {
+                padding: $grup-02 $grup05;
+            }
+
+            @include media-min(1024px) {
+                padding: $grup-02 $grup07;
+            }
+
+            @include media-min(1536px) {
+                box-sizing: content-box;
+
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: $grup06 $grup08;
+            }
+
+            .custom_swiper-navigation {
+                display: flex;
+                gap: $grup-03;
+                & > .custom_swiper-navigation--prev,
+                & > .custom_swiper-navigation--next {
+                    height: $grup02;
+                    width: $grup02;
+
+                    font-size: $grup02;
+                    line-height: $grup02;
+                    color: $vanDyke;
+
+                    @include media-min(768px) {
+                        height: $grup03;
+                        width: $grup03;
+
+                        font-size: $grup03;
+                        line-height: $grup03;
+                    }
+                }
+            }
+
+            .custom_swiper-pagination {
+                position: absolute;
+                top: $grup-02;
+                left: 50%;
+                transform: translateX(-50%);
+
+                display: flex;
+                gap: $grup-03;
+
+                width: fit-content;
+                height: $grup-02;
+
+                & > .swiper-pagination-bullet {
+                    all: unset;
+
+                    display: block;
+
+                    width: $grup-02;
+                    height: $grup-02;
+
+                    border-radius: 50%;
+                    background-color: $vanDyke;
+                    opacity: 0.32;
+
+                    &-active {
+                        background-color: $vanDyke;
+                        opacity: 1;
+
+                        transition: opacity 0.2s;
                     }
                 }
             }
