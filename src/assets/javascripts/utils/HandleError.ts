@@ -1,6 +1,3 @@
-import type { ErrorObject } from '@/assets/javascripts/types/ErrorObject';
-import chalk from 'chalk';
-
 export class HandleError {
     /**
      * Ensure the error is an instance of Error.

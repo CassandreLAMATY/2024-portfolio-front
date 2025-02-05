@@ -20,8 +20,8 @@ defineProps<{ artworks: Artwork[] }>();
                 </div>
                 <div class="header-intro--content">
                     <p class="header-intro--text">
-                        Lorem ipsum je sais pas quoi écrire mais il me faut une description rapide et efficace pour ce
-                        bloc iut de Troyes Métiers du multimédia et de l'internet
+                        Having been drawing since childhood, I have been able to develop my creativity and artistic
+                        style over time. For me, drawing is a meaningful form of expression that I hold very dear.
                     </p>
                     <div>
                         <a class="btn-link" href="https://www.behance.net/lamatycassandre" target="_blank">
